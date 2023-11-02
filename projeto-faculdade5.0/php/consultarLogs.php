@@ -91,7 +91,7 @@ require_once 'funcoes.php';
 <?php 
 if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] == true) {
     echo '<form action="" method="POST">
-        <input type="submit" name="ConsultarLog" value="Consultar Todos os Logs">
+        <input type="submit" name="ConsultarLog" value="Consultar Todos os Logs" class="btn-primary">
     ';
 
     if(isset($_POST['ConsultarLog'])) {
@@ -100,12 +100,12 @@ if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] =
 
     echo '
         <input type="text" placeholder="Digite o nome" name="nomePesquisa">
-        <input type="submit" name="ConsultaPorNome" value="Pesquisar Nome">
+        <input type="submit" name="ConsultaPorNome" value="Pesquisar Nome" class="btn-primary">
     ';
     
     echo '
         <input type="date"  name="dataPesquisa">
-        <input type="submit" name="ConsultaPorData" value="Pesquisar Data">
+        <input type="submit" name="ConsultaPorData" value="Pesquisar Data" class="btn-primary">
     </form>';
 
     if(isset($_POST['ConsultaPorNome'])) {

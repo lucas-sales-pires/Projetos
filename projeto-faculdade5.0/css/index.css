@@ -325,6 +325,7 @@ input:valid {
   top: 0;
 }
 
+
 /* TRANSIÇÃO DE TELA */
 .sk-fading-circle .sk-circle:before {
   content: '';
