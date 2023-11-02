@@ -43,14 +43,14 @@ function atualizarModoEscuro() {
 
     if (backgroundLoginECadastro) {
       backgroundLoginECadastro.style.background = 'white';
-      backgroundLoginECadastro.style.color = 'black';
+      backgroundLoginECadastro.style.color = '';
     }
     if (background) {
       background.style.background = '';
-      background.style.color = 'black';
+      background.style.color = '';
     }
     if (tituloFormulario) {
-      tituloFormulario.style.color = 'black';
+      tituloFormulario.style.color = '';
 
     }
 
