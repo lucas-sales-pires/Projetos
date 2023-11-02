@@ -39,6 +39,7 @@ function atualizarModoEscuro() {
     body.style.color = 'black';
     inputs.forEach(function(input) {
       input.style.background = "";
+      input.style.color = "";
   });
 
     if (backgroundLoginECadastro) {
