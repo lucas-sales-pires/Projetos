@@ -249,7 +249,18 @@ function consultarLogs($mysqli, $nome = "", $data = "") {
 
     if ($resultado->num_rows > 0) {
         echo "<table class='table table-container'>";
-        echo "<tr><th>Nome</th><th>CPF</th><th>Horario</th><th>Data</th><th>Resultado</th><th>Descrição</th><th>Usuario id</th></tr>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Nome</th>";
+        echo "<th>CPF</th>";
+        echo "<th>Horário</th>";
+        echo "<th>Data</th>";
+        echo "<th>Resultado</th>";
+        echo "<th>Descrição</th>";
+        echo "<th>Usuário ID</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
 
         while ($linha = $resultado->fetch_assoc()) {
             echo "<tr>";
@@ -263,9 +274,11 @@ function consultarLogs($mysqli, $nome = "", $data = "") {
             echo "</tr>";
         }
 
+        echo "</tbody>";
         echo "</table>";
     }
 }
+
 
     function erroSql(mysqli_sql_exception $e) {
         //Dentro do $e eu armazeno o erro de sql

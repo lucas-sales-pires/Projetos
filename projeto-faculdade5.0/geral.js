@@ -4,6 +4,7 @@ const elementosAfetados = document.querySelectorAll('form');
 const backgroundLoginECadastro = document.querySelector('div.container-login100');
 const background = document.querySelector('.container1');
 const tituloFormulario = document.querySelector('.login100-form-title');
+let inputs = document.querySelectorAll('input');
 
 
 let modoSite = localStorage.getItem('modoSite') || 0;
@@ -12,9 +13,14 @@ function atualizarModoEscuro() {
   if (modoSite == 1) {
     body.style.background = 'black';
     body.style.color = 'white';
+    inputs.forEach(function(input) {
+      input.style.background = "black";
+  });
+
     if (backgroundLoginECadastro) {
       backgroundLoginECadastro.style.background = 'black';
       backgroundLoginECadastro.style.color = 'white';
+      
     }
     if (background) {
       background.style.background = 'black';
@@ -30,6 +36,10 @@ function atualizarModoEscuro() {
   } else {
     body.style.background = 'white';
     body.style.color = 'black';
+    inputs.forEach(function(input) {
+      input.style.background = "white";
+  });
+
     if (backgroundLoginECadastro) {
       backgroundLoginECadastro.style.background = 'white';
       backgroundLoginECadastro.style.color = 'black';

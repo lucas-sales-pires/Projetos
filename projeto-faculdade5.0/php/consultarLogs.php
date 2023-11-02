@@ -92,18 +92,18 @@ require_once 'funcoes.php';
 if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] == true) {
     echo '<form action="" method="POST">
         <input type="submit" name="ConsultarLog" value="Consultar Todos os Logs">
-    </form>';
+    ';
 
     if(isset($_POST['ConsultarLog'])) {
         consultarLogs($mysqli);
     }
 
-    echo '<form action="" method="POST">
+    echo '
         <input type="text" placeholder="Digite o nome" name="nomePesquisa">
         <input type="submit" name="ConsultaPorNome" value="Pesquisar Nome">
-    </form>';
+    ';
     
-    echo '<form action="" method="POST">
+    echo '
         <input type="date"  name="dataPesquisa">
         <input type="submit" name="ConsultaPorData" value="Pesquisar Data">
     </form>';

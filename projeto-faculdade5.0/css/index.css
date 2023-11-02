@@ -11,6 +11,7 @@ body {
   font-size: 11px;
 }
 
+
 a {
   cursor: pointer;
 }
@@ -539,4 +540,42 @@ h4{
 }
 .container2{
   transform: translate(-3px, -204px);
+}
+
+/* TABELA */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #000; 
+}
+
+.table thead th {
+  background-color: #343a40; 
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+}
+
+.table tbody tr {
+  background-color: #212529; 
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #343a40; 
+}
+
+.table tbody td {
+  padding: 10px;
+  text-align: left;
+  color: #fff; 
+}
+
+.table {
+  border: 1px solid #ccc;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
 }
