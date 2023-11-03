@@ -1,3 +1,116 @@
+const perguntasSQL = [
+  {
+    pergunta: "O que significa SQL?",
+    opcoes: [
+      "Structured Query Language",
+      "Simple Query Language",
+      "Structured Question Language",
+      "System Query Language"
+    ],
+    resposta_certa: 0
+  },
+  {
+    pergunta: "Qual é a principal finalidade do SQL?",
+    opcoes: [
+      "Gerar relatórios de negócios.",
+      "Desenvolver aplicativos móveis.",
+      "Gerenciar e consultar bancos de dados.",
+      "Programar websites."
+    ],
+    resposta_certa: 2
+  },
+  {
+    pergunta: "O que é um banco de dados relacional?",
+    opcoes: [
+      "Um banco de dados que armazena apenas números inteiros.",
+      "Um banco de dados que armazena informações em formato JSON.",
+      "Um banco de dados que organiza os dados em tabelas com relacionamentos definidos.",
+      "Um banco de dados que não permite consultas SQL."
+    ],
+    resposta_certa: 2
+  },
+  {
+    pergunta: "Qual comando SQL é usado para recuperar dados de uma tabela?",
+    opcoes: ["SELECT", "RETRIEVE", "RECOVER", "GET"],
+    resposta_certa: 0
+  },
+  {
+    pergunta: "O que é uma consulta SQL?",
+    opcoes: [
+      "Um programa de computador.",
+      "Uma ação de impressão de dados.",
+      "Uma instrução que recupera informações de um banco de dados.",
+      "Um arquivo de configuração de banco de dados."
+    ],
+    resposta_certa: 2
+  },
+  {
+    pergunta: "Qual comando SQL é usado para adicionar novos dados a uma tabela?",
+    opcoes: ["INSERT INTO", "ADD", "UPDATE", "CREATE TABLE"],
+    resposta_certa: 0
+  },
+  {
+    pergunta: "O que é uma chave primária em uma tabela SQL?",
+    opcoes: [
+      "Uma chave que abre a porta de acesso à tabela.",
+      "Um campo que contém dados duplicados.",
+      "Um campo que identifica exclusivamente cada registro na tabela.",
+      "Um campo que não pode ser nulo."
+    ],
+    resposta_certa: 2
+  },
+  {
+    pergunta: "Qual comando SQL é usado para atualizar dados existentes em uma tabela?",
+    opcoes: ["MODIFY", "ALTER TABLE", "UPDATE", "CHANGE"],
+    resposta_certa: 2
+  },
+  {
+    pergunta: "O que é a cláusula WHERE em uma consulta SQL?",
+    opcoes: [
+      "Uma cláusula que especifica a ordem de classificação dos resultados.",
+      "Uma cláusula que filtra os resultados com base em uma condição.",
+      "Uma cláusula que agrupa os resultados.",
+      "Uma cláusula que renomeia colunas na saída da consulta."
+    ],
+    resposta_certa: 1
+  },
+  {
+    pergunta: "O que é uma chave estrangeira em uma tabela SQL?",
+    opcoes: [
+      "Uma chave que abre a porta de acesso a outras tabelas.",
+      "Um campo que contém valores únicos.",
+      "Um campo que não pode ser nulo.",
+      "Um campo que faz referência a uma chave primária de outra tabela."
+    ],
+    resposta_certa: 3
+  },
+  {
+    pergunta: "Qual comando SQL é usado para excluir registros de uma tabela?",
+    opcoes: ["DELETE", "REMOVE", "ERASE", "DISCARD"],
+    resposta_certa: 0
+  },
+  {
+    pergunta: "O que é a cláusula JOIN em uma consulta SQL?",
+    opcoes: [
+      "Uma cláusula que especifica a ordem de junção dos resultados.",
+      "Uma cláusula que agrupa os resultados de diferentes tabelas.",
+      "Uma cláusula que filtra os resultados com base em uma condição.",
+      "Uma cláusula que define o formato de saída da consulta."
+    ],
+    resposta_certa: 1
+  },
+  {
+    pergunta: "O que é a cláusula ORDER BY em uma consulta SQL?",
+    opcoes: [
+      "Uma cláusula que define os campos de uma tabela.",
+      "Uma cláusula que filtra os resultados com base em uma condição.",
+      "Uma cláusula que especifica a ordem de classificação dos resultados.",
+      "Uma cláusula que agrupa os resultados."
+    ],
+    resposta_certa: 2
+  },
+];
+
 const perguntasJavaScript = [
     {
       pergunta: "Qual é a função do JavaScript em uma página da web?",
@@ -841,7 +954,11 @@ let perguntas = [];
       perguntas = perguntasPython;
       linguagem_atual.textContent = 'Python';
 
-    } else if (linguagem === 'php') {
+    }else if(linguagem === 'sql'){
+      perguntas = perguntasSQL;
+      linguagem_atual.textContent ='Sql'
+    }
+     else if (linguagem === 'php') {
       perguntas = perguntasPHP;
       linguagem_atual.textContent = 'PHP';
 
