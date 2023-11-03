@@ -19,7 +19,7 @@ Se você quiser contribuir ou tiver sugestões para qualquer um dos projetos, fi
 
 ## Contato
 
-Você pode me encontrar no GitHub ou entrar em contato comigo por e-mail (seu endereço de e-mail).
+Você pode me encontrar no GitHub ou entrar em contato comigo por e-mail (lucas2013sales@hotmail.com).
 
 Obrigado por conferir meus projetos!
 
