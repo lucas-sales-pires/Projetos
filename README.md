@@ -12,9 +12,6 @@ Este repositório contém alguns dos meus projetos pessoais, variando de jogos a
 
 - **quiz**: Um projeto de quiz que desenvolvi para testar meus conhecimentos em diferentes tópicos.
 
-## Como Executar
-
-Dentro de cada diretório, você encontrará instruções detalhadas sobre como executar ou testar os projetos específicos. Certifique-se de seguir as instruções apropriadas para cada projeto.
 
 ## Contribuições
 
