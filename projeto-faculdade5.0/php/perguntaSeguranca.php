@@ -80,7 +80,7 @@ $perguntaAleatoria = $_SESSION['perguntaAleatoria'];
 <div class="container">
         <h1 class="perguntaSeguranca" style="font-size: x-large;">Pergunta de Segurança</h1>
         <p><?php echo $perguntaSeguranca; ?></p>
-        <form method="POST" action="confirma.php" class="formularioMaster" style="text-align: center;">
+        <form method="POST" action="confirma.php" class="formularioMaster" style="text-align: center" autocomplete="off">
 
 
             <?php

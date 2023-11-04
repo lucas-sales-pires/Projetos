@@ -553,11 +553,11 @@ h4{
 }
 
 .table tbody tr {
-  background-color: #212529; 
+  background-color: #29547e; 
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: #343a40; 
+  background-color: #15528f69; 
 }
 
 .table tbody td {

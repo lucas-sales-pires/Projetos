@@ -44,7 +44,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="container1">
-                <form class="login100-form validate-form" action="enviarEmail.php" method="post" id="formularioRecuperarSenha">
+                <form class="login100-form validate-form" action="enviarEmail.php" method="post" id="formularioRecuperarSenha" autocomplete="off">
                     <span class="login100-form-title">
                         Recuperação de Senha
                     </span>

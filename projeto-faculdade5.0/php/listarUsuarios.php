@@ -75,7 +75,7 @@ require 'funcoes.php'; ?>
     </header>
     <div class="pesquisa">
         <h2>Listar Todos os Usuários</h2>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioMaster">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioMaster" autocomplete="off">
             <input type="submit" name="listarUsuarios" value="Listar Todos os Usuários" class="btn btn-primary">
             <input type="submit" name="listarUsuariosComuns" value="Listar Usuários Comuns" class="btn btn-primary">
             <input type="submit" name="listarUsuariosMaster" value="Listar Usuários Master" class="btn btn-primary">

@@ -78,7 +78,7 @@ require 'funcoes.php';
 
         <h2>Pesquisa de Usuários</h2>
 
-        <form action="" method="GET" class="formularioMaster">
+        <form action="" method="GET" class="formularioMaster" autocomplete="off">
             <div class="form-group"></div>
             <label for="pesquisar">Pesquisar por nome:</label>
             <input type="text" id="pesquisar" name="pesquisar" value="<?php echo isset($_GET['pesquisar']) ? $_GET['pesquisar'] : ''; ?>">

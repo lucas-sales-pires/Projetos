@@ -90,7 +90,7 @@ require_once 'funcoes.php';
 </form>
 <?php 
 if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] == true) {
-    echo '<form action="" method="POST">
+    echo '<form action="" method="POST" autocomplete="off">
         <input type="submit" name="ConsultarLog" value="Consultar Todos os Logs" class="btn-primary">
     ';
 

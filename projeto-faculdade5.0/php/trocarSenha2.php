@@ -1,4 +1,5 @@
-<?php require 'funcoes.php' ?>
+<?php require 'funcoes.php' 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -46,11 +47,8 @@
                                 </span>Acessibilidade</a>
                         </li>
 
-                        <li><a href="../cadastro/cadastro.html"><span><i class="bi bi-file-earmark-text"></i></span>Cadastre-se</a>
-                        </li>
+        
 
-                        <li><a href="../login/login.html"><span><i class="bi bi-person"></i></span>
-                                Login</a></li>
 
                         <li><a href="../php/listarUsuarios.php" id="opcaoUsuarioMaster"><span><i class="fa fa-desktop"></i>
                                     </i> Opcoes-Master</span></a></li>
@@ -71,7 +69,10 @@
     </header>
     <?php
     require 'conexao.php';
-    $perfil = $_SESSION['perfil'];
+    if(isset($_SESSION['perfil'])){
+            $perfil = $_SESSION['perfil'];
+
+    }
 
     if (isset($_SESSION['usuario']) && isset($_SESSION['senha'])) {
         $usuario = $_SESSION['usuario']; //Aqui eu pego o usuario logado 
@@ -93,7 +94,7 @@
     <div class="limiter">
     <div class="container-login100">
         <div class="container2">
-        <form action="../php/atualizar.php" method="post" onsubmit="return validarSenhas()" >
+        <form action="../php/atualizar.php" method="post" onsubmit="return validarSenhas()" autocomplete="off">
         <div>
         <div class="form-group mt-3">
         <div class="wrap-input100 validate-input" >
