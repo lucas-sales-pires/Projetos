@@ -140,6 +140,23 @@ li a span i.fa,
 
 /* CADASTRO */
 
+#toast {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  background-color: #32cd32; 
+  color: white;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+#toast.erro {
+  background-color: #ff6347; 
+}
+
 .sexo {
   width: 30px;
   height: 30px;
@@ -170,7 +187,7 @@ input {
 #perfil,
 #tipo {
 
-  padding: 10px;
+  padding: 2px;
   margin: 5px;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -275,13 +292,7 @@ input#login.form-control {
   color: white;
 }
 
-input:invalid {
-  border: 2px solid red;
-}
 
-input:valid {
-  border: 2px solid green;
-}
 
 .mensagemFlutuante {
   position: fixed;
@@ -296,9 +307,7 @@ input:valid {
   transition: top 0.5s ease-in-out;
 }
 
-.mensagemFlutuante.show {
-  top: 20px;
-}
+
 
 .invalid-feedback {
   display: block;
