@@ -207,24 +207,22 @@ function verificarSessaoUsuario() {
 window.onload = verificarSessaoUsuario;
 
 
+function AtualizarFoto() {
+  axios.get('../php/obterUltimaFoto.php')
+      .then(response => {
+          const data = response.data;
+          if (data && data.caminhoImagem) {
+              document.getElementById('fotoPerfil').src = data.caminhoImagem;
+          } else {
+              console.error('Erro: Caminho da imagem não encontrado.');
+          }
+      })
+      .catch(error => console.error('Erro:', error));
+}
 
-    function AtualizarFoto() {
-        fetch('../php/obterUltimaFoto.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.caminhoImagem) {
-                    document.getElementById('fotoPerfil').src = data.caminhoImagem;
-                } else {
-                    console.error('Erro: Caminho da imagem não encontrado.');
-                }
-            })
-            .catch(error => console.error('Erro:', error));
-    }
-  
-
-    document.addEventListener('DOMContentLoaded', function() {
-      AtualizarFoto();
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  AtualizarFoto();
+});
     
 
 
