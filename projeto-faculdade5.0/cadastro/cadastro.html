@@ -146,19 +146,17 @@
                             <div class="form-group mt-3">
                                 <div class="wrap-input100 validate-input" >
                                 <label for="Celular">Telefone Celular:</label>
-                                <input type="tel" id="Celular" name="Celular" required onblur="ajustaCelular(this)"
-                                    maxlength="18" value="(+55) 21-" class="input100" placeholder="(+55) xx-xxxxx-xxxx">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+                                <input type="tel" id="Celular" name="Celular" required onkeyup="ajustaCelular(this)"
+                                    maxlength="18" value="(+55) 21-" class="input100" placeholder="(+55) xx-xxxxx-xxxx" onblur="validaCelular()">
+
                             </div>
 
                             <div class="form-group mt-3">
-                                <div class="wrap-input100 validate-input" >
-                                <label for="telefone">Telefone Fixo:</label>
-                                <input type="tel" id="telefone" name="Telefone" onblur="ajustaTelefone(this)"
-                                    value="(+55) 21-" required maxlength="17" class="input100" placeholder="(+55) xx -xxxx-xxxx">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+                                <div class="wrap-input100 validate-input">
+                                    <label for="telefone">Telefone Fixo:</label>
+                                    <input type="tel" id="telefone" name="Telefone" onkeyup="ajustaTelefone(this)"
+                                        value="(+55) 21-" required maxlength="17" class="input100" placeholder="(+55) xx -xxxx-xxxx" onblur="validaTelefone()">
+                                </div>
                             </div>
 
                             <div class="form-group mt-3">
@@ -166,8 +164,7 @@
                                 <label for="cep">Cep:</label>
                                 <input type="text" name="Cep" id="cep" placeholder="Insira seu CEP" maxlength="8"
                                     minlength="8" required class="input100">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+
                             </div>
 
                             <div class="form-group mt-3">
@@ -175,8 +172,7 @@
                                 <label for="endereço">Endereço:</label>
                                 <input type="adress" name="Endereco" id="endereco" placeholder="Insira seu endereço"
                                     required class="input100">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+</div>
                             </div>
 
                             <div class="form-group mt-3">
@@ -184,16 +180,14 @@
                                 <label for="estado">Estado:</label>
                                 <input type="adress" name="Estado" id="estado" placeholder="Insira seu Estado"
                                     required class="input100">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+ </div>
                             </div>
                             <div class="form-group mt-3">
                                 <div class="wrap-input100 validate-input" >
                                 <label for="bairro">Bairro:</label>
                                 <input type="adress" name="Bairro" id="bairro" placeholder="Insira seu Bairro"
                                     required class="input100">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+        </div>
                             </div>
 
                             <div class="form-group mt-3">
@@ -201,8 +195,7 @@
                                 <label for="numero">Número:</label>
                                 <input type="adress" name="Numero" id="numero" placeholder="Insira o número da sua Residência"
                                     required class="input100">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+                        </div>
                             </div>
 
                             <div hidden>
@@ -218,8 +211,7 @@
                                 <label for="login">Usuário:</label>
                                 <input type="text" name="usuario" id="login" maxlength="6" required
                                     placeholder="Seu nome de usuário" class="input100" onblur="validarUsuario()">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+       </div>
 
                             </div>
 
@@ -228,17 +220,15 @@
                                 <label for="senha">Senha:</label>
                                 <input type="password" name="Senha" id="senha" minlength="8" maxlength="8" required
                                     placeholder="Sua senha apenas letras" class="input100" onblur="validarSenha()">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+               </div>
                             </div>
 
                             <div class="form-group mt-3">
                                 <div class="wrap-input100 validate-input" >
                                 <label for="confirma">Confirme a senha:</label>
                                 <input type="password" id="confirma" maxlength="8" minlength="8" pattern="^[A-Za-z]+$"
-                                    placeholder="Repita a senha" required class="input100" onblur="validarSenha()">
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100"></span></div>
+                                    placeholder="Repita a senha" required class="input100" onblur="validarSenha()" >
+                          </div>
                             </div>
 
                             <button type="submit" id="submit" name="enviar" class="btn btn-primary">Enviar</button>

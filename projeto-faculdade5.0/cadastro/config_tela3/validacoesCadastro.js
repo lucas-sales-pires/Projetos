@@ -130,13 +130,7 @@ function verificarCPF(cpf) {
 
   return true;
 }
-function ajustaTelefone(v) {
-  v.value = v.value.replace(/\D/g, ""); // remove todos os caracteres que não são dígitos
-  // Insere o sinal de mais e os parênteses no código do país
-  v.value = v.value.replace(/^(\d{2})(\d)/g, "(+$1) $2");
-  // Insere o hífen depois do DDD e depois dos primeiros 5 dígitos do número
-  v.value = v.value.replace(/(\d{2})(\d{4})(\d{4})/, "$1-$2-$3");
-}
+
 function ajustaCelular(v) {
   v.value = v.value.replace(/\D/g, ""); // remove todos os caracteres que não são dígitos
   // Insere o sinal de mais e o parênteses no código do país
@@ -144,7 +138,42 @@ function ajustaCelular(v) {
   // Insere o hífen depois do DDD e depois dos primeiros 5 dígitos do número
   v.value = v.value.replace(/(\d{2})(\d{5})(\d{4})/, "$1-$2-$3");
 }
+function validaCelular() {
+  let celular = document.getElementById('Celular').value;
 
+  // Expressão regular para validar o formato do número de telefone
+  let regexTelefone = /^\(\+55\) \d{2}-\d{5}-\d{4}$/;
+
+  // Verifica se o número de telefone corresponde ao formato esperado
+  if (regexTelefone.test(celular)) {
+      exibirToast('Número de telefone válido!');
+  } else {
+      exibirToast('Por favor, insira um número de celular válido no formato (+55) xx-xxxxx-xxxx.', true);
+  }
+}
+
+function ajustaTelefone(v) {
+  v.value = v.value.replace(/\D/g, ""); // remove todos os caracteres que não são dígitos
+  // Insere o sinal de mais e os parênteses no código do país
+  v.value = v.value.replace(/^(\d{2})(\d)/g, "(+$1) $2");
+  // Insere o hífen depois do DDD e depois dos primeiros 5 dígitos do número
+  v.value = v.value.replace(/(\d{2})(\d{4})(\d{4})/, "$1-$2-$3");
+}
+
+
+function validaTelefone() {
+  let telefone = document.getElementById('telefone').value;
+
+  // Expressão regular para validar o formato do número de telefone
+  let regexTelefone = /^\(\+55\) \d{2}-\d{4}-\d{4}$/;
+
+  // Verifica se o número de telefone corresponde ao formato esperado
+  if (regexTelefone.test(telefone)) {
+      exibirToast('Número de telefone válido!');
+  } else {
+      exibirToast('Por favor, insira um número de telefone válido no formato (+55) xx-xxxx-xxxx.', true);
+  }
+}
 
 
 
