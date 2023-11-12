@@ -52,7 +52,8 @@ require 'funcoes.php'; ?>
                                 <li><a href="../php/listarUsuarios.php">Listar Usuários</a></li>
                                 <li><a href="../php/downloadBD.php">Download Banco</a></li>
                                 <li><a href="../php/gerarPdf.php">Gerar listarUsuarios</a></li>
-                                <li><a href="../php/pesquisarUsuario.php">Pesquisar Usuario</a></li> <li><a href="../php/consultarLogs.php">ConsultarLogs</a></li>
+                                <li><a href="../php/pesquisarUsuario.php">Pesquisar Usuario</a></li>
+                                <li><a href="../php/consultarLogs.php">ConsultarLogs</a></li>
                             </ul>
                         </li>
                         <li><a href="../php/trocarSenha.php" id="trocarSenha"><span class="icon-container"><i class="fa fa-key"></i></span>Alterar Senha</a></li>
@@ -69,7 +70,9 @@ require 'funcoes.php'; ?>
                 </ul>
             </div>
             </div>
-        </nav>
+        </nav>         <div id="profile-picture-container">
+            <img id="fotoPerfil" src="" alt="Foto de Perfil">
+        </div>
 
 
     </header>
@@ -77,8 +80,18 @@ require 'funcoes.php'; ?>
         <h2>Editar Meus Dados</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioMaster" autocomplete="off">
             <input type="submit" name="listarUsuario" value="Listar Meus Dados" class="btn btn-primary">
-            
         </form>
+
+        <form action="./atualizarFoto.php" method="POST" class="formularioMaster" autocomplete="off" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="foto">Foto de Perfil:</label>
+                <input type="file" id="foto" name="foto" accept="image/*">
+            </div>
+            <button type="submit">Atualizar Foto</button>
+        </form>
+
+    </div>
+
     </div>
 
 
@@ -97,12 +110,12 @@ require 'funcoes.php'; ?>
     </div>';
     }
     if (isset($_POST['listarUsuario'])) {
-        alterarDados($mysqli,$_SESSION['usuario']);
+        alterarDados($mysqli, $_SESSION['usuario']);
     }
 
 
     ?>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
     <script src="../geral.js"></script>

@@ -1,8 +1,9 @@
 <?php
 
-function consultaUsuario($mysqli, $usuario,$perfil) {
+function consultaUsuario($mysqli, $usuario, $perfil)
+{
     $consulta = $mysqli->prepare("SELECT * FROM usuarios WHERE usuario = ? AND perfil_id = ?");
-    $consulta->bind_param("si", $usuario,$perfil);
+    $consulta->bind_param("si", $usuario, $perfil);
     $consulta->execute();
     $resultado = $consulta->get_result();
 
@@ -10,14 +11,15 @@ function consultaUsuario($mysqli, $usuario,$perfil) {
         $linha = $resultado->fetch_assoc();
         return $linha;
     } else {
-        return null; 
+        return null;
     }
 }
 
 
-function consultaMaster($mysqli, $usuario,$perfil) {
+function consultaMaster($mysqli, $usuario, $perfil)
+{
     $consulta = $mysqli->prepare("SELECT * FROM usuarios_master WHERE usuario = ? AND perfil_id = ?");
-    $consulta->bind_param("si", $usuario,$perfil);
+    $consulta->bind_param("si", $usuario, $perfil);
     $consulta->execute();
     $resultado = $consulta->get_result();
 
@@ -25,11 +27,12 @@ function consultaMaster($mysqli, $usuario,$perfil) {
         $linha = $resultado->fetch_assoc();
         return $linha;
     } else {
-        return null; 
+        return null;
     }
 }
 
-function consultarSenha($mysqli, $usuario, $perfil) {
+function consultarSenha($mysqli, $usuario, $perfil)
+{
     $consulta = $mysqli->prepare("SELECT senha FROM usuarios WHERE usuario = ? AND perfil_id = ?");
     $consulta->bind_param("si", $usuario, $perfil);
     $consulta->execute();
@@ -41,10 +44,11 @@ function consultarSenha($mysqli, $usuario, $perfil) {
         return $senhaDoBanco;
     }
 
-    return null; 
+    return null;
 }
 
-function obterPerguntaSeguranca($mysqli, $perguntaAleatoria, $usuario) {
+function obterPerguntaSeguranca($mysqli, $perguntaAleatoria, $usuario)
+{
     $perguntaSeguranca = '';
 
     $consultaPergunta = $mysqli->prepare("SELECT pergunta FROM 2fa_perguntas WHERE pergunta_id = ?");
@@ -88,9 +92,10 @@ function obterPerguntaSeguranca($mysqli, $perguntaAleatoria, $usuario) {
 }
 
 
-function alterarSenha($mysqli, $usuario, $novaSenha) {
+function alterarSenha($mysqli, $usuario, $novaSenha)
+{
     $senhaCriptografada = password_hash($novaSenha, PASSWORD_DEFAULT);
-    
+
     $consulta = $mysqli->prepare("UPDATE usuarios SET senha = ? WHERE usuario = ?");
     $consulta->bind_param("ss", $senhaCriptografada, $usuario);
 
@@ -100,7 +105,8 @@ function alterarSenha($mysqli, $usuario, $novaSenha) {
         return false; // Houve um erro ao alterar a senha
     }
 }
-function listarUsuarios($mysqli){
+function listarUsuarios($mysqli)
+{
     $sql = 'SELECT usuario, nome, email, perfis.nome_perfil AS perfil
     FROM usuarios
     JOIN perfis ON usuarios.perfil_id = perfis.perfil_id
@@ -130,7 +136,8 @@ function listarUsuarios($mysqli){
     }
 }
 
-function listarUsuariosMaster($mysqli){
+function listarUsuariosMaster($mysqli)
+{
     $sql = '
     SELECT usuario, nome, email, perfis.nome_perfil
     FROM usuarios_master
@@ -154,27 +161,33 @@ function listarUsuariosMaster($mysqli){
         echo "</table>";
     }
 }
-function verificarSenhaAtual($senhaDigitada, $senhaArmazenada) {
+function verificarSenhaAtual($senhaDigitada, $senhaArmazenada)
+{
     return password_verify($senhaDigitada, $senhaArmazenada);
 }
-function alterarDados($mysqli, $usuarioAtual){
+function alterarDados($mysqli, $usuarioAtual)
+{
     $sql = "SELECT usuario, nome, email, nascimento 
-            FROM usuarios
-            WHERE usuarios.usuario = '$usuarioAtual'";
+    FROM usuarios
+    WHERE usuarios.usuario = ?";
 
-    $resultado = $mysqli->query($sql);
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $usuarioAtual);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
 
     if ($resultado !== false && $resultado->num_rows > 0) {
-        echo "<form method='post' action='processarEdicao.php'>";  
+        echo "<form method='post' action='processarEdicao.php'>";
         echo "<table class='table table-container'>";
         echo "<tr><th>Usuário</th><th>Nome</th><th>Email</th><th>Nascimento</th><th>Senha Atual</th><th>Ação</th></tr>";
 
         while ($linha = $resultado->fetch_assoc()) {
             echo "<tr>";
-            echo "<td><input type='text' name='usuario' value='" . $linha["usuario"] . "' class='input-estilizado'></td>";
-            echo "<td><input type='text' name='nome' value='" . $linha["nome"] . "' class='input-estilizado'></td>";
-            echo "<td><input type='text' name='email' value='" . $linha["email"] . "' class='input-estilizado'></td>";
-            echo "<td><input type='text' name='nascimento' value='" . $linha["nascimento"] . "' class='input-estilizado'></td>";            
+            echo "<td><input type='text' name='usuario' value='" . $linha["usuario"] . "' class='input-estilizado' minlength='6' maxlength='6'></td>";
+            echo "<td><input type='text' name='nome' value='" . $linha["nome"] . "' class='input-estilizado' minlength='15' maxlength='80'></td>";
+            echo "<td><input type='email' name='email' value='" . $linha["email"] . "' class='input-estilizado'></td>";
+            echo "<td><input type='text' name='nascimento' value='" . $linha["nascimento"] . "' class='input-estilizado'></td>";
             echo "<td><input type='password' name='senhaAtual' id='senhaAtual' minlength='8' maxlength='8' required placeholder='Insira sua senha atual' class='input100'></td>";
             echo "<td><button type='submit' class='btn btn-primary'>Salvar</button></td>";
             echo "</tr>";
@@ -189,7 +202,8 @@ function alterarDados($mysqli, $usuarioAtual){
 
 
 
-function listarUsuariosComuns($mysqli){
+function listarUsuariosComuns($mysqli)
+{
     $sql = 'SELECT usuario, nome, email, perfis.nome_perfil AS perfil
     FROM usuarios
     JOIN perfis ON usuarios.perfil_id = perfis.perfil_id';
@@ -211,10 +225,10 @@ function listarUsuariosComuns($mysqli){
 
         echo "</table>";
     }
-
 }
 
-function consultaSexoComum($mysqli, $usuario, $perfil) {
+function consultaSexoComum($mysqli, $usuario, $perfil)
+{
     $consulta = $mysqli->prepare("SELECT sexo FROM usuarios WHERE usuario = ? AND perfil_id = ?");
     $consulta->bind_param("si", $usuario, $perfil);
     $consulta->execute();
@@ -228,7 +242,8 @@ function consultaSexoComum($mysqli, $usuario, $perfil) {
     }
 }
 
-function consultaSexoMaster($mysqli, $usuario, $perfil) {
+function consultaSexoMaster($mysqli, $usuario, $perfil)
+{
     $consulta = $mysqli->prepare("SELECT sexo FROM usuarios_master WHERE usuario = ? AND perfil_id = ?");
     $consulta->bind_param("si", $usuario, $perfil);
     $consulta->execute();
@@ -241,11 +256,12 @@ function consultaSexoMaster($mysqli, $usuario, $perfil) {
         return null;
     }
 }
-function registrarLog($mysqli, $cpf_usuario, $resultado, $descricao, $usuarios_id) {
+function registrarLog($mysqli, $cpf_usuario, $resultado, $descricao, $usuarios_id)
+{
     date_default_timezone_set('America/Sao_Paulo');
 
-    $data_login = date("Y-m-d"); 
-    $horario_login = date("H:i:s"); 
+    $data_login = date("Y-m-d");
+    $horario_login = date("H:i:s");
 
     $stmt = $mysqli->prepare("INSERT INTO log_acesso (cpf_usuario, horario_login, data_login, resultado, descricao, usuarios_id) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssi", $cpf_usuario, $horario_login, $data_login, $resultado, $descricao, $usuarios_id);
@@ -253,7 +269,8 @@ function registrarLog($mysqli, $cpf_usuario, $resultado, $descricao, $usuarios_i
     $stmt->close();
 }
 
-function consultarLogs($mysqli, $nome = "", $data = "") {
+function consultarLogs($mysqli, $nome = "", $data = "")
+{
     $sql = "SELECT log_acesso.cpf_usuario, log_acesso.horario_login, log_acesso.data_login, log_acesso.resultado, log_acesso.descricao, log_acesso.usuarios_id, usuarios.nome
             FROM log_acesso
             JOIN usuarios ON log_acesso.cpf_usuario = usuarios.cpf";
@@ -314,16 +331,17 @@ function consultarLogs($mysqli, $nome = "", $data = "") {
 }
 
 
-    function erroSql(mysqli_sql_exception $e) {
-        //Dentro do $e eu armazeno o erro de sql
-        if ($e->getCode() == 1062) {
-            // Se o erro for 1062 é problema de chamado duplicada
-            $detalhesDoErro = $e->getMessage();
-            //Aqui eu pego a mensagem do erro    
-            if (preg_match('/for key \'(.+)_UNIQUE\'/', $detalhesDoErro, $matches)) {
-                // /for key é aonde eu começo \' ignora as aspas simples (.+) eu quero tudo que vem antes de _UNIQUE matches[0] seria a correspondência completa, mas eu só quero o nome da variável duplicada
-                $tipoCampo = $matches[1];
-                echo '<div class="container">
+function erroSql(mysqli_sql_exception $e)
+{
+    //Dentro do $e eu armazeno o erro de sql
+    if ($e->getCode() == 1062) {
+        // Se o erro for 1062 é problema de chamado duplicada
+        $detalhesDoErro = $e->getMessage();
+        //Aqui eu pego a mensagem do erro    
+        if (preg_match('/for key \'(.+)_UNIQUE\'/', $detalhesDoErro, $matches)) {
+            // /for key é aonde eu começo \' ignora as aspas simples (.+) eu quero tudo que vem antes de _UNIQUE matches[0] seria a correspondência completa, mas eu só quero o nome da variável duplicada
+            $tipoCampo = $matches[1];
+            echo '<div class="container">
                 <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="alert alert-danger text-center">
@@ -332,19 +350,10 @@ function consultarLogs($mysqli, $nome = "", $data = "") {
                     </div>
                 </div>
             </div>';
-      
-
-            
-            } else {
-                echo "Erro ao cadastrar o usuário: " . $e->getMessage();
-            }
         } else {
             echo "Erro ao cadastrar o usuário: " . $e->getMessage();
         }
+    } else {
+        echo "Erro ao cadastrar o usuário: " . $e->getMessage();
     }
-    
-    
-
-
-
-?>
+}

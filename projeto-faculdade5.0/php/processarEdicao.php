@@ -52,7 +52,8 @@ require 'funcoes.php'; ?>
                                 <li><a href="../php/listarUsuarios.php">Listar Usuários</a></li>
                                 <li><a href="../php/downloadBD.php">Download Banco</a></li>
                                 <li><a href="../php/gerarPdf.php">Gerar listarUsuarios</a></li>
-                                <li><a href="../php/pesquisarUsuario.php">Pesquisar Usuario</a></li> <li><a href="../php/consultarLogs.php">ConsultarLogs</a></li>
+                                <li><a href="../php/pesquisarUsuario.php">Pesquisar Usuario</a></li>
+                                <li><a href="../php/consultarLogs.php">ConsultarLogs</a></li>
                             </ul>
                         </li>
                         <li><a href="../php/trocarSenha.php" id="trocarSenha"><span class="icon-container"><i class="fa fa-key"></i></span>Alterar Senha</a></li>
@@ -69,49 +70,51 @@ require 'funcoes.php'; ?>
                 </ul>
             </div>
             </div>
-        </nav>
+        </nav>         <div id="profile-picture-container">
+            <img id="fotoPerfil" src="" alt="Foto de Perfil">
+        </div>
 
 
     </header>
     <div class="pesquisaComum">
-<?php
+        <?php
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $senhaAtual = $_POST["senhaAtual"];
-    $usuario = $_POST["usuario"];
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $nascimento = $_POST["nascimento"];
-    if (verificarSenhaAtual($senhaAtual, $_SESSION['senha'])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $senhaAtual = $_POST["senhaAtual"];
+            $novoUsuario = $_POST["usuario"];
+            $usuarioAntigo = $_SESSION['usuario'];
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $nascimento = $_POST["nascimento"];
+            if (verificarSenhaAtual($senhaAtual, $_SESSION['senha'])) {
+                $stmt = $mysqli->prepare("UPDATE usuarios SET nome = ?, email = ?, nascimento = ?, usuario = ? WHERE usuario = ?");
+                $stmt->bind_param("sssss", $nome, $email, $nascimento, $novoUsuario, $usuarioAntigo);
 
-        $stmt = $mysqli->prepare("UPDATE usuarios SET nome = ?, email = ?, nascimento = ? WHERE usuario = ?");
-        $stmt->bind_param("ssss", $nome, $email, $nascimento, $usuario);
+                if ($stmt->execute()) {
+                    $_SESSION['usuario'] = $_POST['usuario'];
 
-        if ($stmt->execute()) {
- 
-            echo '<div class="container mt-4">
+                    echo '<div class="container mt-4">
             <div class="col-sm-6 offset-sm-3 text-center" style="width: 100%">
                 <div class="alert alert-success">
                     <h2><strong>Alterações salvas com sucesso.!</strong></h2>
                 </div>
             </div>
         </div>';
-            echo "<a href ='../php/alterarDados.php' class= 'btn btn-primary'>Voltar</a>";
-        } else {
-            echo "Erro ao salvar as alterações: " . $stmt->error;
+                    echo "<a href ='../php/alterarDados.php' class= 'btn btn-primary'>Voltar</a>";
+                } else {
+                    echo "Erro ao salvar as alterações: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } else {
+                echo "Erro ao salvar as alterações: A senha atual não confere.";
+            }
+
+            // Fecha a conexão com o banco de dados
+            $mysqli->close();
         }
-
-        $stmt->close();
-
-    } else {
-        echo "Erro ao salvar as alterações: A senha atual não confere.";
-    }
-
-    // Fecha a conexão com o banco de dados
-    $mysqli->close();
-} 
-?>
+        ?>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
@@ -121,4 +124,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
-

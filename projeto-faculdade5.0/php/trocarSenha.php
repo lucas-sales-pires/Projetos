@@ -72,7 +72,9 @@ require "conexao.php"
                 </ul>
             </div>
             </div>
-        </nav>
+        </nav>         <div id="profile-picture-container">
+            <img id="fotoPerfil" src="" alt="Foto de Perfil">
+        </div>
 
 
     </header>

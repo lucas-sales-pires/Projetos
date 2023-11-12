@@ -112,6 +112,8 @@ function verificarSessaoUsuario() {
           .then(function (nomeResponse) {
             document.getElementById('msg').textContent = nomeResponse.data;
             document.getElementById('msg').style.display = "block";
+            document.getElementById('profile-picture-container').style.display="block";
+            document.getElementById('fotoPerfil').style.display = "block";
 
             let alterarDados = document.createElement("li");
             alterarDados.innerHTML = '<a href="../php/alterarDados.php" id="alterarDados"><span class="icon-container"><i class="fa fa-info-circle"></i></span>Alterar Dados</a>';
@@ -143,6 +145,8 @@ function verificarSessaoUsuario() {
         document.querySelector("ul.nav.navbar-nav.navbar-right li:nth-child(5) a").style.display = "none";
         document.querySelector("ul.nav.navbar-nav.navbar-right li:nth-child(2) a").style.display = "block";
         document.querySelector("ul.nav.navbar-nav.navbar-right li:nth-child(6) a").style.display = "none";
+        document.getElementById('profile-picture-container').style.display="none";
+        document.getElementById('fotoPerfil').style.display="none";
         if (document.querySelector(".pesquisaComum")) {
           document.querySelector(".pesquisaComum").style.display = "none";
         }
@@ -204,18 +208,24 @@ window.onload = verificarSessaoUsuario;
 
 
 
+    function AtualizarFoto() {
+        fetch('../php/obterUltimaFoto.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.caminhoImagem) {
+                    document.getElementById('fotoPerfil').src = data.caminhoImagem;
+                } else {
+                    console.error('Erro: Caminho da imagem não encontrado.');
+                }
+            })
+            .catch(error => console.error('Erro:', error));
+    }
+  
 
-
-
-
-
-
-
-
-
-
-
-
+    document.addEventListener('DOMContentLoaded', function() {
+      AtualizarFoto();
+    });
+    
 
 
 

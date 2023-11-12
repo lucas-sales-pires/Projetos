@@ -10,6 +10,21 @@ body {
   background: rgb(223, 226, 227);
   font-size: 11px;
 }
+#profile-picture-container {
+  float: right;
+  margin-top: 10px; 
+  margin-right: 20px; 
+  display: none;
+}
+
+#fotoPerfil {
+  width: 40px;
+  height: 40px; 
+  border-radius: 50%; 
+  display: none;
+}
+
+
 .container-fluid {
   padding-right: 36px;
 }

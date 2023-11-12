@@ -74,7 +74,9 @@ $perguntaAleatoria = $_SESSION['perguntaAleatoria'];
             background-color: white;
         }
     </style>
-        </nav>
+        </nav>         <div id="profile-picture-container">
+            <img id="fotoPerfil" src="" alt="Foto de Perfil">
+        </div>
     </header>
 
 <div class="container">
