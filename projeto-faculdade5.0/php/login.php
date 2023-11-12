@@ -85,7 +85,7 @@ require "funcoes.php";
     if ($perfil == 2) { //Se o perfil for comum
         $_SESSION['usuario'] = $usuario;
         $_SESSION['perfil'] = $_POST['Perfil'];
-        $_SESSION['senha'] = $_POST['Senha'];
+        $_SESSION['senha'] = password_hash($_POST['Senha'], PASSWORD_DEFAULT);
         if (consultaUsuario($mysqli, $usuario, $perfil)) {
             $_SESSION['perguntaAleatoria'] = $perguntaAleatoria;
             $perguntaSeguranca = obterPerguntaSeguranca($mysqli, $perguntaAleatoria, $usuario);

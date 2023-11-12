@@ -154,6 +154,40 @@ function listarUsuariosMaster($mysqli){
         echo "</table>";
     }
 }
+function verificarSenhaAtual($senhaDigitada, $senhaArmazenada) {
+    return password_verify($senhaDigitada, $senhaArmazenada);
+}
+function alterarDados($mysqli, $usuarioAtual){
+    $sql = "SELECT usuario, nome, email, nascimento 
+            FROM usuarios
+            WHERE usuarios.usuario = '$usuarioAtual'";
+
+    $resultado = $mysqli->query($sql);
+
+    if ($resultado !== false && $resultado->num_rows > 0) {
+        echo "<form method='post' action='processarEdicao.php'>";  
+        echo "<table class='table table-container'>";
+        echo "<tr><th>Usuário</th><th>Nome</th><th>Email</th><th>Nascimento</th><th>Senha Atual</th><th>Ação</th></tr>";
+
+        while ($linha = $resultado->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td><input type='text' name='usuario' value='" . $linha["usuario"] . "' class='input-estilizado'></td>";
+            echo "<td><input type='text' name='nome' value='" . $linha["nome"] . "' class='input-estilizado'></td>";
+            echo "<td><input type='text' name='email' value='" . $linha["email"] . "' class='input-estilizado'></td>";
+            echo "<td><input type='text' name='nascimento' value='" . $linha["nascimento"] . "' class='input-estilizado'></td>";            
+            echo "<td><input type='password' name='senhaAtual' id='senhaAtual' minlength='8' maxlength='8' required placeholder='Insira sua senha atual' class='input100'></td>";
+            echo "<td><button type='submit' class='btn btn-primary'>Salvar</button></td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+        echo "</form>";
+    } else {
+        echo "Nenhum usuário encontrado.";
+    }
+}
+
+
 
 function listarUsuariosComuns($mysqli){
     $sql = 'SELECT usuario, nome, email, perfis.nome_perfil AS perfil

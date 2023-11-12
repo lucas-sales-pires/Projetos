@@ -13,6 +13,11 @@ body {
 .container-fluid {
   padding-right: 36px;
 }
+.input-estilizado {
+  background: white;
+  color: black;
+}
+
 
 a {
   cursor: pointer;
@@ -274,7 +279,7 @@ input#login.form-control {
 }
 
 .navbar-right {
-  margin-right: -16px;
+  margin-right: -45px;
 }
 
 .navbar-right img {
