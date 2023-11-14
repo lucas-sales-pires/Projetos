@@ -111,7 +111,6 @@ require 'funcoes.php'; ?>
                 echo "Erro ao salvar as alterações: A senha atual não confere.";
             }
 
-            // Fecha a conexão com o banco de dados
             $mysqli->close();
         }
         ?>

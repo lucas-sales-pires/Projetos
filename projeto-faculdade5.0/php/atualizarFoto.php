@@ -41,7 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erro ao mover o arquivo.";
         }
     } else {
-        echo "Erro no upload da imagem.";
+        echo 'Erro no upload da imagem.
+        <a href="../php/alterarDados.php" class="btn btn-primary">Voltar</a>';
     }
 } else {
     echo "Requisição inválida.";

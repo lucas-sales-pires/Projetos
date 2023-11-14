@@ -45,6 +45,16 @@ a {
   border-radius: 20px;
   padding: 10px;
 }
+.formularioDados{
+  margin: auto;
+  width: 50%;
+  display: grid;
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 1px solid black;
+  
+}
+
 
 article img,
 section article img {
@@ -267,7 +277,7 @@ input#login.form-control {
 }
 
 #modeloER {
-  width: 100%;
+  width: 74%;
   height: 100%;
   margin: auto;
   border: solid black;

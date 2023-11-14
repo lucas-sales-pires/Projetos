@@ -70,7 +70,8 @@ require 'funcoes.php'; ?>
                 </ul>
             </div>
             </div>
-        </nav>         <div id="profile-picture-container">
+        </nav>         
+        <div id="profile-picture-container">
             <img id="fotoPerfil" src="" alt="Foto de Perfil">
         </div>
 
@@ -78,16 +79,16 @@ require 'funcoes.php'; ?>
     </header>
     <div class="pesquisaComum">
         <h2>Editar Meus Dados</h2>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioMaster" autocomplete="off">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioDados" autocomplete="off">
             <input type="submit" name="listarUsuario" value="Listar Meus Dados" class="btn btn-primary">
         </form>
 
-        <form action="./atualizarFoto.php" method="POST" class="formularioMaster" autocomplete="off" enctype="multipart/form-data">
+        <form action="./atualizarFoto.php" method="POST" class="formularioDados" autocomplete="off" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="foto">Foto de Perfil:</label>
                 <input type="file" id="foto" name="foto" accept="image/*">
             </div>
-            <button type="submit">Atualizar Foto</button>
+            <button type="submit" class="btn btn-primary">Atualizar Foto</button>
         </form>
 
     </div>

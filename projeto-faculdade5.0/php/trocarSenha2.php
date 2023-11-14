@@ -129,27 +129,28 @@
         </div>
         </div>
     </div>
-    
-        <script>
-        function validarSenhas() {
-          let senhaNova = document.getElementById("senhaNova").value;
-          let confirmarSenha = document.getElementById("confirmarSenha").value;
-      
-          if (senhaNova !== confirmarSenha) {
+    <script>
+    function validarSenhas() {
+        let senhaNova = document.getElementById("senhaNova").value;
+        let confirmarSenha = document.getElementById("confirmarSenha").value;
+
+        // Expressão regular para verificar se a senha contém apenas letras
+        let regexLetras = /^[a-zA-Z]+$/;
+
+        if (!regexLetras.test(senhaNova) || !regexLetras.test(confirmarSenha)) {
             document.getElementById("erroSenha").style.display = "block";
             return false;
-          }
-      
-          document.getElementById("sucessoSenha").style.display = "block";
-      
-          setTimeout(function () {
-            document.getElementById("sucessoSenha").style.display = "none";
-          }, 3000); 
-      
-          return true;
         }
-      </script>
-      
+
+        document.getElementById("sucessoSenha").style.display = "block";
+
+        setTimeout(function () {
+            document.getElementById("sucessoSenha").style.display = "none";
+        }, 3000);
+
+        return true;
+    }
+    </script>
     </body>
     
     </html>
