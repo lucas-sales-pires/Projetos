@@ -42,30 +42,15 @@
                         <li><a href="../sms_programavel/sms_programavel.html">Sms-Programável</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a><span><i class="bi bi-circle-half"></i>
-                                </span>Acessibilidade</a>
-                        </li>
-
-        
-
-
-                        <li><a href="../php/listarUsuarios.php" id="opcaoUsuarioMaster"><span><i class="fa fa-desktop"></i>
-                                    </i> Opcoes-Master</span></a></li>
-
-                        <li><a href="../php/trocarSenha.php" id="trocarSenha"><span><i class="fa fa-key"></i>
-                                    </i> Alterar Senha</span></a></li>
-
-                        <li><a href="../php/destroySession.php"><span><i class="fas fa-sign-out-alt"></i></span>Sair</a></li>
-
-
-                        <li><span id="msg" class="alert alert-danger" role="alert"></span>
+          
+                        
+                    </ul>
                 </div>
-                </li>
                 </ul>
             </div>
             </div>
-        </nav>         <div id="profile-picture-container">
+        </nav>
+        <div id="profile-picture-container">
             <img id="fotoPerfil" src="" alt="Foto de Perfil">
         </div>
     </header>

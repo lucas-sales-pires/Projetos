@@ -44,14 +44,10 @@ require 'conexao.php';
                         <li><a href="../sms_programavel/sms_programavel.html">Sms-Programável</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a><span><i class="bi bi-circle-half"></i>
-                                </span>Acessibilidade</a>
-                        </li>
-
-                        <li><span id="msg" class="alert alert-danger" role="alert"></span>
+          
+                        
+                    </ul>
                 </div>
-                </li>
                 </ul>
             </div>
             </div>

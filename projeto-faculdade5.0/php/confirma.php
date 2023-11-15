@@ -44,23 +44,15 @@ require "funcoes.php";
                         <li><a href="../sms_programavel/sms_programavel.html">Sms-Programável</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a><span><i class="bi bi-circle-half"></i>
-                                </span>Acessibilidade</a>
-                        </li>
-
-                        <li><a href="../cadastro/cadastro.html"><span><i class="bi bi-file-earmark-text"></i></span>Cadastre-se</a>
-                        </li>
-
-                        <li><a href="../login/login.html"><span><i class="bi bi-person"></i></span>
-                                Login</a></li>
-                        <li><span id="msg" class="alert alert-danger" role="alert"></span>
+          
+                        
+                    </ul>
                 </div>
-                </li>
                 </ul>
             </div>
             </div>
-        </nav>         <div id="profile-picture-container">
+        </nav>
+        <div id="profile-picture-container">
             <img id="fotoPerfil" src="" alt="Foto de Perfil">
         </div>
     </header>

@@ -1,12 +1,108 @@
+const acessibilidade = document.querySelector('ul.nav.navbar-nav.navbar-right li:first-child a');
+const body = document.getElementsByTagName('body')[0];
+const elementosAfetados = document.querySelectorAll('form');
+const backgroundLoginECadastro = document.querySelector('div.container-login100');
+const background = document.querySelector('.container1');
+const tituloFormulario = document.querySelector('.login100-form-title');
+let inputs = document.querySelectorAll('input:not([type="password"]), input:not([type="text"])');
+
+
+let modoSite = localStorage.getItem('modoSite') || 0;
+
+function atualizarModoEscuro() {
+  if (modoSite == 1) {
+    body.style.background = 'black';
+    body.style.color = 'white';
+    inputs.forEach(function (input) {
+      input.style.background = "white";
+      input.style.color = "black";
+    });
+
+    if (backgroundLoginECadastro) {
+      backgroundLoginECadastro.style.background = 'black';
+      backgroundLoginECadastro.style.color = 'white';
+
+    }
+    if (background) {
+      background.style.background = 'black';
+      background.style.color = 'white';
+    } if (tituloFormulario) {
+      tituloFormulario.style.color = 'white';
+    }
+
+    elementosAfetados.forEach(elemento => {
+      elemento.style.background = 'black';
+      elemento.style.color = 'white';
+    });
+  } else {
+    body.style.background = 'white';
+    body.style.color = 'black';
+    inputs.forEach(function (input) {
+      input.style.background = "";
+      input.style.color = "";
+    });
+
+    if (backgroundLoginECadastro) {
+      backgroundLoginECadastro.style.background = 'white';
+      backgroundLoginECadastro.style.color = '';
+    }
+    if (background) {
+      background.style.background = '';
+      background.style.color = '';
+    }
+    if (tituloFormulario) {
+      tituloFormulario.style.color = '';
+
+    }
+
+
+
+    elementosAfetados.forEach(elemento => {
+      elemento.style.background = '';
+      elemento.style.color = '';
+    });
+  }
+}
+
+atualizarModoEscuro();
+
+
+
+acessibilidade.addEventListener('click', () => {
+  if (modoSite == 0) {
+    modoSite = 1;
+  } else {
+    modoSite = 0;
+  }
+
+  localStorage.setItem('modoSite', modoSite);
+
+  atualizarModoEscuro();
+});
+
+
+
+
+
+
+/* NESTA FUNÇÃO, EU COMEÇO FAZENDO UMA REQUISIÇÃO UTILIZANDO A BIBLIOTECA AXIOS, PEGANDO O ARQUIVO VERIFICAR_SESSAO.PHP QUE TEM A FUNÇÃO DE SABER SE EXISTE UM USUARIO LOGADO COMO TRUE. SE A RESPOSTA FOR POSITIVA EU FAÇO OUTRA REQUISIÇÃO PARA O ARQUIVO PEGARNOME.PHP QUE SIMPLESMENTE TRAZ UMA MENSAGEM DE BOAS VINDAS AO USUARIO QUE ESTÁ NA SESSION[USUARIO] E UTILIZANDO O DOM EU ESCOLHO O NTH:CHILD(3) QUE É O LOGIN E FAÇO ELE SUMIR EM CASO DO USUARIOLOGADO ESTAR FALSE MEU SAIR NAO APARECE. E O MESMO É FEITO COM O USUARIO MASTER. NO FIM USO O WINDOW.ONLOAD QUE É O MESMO QUE " document.addEventListener('DOMContentLoaded', function() { "*/
+
+let alterarDados = document.createElement("li");
+alterarDados.innerHTML = '<a href="../php/alterarDados.php" id="alterarDados"><span class="icon-container"><i class="fa fa-info-circle"></i></span>Alterar Dados</a>';
+
 let barraNavegacao = document.querySelector("ul.nav.navbar-nav.navbar-right");
 
 let cadastro = document.createElement('li');
-cadastro.innerHTML='<a href="../cadastro/cadastro.html">'+
-'<span class="icon-container"><i class="bi bi-file-earmark-text"></i></span>Cadastre-se</a>';
+cadastro.innerHTML = '<a href="../cadastro/cadastro.html">' +
+    '<span class="icon-container"><i class="bi bi-file-earmark-text"></i></span>Cadastre-se</a>';
+
+let mensagem = document.createElement('li');
+mensagem.innerHTML = '<span id="msg" class="alert alert-danger" role="alert">';
+let msg = document.getElementById("msg");
 
 let login = document.createElement('li');
-login.innerHTML ='<a href="../login/login.html">'+
-'<span class="icon-container"><i class="bi bi-person"></i></span>Login</a>';
+login.innerHTML = '<a href="../login/login.html">' +
+    '<span class="icon-container"><i class="bi bi-person"></i></span>Login</a>';
 
 let opcoesMaster = document.createElement('li');
 opcoesMaster.innerHTML = `
@@ -22,12 +118,11 @@ opcoesMaster.innerHTML = `
     </ul>
 `;
 
-barraNavegacao.appendChild(opcoesMaster);
 
 
 let alterarSenha = document.createElement('li');
-alterarSenha.innerHTML = '<a href="../php/trocarSenha.php" id="trocarSenha">'+
-'<span class="icon-container"><i class="fa fa-key"></i></span>Alterar Senha</a>';
+alterarSenha.innerHTML = '<a href="../php/trocarSenha.php" id="trocarSenha">' +
+    '<span class="icon-container"><i class="fa fa-key"></i></span>Alterar Senha</a>';
 
 let modeloBanco = document.createElement('li');
 modeloBanco.innerHTML = ' <a href="../modeloDeBanco/modelo.html" id="modelo"><span class="icon-container"><i class="fas fa-database"></i></span>Modelo Banco</a>';
@@ -35,17 +130,64 @@ modeloBanco.innerHTML = ' <a href="../modeloDeBanco/modelo.html" id="modelo"><sp
 let sair = document.createElement('li');
 sair.innerHTML = '<a href="../php/destroySession.php"><span class="icon-container"><i class="fas fa-sign-out-alt"></i></span>Sair</a>';
 
-barraNavegacao.appendChild(login);
-barraNavegacao.appendChild(cadastro);
-barraNavegacao.appendChild(modeloBanco);
-barraNavegacao.appendChild(alterarSenha);
-barraNavegacao.appendChild(sair);
 
 
 
+function verificarSessaoUsuario() {
+    axios.get('../php/verificar_sessao.php')
+        .then(function (response) {
+            if (response.data.usuarioLogado === true) {
+                // Usuário comum Logado
+                axios.get('../php/pegarNome.php')
+                    .then(function (nomeResponse) {
+                        document.getElementById('profile-picture-container').style.display = "block";
+                        document.getElementById('fotoPerfil').style.display = "block";
+                        barraNavegacao.appendChild(modeloBanco);
+                        barraNavegacao.appendChild(alterarSenha);
+                        barraNavegacao.appendChild(alterarDados);
+                        barraNavegacao.appendChild(sair);
+                        barraNavegacao.appendChild(mensagem);
+                        document.getElementById('msg').textContent = nomeResponse.data;
+                        document.getElementById('msg').style.display = "block";
+                        document.querySelector('.pesquisa').style.display = "block";
 
 
+                    }
+                    )
+                    //Usuário Comum Não logado
+            } else {
+                document.getElementById('profile-picture-container').style.display = "block";
+                document.getElementById('fotoPerfil').style.display = "none";
+                barraNavegacao.appendChild(login);
+                barraNavegacao.appendChild(cadastro);
+                document.getElementById('msg').textContent = nomeResponse.data;
+                document.getElementById('msg').style.display = "none";
+                document.querySelector('.pesquisa').style.display = "none";
 
+            }
+        })
+}
+
+window.onload = verificarSessaoUsuario;
+
+
+function AtualizarFoto() {
+    axios.get('../php/obterUltimaFoto.php')
+      .then(response => {
+        const data = response.data;
+        if (data && data.caminhoImagem) {
+          document.getElementById('fotoPerfil').src = data.caminhoImagem;
+        } else {
+          console.error('Erro: Caminho da imagem não encontrado.');
+        }
+      })
+      .catch(error => console.error('Erro:', error));
+  }
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    AtualizarFoto();
+  });
+  
 
 
 
