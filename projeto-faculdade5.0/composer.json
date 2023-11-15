@@ -16,6 +16,6 @@
     "minimum-stability": "dev",
     "require": {
         "dompdf/dompdf": "dev-master",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "*"
     }
 }

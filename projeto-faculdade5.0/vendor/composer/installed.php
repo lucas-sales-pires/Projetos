@@ -3,7 +3,7 @@
         'name' => 'ceolucas/projetofaculdade',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f6de73601a13decfbc2fe4bee8fafa2a9d1f5885',
+        'reference' => 'a408744add3f120011e82619220d090a5571f90b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'ceolucas/projetofaculdade' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f6de73601a13decfbc2fe4bee8fafa2a9d1f5885',
+            'reference' => 'a408744add3f120011e82619220d090a5571f90b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -60,7 +60,7 @@
         'phpmailer/phpmailer' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'ee4090bd62ad3ded3eac19d6fd0213abbe3596f1',
+            'reference' => 'cbe9d8d9a9adb7dff77852a3cfc9b63ede3e7a89',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(

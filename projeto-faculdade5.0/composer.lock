@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49208cd63087007a69961e1f1e2ed841",
+    "content-hash": "8c2d63073450282ebdf4304e64500029",
     "packages": [
         {
             "name": "dompdf/dompdf",
@@ -234,12 +234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "ee4090bd62ad3ded3eac19d6fd0213abbe3596f1"
+                "reference": "cbe9d8d9a9adb7dff77852a3cfc9b63ede3e7a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/ee4090bd62ad3ded3eac19d6fd0213abbe3596f1",
-                "reference": "ee4090bd62ad3ded3eac19d6fd0213abbe3596f1",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cbe9d8d9a9adb7dff77852a3cfc9b63ede3e7a89",
+                "reference": "cbe9d8d9a9adb7dff77852a3cfc9b63ede3e7a89",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-31T22:08:15+00:00"
+            "time": "2023-11-08T18:16:12+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -367,8 +367,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "dompdf/dompdf": 20,
-        "phpmailer/phpmailer": 20
+        "dompdf/dompdf": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
