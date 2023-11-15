@@ -1,3 +1,4 @@
+
 let alterarDados = document.createElement("li");
 alterarDados.innerHTML = '<a href="../php/alterarDados.php" id="alterarDados"><span class="icon-container"><i class="fa fa-info-circle"></i></span>Alterar Dados</a>';
 
@@ -43,7 +44,6 @@ sair.innerHTML = '<a href="../php/destroySession.php"><span class="icon-containe
 
 
 
-
 function verificarSessaoUsuario() {
   axios.get('../php/verificar_sessao.php')
     .then(function (response) {
@@ -61,24 +61,47 @@ function verificarSessaoUsuario() {
             document.getElementById('msg').textContent = nomeResponse.data;
             document.getElementById('msg').style.display = "block";
             document.querySelector('.pesquisa').style.display = "block";
+            if(document.querySelector(".pesquisa")){
+              document.querySelector(".pesquisa").style.display = "block";
+            }
 
 
           }
           )
         //Usuário Não logado
-      } else {
+      } else if(response.data.usuarioLogado == false ) {
         document.getElementById('profile-picture-container').style.display = "block";
         document.getElementById('fotoPerfil').style.display = "none";
         barraNavegacao.appendChild(login);
         barraNavegacao.appendChild(cadastro);
-        document.getElementById('msg').textContent = nomeResponse.data;
-        document.getElementById('msg').style.display = "none";
-        document.querySelector('.pesquisa').style.display = "none";
+        if(document.querySelector(".pesquisa")){
+          document.querySelector(".pesquisa").style.display = "none";
+        }
+        
 
+      }//Usuário Master Logado
+      if (response.data.usuarioMasterLogado === true) {
+        axios.get('../php/pegarNome.php')
+        .then(function (resposta) {
+          console.log(resposta);
+          barraNavegacao.removeChild(login);
+          barraNavegacao.removeChild(cadastro);
+          barraNavegacao.appendChild(opcoesMaster);
+          barraNavegacao.appendChild(modeloBanco);
+          barraNavegacao.appendChild(sair);          
+          barraNavegacao.appendChild(mensagem);
+          document.getElementById('msg').textContent = resposta.data;
+          document.getElementById('msg').style.display = "block";
+
+          if(document.querySelector(".pesquisa")){
+            document.querySelector(".pesquisa").style.display = "block";
+          }
+        })
       }
-    })
-}
-
+   
+    }
+  )}
+        
 window.onload = verificarSessaoUsuario;
 
 let acessibilidadenav = document.createElement('li');

@@ -53,6 +53,7 @@ require 'funcoes.php'; ?>
             <img id="fotoPerfil" src="" alt="Foto de Perfil">
         </div>
     </header>
+    <div class="pesquisa">
     <div class="pesquisaComum">
         <h2>Editar Meus Dados</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="formularioMaster" autocomplete="off">
@@ -66,7 +67,7 @@ require 'funcoes.php'; ?>
             </div>
             <button type="submit">Atualizar Foto</button>
         </form>
-
+    </div>
     </div>
 
     </div>
