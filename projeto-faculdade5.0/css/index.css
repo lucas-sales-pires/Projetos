@@ -658,3 +658,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+/*Recuperar Senha*/
+
+#verifique{
+  font-size: xx-large;
+}
+#formularioRecuperacao{
+  min-height: 0px;
+}

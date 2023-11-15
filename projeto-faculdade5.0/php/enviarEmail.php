@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <body>
                     <div class="limiter">
-                        <div class="container-login100">
+                        <div class="container-login100" id="formularioRecuperacao">
                             <div class="container1">
                                 <form class="login100-form validate-form" action="" method="post" id="codigoVerificacao" autocomplete="off">
                                     <div class="wrap-input100 validate-input">

@@ -53,7 +53,8 @@
                     <div class="wrap-input100 validate-input">
                         <label for="login">Login:</label>
                         <input id="login" type="text" class="input100" name="login">
-                        
+                        <span class="focus-input100"></span>
+
                         <label for="email">Digite seu e-mail cadastrado:</label>
                         <input type="email" class="input100" id="email" name="email" required>
                         <span class="focus-input100"></span>
