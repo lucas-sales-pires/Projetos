@@ -62,11 +62,15 @@ $perguntaAleatoria = $_SESSION['perguntaAleatoria'];
         .perguntaSeguranca {
             color: black;
             background-color: white;
+            font-size: larger;
 
         }
 
         body {
             background-color: white;
+        }
+        p{
+            font-size: x-large;
         }
     </style>
 
@@ -79,13 +83,19 @@ $perguntaAleatoria = $_SESSION['perguntaAleatoria'];
 
 
             <?php
-            if ($perguntaAleatoria == 2 || $perguntaAleatoria == 4) { //Aqui introduzo resposta caso seja sobre email , nome da mae ou cep
-                echo '<label for="resposta"><h2>Sua Resposta:</h2></label>';
-                echo '<input type="text" id="resposta" name="resposta" required >';
+            if ($perguntaAleatoria == 2 || $perguntaAleatoria == 4) { //Aqui introduzo resposta caso seja sobre email ou cep
+                echo '<div class="form-group">';
+                echo '<label for="resposta" class="h2">Sua Resposta:</label>';
+                echo '<input type="text" id="resposta" name="resposta" class="form-control" required>';
+                echo '</div>';
+                
+                
             }
-            if ($perguntaAleatoria == 1) { //Aqui introduzo resposta caso seja sobre email , nome da mae ou cep
-                echo '<label for="resposta"><h2>Sua Resposta:</h2></label>';
-                echo '<input type="text" id="resposta" name="resposta" required onblur="converterParaMaiusculo(this)">';
+            if ($perguntaAleatoria == 1) { //Aqui introduzo resposta caso seja nome da mae 
+                echo '<div class="form-group">';
+                echo'
+                <label for="resposta" class="h2">Sua Resposta:</label>';
+                echo '<input type="text" id="resposta" name="resposta" required class="form-control" onblur="converterParaMaiusculo(this)">';
             } elseif ($perguntaAleatoria == 3) { //Se for 3 eu troco meu input para date
                 echo '<label for="resposta">Sua Resposta:</label>';
                 echo '<input type="date" id="resposta" name="resposta" required>';
