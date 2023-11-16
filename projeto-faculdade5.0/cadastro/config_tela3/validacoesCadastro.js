@@ -1,5 +1,7 @@
 
-       
+require =('../../geral/converterParaMaiusculo');
+
+
 function validarNome(){
   let nome = document.getElementById('nome').value;
   if(nome.length < 15 ){
@@ -12,13 +14,16 @@ function validarNome(){
     exibirToast("Nome válido",false)
   }
 }
+const converterParaMaiusculo = (valor) => valor.toUpperCase();
+
 function validarMae() {
   let mae = document.getElementById('mae').value.trim();
-
-  mae = mae || 'Não Declarado';
+  mae = converterParaMaiusculo(mae);
+  
+  
 
   if (mae.length < 15 || mae.length > 80) {
-    exibirToast("Caso nada seja declarado, o nome da sua mãe será como Não Declarado", true);
+    exibirToast("Caso nada seja declarado, o nome da sua mãe será como NÃO DECLARADO", true);
   } else {
     exibirToast("Nome válido", false);
   }

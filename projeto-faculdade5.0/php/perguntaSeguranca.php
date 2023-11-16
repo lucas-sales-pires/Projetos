@@ -79,9 +79,13 @@ $perguntaAleatoria = $_SESSION['perguntaAleatoria'];
 
 
             <?php
-            if ($perguntaAleatoria == 1 || $perguntaAleatoria == 2 ||$perguntaAleatoria == 4) { //Aqui introduzo resposta caso seja sobre email , nome da mae ou cep
+            if ($perguntaAleatoria == 2 || $perguntaAleatoria == 4) { //Aqui introduzo resposta caso seja sobre email , nome da mae ou cep
                 echo '<label for="resposta"><h2>Sua Resposta:</h2></label>';
-                echo '<input type="text" id="resposta" name="resposta" required>';
+                echo '<input type="text" id="resposta" name="resposta" required >';
+            }
+            if ($perguntaAleatoria == 1) { //Aqui introduzo resposta caso seja sobre email , nome da mae ou cep
+                echo '<label for="resposta"><h2>Sua Resposta:</h2></label>';
+                echo '<input type="text" id="resposta" name="resposta" required onblur="converterParaMaiusculo(this)">';
             } elseif ($perguntaAleatoria == 3) { //Se for 3 eu troco meu input para date
                 echo '<label for="resposta">Sua Resposta:</label>';
                 echo '<input type="date" id="resposta" name="resposta" required>';

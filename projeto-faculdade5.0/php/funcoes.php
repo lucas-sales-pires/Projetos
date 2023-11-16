@@ -330,6 +330,11 @@ function consultarLogs($mysqli, $nome = "", $data = "")
     }
 }
 
+function zerarLogs($mysqli){
+    $sql = 'DELETE FROM log_acesso';
+    $consulta = $mysqli->query($sql);
+    $consulta ?  'Log de acessos Zerados':'Houve um erro na solicitação !';
+}
 
 function erroSql(mysqli_sql_exception $e)
 {

@@ -148,6 +148,9 @@ if ($consulta = $mysqli->prepare($sql)) {
 
 if (isset($_GET['excluir'])) {
     $usuarioIDExcluir = $_GET['excluir'];
+    $excluirLog = $mysqli->prepare("DELETE FROM log_acesso WHERE usuarios_id = ?");
+    $excluirLog->bind_param("s",$usuarioIDExcluir);
+    $excluirLog->execute();
     if ($consulta = $mysqli->prepare("DELETE FROM usuarios WHERE usuarios_id = ?")) {
         $consulta->bind_param("i", $usuarioIDExcluir);
         if ($consulta->execute()) {
@@ -161,6 +164,7 @@ if (isset($_GET['excluir'])) {
             echo '</div>';
             echo '</div>';
             echo '</div>';
+            
         } else {
             echo 'Falha ao excluir o usuário com ID ' . $usuarioIDExcluir . '.';
         }

@@ -39,17 +39,17 @@ require 'funcoes.php';
                     <li><a href="../sms_programavel/sms_programavel.html">Sms-Programável</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-          
-                        
-                    </ul>
-                </div>
+
+
                 </ul>
             </div>
-            </div>
-        </nav>
-        <div id="profile-picture-container">
-            <img id="fotoPerfil" src="" alt="Foto de Perfil">
+            </ul>
         </div>
+        </div>
+    </nav>
+    <div id="profile-picture-container">
+        <img id="fotoPerfil" src="" alt="Foto de Perfil">
+    </div>
 </header>
 <?php
 $seg = '';

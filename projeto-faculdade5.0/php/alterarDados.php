@@ -65,7 +65,7 @@ require 'funcoes.php'; ?>
                 <label for="foto">Foto de Perfil:</label>
                 <input type="file" id="foto" name="foto" accept="image/*">
             </div>
-            <button type="submit">Atualizar Foto</button>
+            <button type="submit" class="btn btn-primary">Atualizar Foto</button>
         </form>
     </div>
     </div>

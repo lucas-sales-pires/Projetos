@@ -85,7 +85,17 @@ require 'funcoes.php'; ?>
 
                 $stmt->close();
             } else {
-                echo "Erro ao salvar as alterações: A senha atual não confere.";
+                echo '<div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="alert alert-danger text-center">
+                    <h2>Ops! Senha incorreta.</h2>
+                    <p>Erro ao salvar as alterações: A senha atual não confere.</p>
+                    <a href="../php/alterarDados.php" class="btn btn-primary">Tentar Novamente</a>
+                </div>
+            </div>
+        </div>
+    </div>';
             }
 
             $mysqli->close();

@@ -55,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nascimento = $_POST['Nascimento'];
             $sexo = $_POST['Sexo'];
             $mae = $_POST['Mae'];
+            if (empty($mae)) {
+                $mae = "NÃO DECLARADO";
+            }
             $cpf = str_replace(['.', '-'], '', $_POST['Cpf']);
             $celular = $_POST['Celular'];
             $telefone = $_POST['Telefone'];

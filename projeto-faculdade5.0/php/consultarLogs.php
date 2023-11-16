@@ -74,7 +74,12 @@ if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] =
     
     echo '
         <input type="date"  name="dataPesquisa">
-        <input type="submit" name="ConsultaPorData" value="Pesquisar Data" class="btn-primary">
+        <input type="submit" name="ConsultaPorData" value="Pesquisar Data" class="btn-primary">'
+        ;
+    echo '
+    <input type="submit"name="zerarLogs" value="zerar Todos os Logs" class="btn-primary">
+    
+    
     </form>';
 
     if(isset($_POST['ConsultaPorNome'])) {
@@ -85,6 +90,9 @@ if(isset($_SESSION['usuarioMasterLogado']) && $_SESSION['usuarioMasterLogado'] =
     if(isset($_POST['ConsultaPorData'])) {
         $dataPesquisa = $_POST['dataPesquisa'];
         consultarLogs($mysqli, "", $dataPesquisa);
+    }
+    if(isset($_POST['zerarLogs'])){
+        zerarLogs($mysqli);
     }
 } else {
     echo '<div class="container">

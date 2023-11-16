@@ -24,7 +24,7 @@ opcoesMaster.innerHTML = `
     <ul class="dropdown-menu">
         <li><a href="../php/listarUsuarios.php">Listar Usuários</a></li>
         <li><a href="../php/downloadBD.php">Download Banco</a></li>
-        <li><a href="../php/gerarPdf.php">Gerar listarUsuarios</a></li>
+        <li><a href="../php/gerarPdf.php">Gerar listarUsuarios(pdf)</a></li>
         <li><a href="../php/pesquisarUsuario.php">Pesquisar Usuario</a></li>
         <li><a href="../php/consultarLogs.php">Consultar Logs</a></li>
     </ul>
@@ -61,7 +61,7 @@ function verificarSessaoUsuario() {
             document.getElementById('msg').textContent = nomeResponse.data;
             document.getElementById('msg').style.display = "block";
             document.querySelector('.pesquisa').style.display = "block";
-            if(document.querySelector(".pesquisa")){
+            if (document.querySelector(".pesquisa")) {
               document.querySelector(".pesquisa").style.display = "block";
             }
 
@@ -69,39 +69,40 @@ function verificarSessaoUsuario() {
           }
           )
         //Usuário Não logado
-      } else if(response.data.usuarioLogado == false ) {
+      } else if (response.data.usuarioLogado == false) {
         document.getElementById('profile-picture-container').style.display = "block";
         document.getElementById('fotoPerfil').style.display = "none";
         barraNavegacao.appendChild(login);
         barraNavegacao.appendChild(cadastro);
-        if(document.querySelector(".pesquisa")){
+        if (document.querySelector(".pesquisa")) {
           document.querySelector(".pesquisa").style.display = "none";
         }
-        
+
 
       }//Usuário Master Logado
       if (response.data.usuarioMasterLogado === true) {
         axios.get('../php/pegarNome.php')
-        .then(function (resposta) {
-          console.log(resposta);
-          barraNavegacao.removeChild(login);
-          barraNavegacao.removeChild(cadastro);
-          barraNavegacao.appendChild(opcoesMaster);
-          barraNavegacao.appendChild(modeloBanco);
-          barraNavegacao.appendChild(sair);          
-          barraNavegacao.appendChild(mensagem);
-          document.getElementById('msg').textContent = resposta.data;
-          document.getElementById('msg').style.display = "block";
+          .then(function (resposta) {
+            console.log(resposta);
+            barraNavegacao.removeChild(login);
+            barraNavegacao.removeChild(cadastro);
+            barraNavegacao.appendChild(opcoesMaster);
+            barraNavegacao.appendChild(modeloBanco);
+            barraNavegacao.appendChild(sair);
+            barraNavegacao.appendChild(mensagem);
+            document.getElementById('msg').textContent = resposta.data;
+            document.getElementById('msg').style.display = "block";
 
-          if(document.querySelector(".pesquisa")){
-            document.querySelector(".pesquisa").style.display = "block";
-          }
-        })
+            if (document.querySelector(".pesquisa")) {
+              document.querySelector(".pesquisa").style.display = "block";
+            }
+          })
       }
-   
+
     }
-  )}
-        
+    )
+}
+
 window.onload = verificarSessaoUsuario;
 
 let acessibilidadenav = document.createElement('li');
@@ -191,8 +192,6 @@ acessibilidadenav.addEventListener('click', () => {
 });
 
 
-
-
 function AtualizarFoto() {
   axios.get('../php/obterUltimaFoto.php')
     .then(response => {
@@ -209,8 +208,6 @@ function AtualizarFoto() {
 document.addEventListener('DOMContentLoaded', function () {
   AtualizarFoto();
 });
-
-
 
 
 

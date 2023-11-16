@@ -1,3 +1,7 @@
+<?php 
+require 'conexao.php';
+require 'funcoes.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,14 +17,15 @@
 <?php
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+    $userID = consultaUsuario($mysqli,$_SESSION['usuario'],2)["usuarios_id"];
+
     // Diretório onde as imagens serão armazenadas
     $diretorioDestino ="../fotosPerfil/";
 
     // Verifica se o arquivo foi enviado sem erros
     if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] == UPLOAD_ERR_OK) {
         // Obtém informações sobre o arquivo
-        $nomeArquivo = basename($_FILES["foto"]["name"]);
+        $nomeArquivo = $userID . "_" . basename($_FILES["foto"]["name"]);
         $caminhoCompleto = $diretorioDestino . $nomeArquivo;
 
         // Move o arquivo para o diretório de destino
@@ -36,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>';
-            // Aqui você pode salvar o caminho $caminhoCompleto no banco de dados associado ao usuário.
         } else {
             echo "Erro ao mover o arquivo.";
         }
@@ -46,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Requisição inválida.";
 }
+
 ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
