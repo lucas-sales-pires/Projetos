@@ -56,7 +56,6 @@ function validarUsuario(){
   }
 }
 
-
 function validarIdade() {
   let anoAtual = new Date();
   let dataNascimento = new Date(document.getElementById('nasc').value);
@@ -67,10 +66,10 @@ function validarIdade() {
       idade--;
   }
 
-  if (idade >= 18) {
-      exibirToast("Você é maior de 18 anos.", false);
+  if (idade >= 18 && idade <= 100) {
+      exibirToast("Idade válida.", false);
   } else {
-      exibirToast("Você deve ter pelo menos 18 anos.", true);
+      exibirToast("Idade inválida.", true);
       document.getElementById('nasc').value = '';
   }
 }
