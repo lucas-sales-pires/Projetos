@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../login/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Faça login</h5>
+                    <form action="../php/confirmarLogin.php" method="post" autocomplete="off">
+                        <div class="form-group">
+                            <label for="email">Email ou telefone</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Seu email ou telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name ="senha"class="form-control" placeholder="Sua senha" maxlength="12" minlength="10">
+                        </div>
+                   
+                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        <hr>
+                        <a class="btn btn-secundary btn-block" href="../php/recuperarSenha.php">Esqueceu a Senha?</button>
+                    </form>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+

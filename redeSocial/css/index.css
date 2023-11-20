@@ -1,0 +1,108 @@
+/* Estilos gerais */
+.body {
+    background-color: rgba(161, 202, 150, 0.371)
+}
+
+body>div>header>nav {
+    background-color: #242526;
+}
+
+nav i,
+#contaDropdown {
+    color: white;
+}
+
+#logo {
+    min-height: 3rem;
+    max-width: 3rem;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 255, 136);
+    display: inline-block;
+}
+
+body>div>header>nav {
+    background-repeat: repeat;
+    background-color: #2425264e;
+    box-shadow: 1px 1px 10px;
+    padding: 10px 0px 0px 10px;
+}
+
+.curtido {
+    background-color: blue;
+}
+
+#contador {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 10px;
+}
+
+
+/* Conteúdo */
+.publicacoes {
+    align-items: center;
+    padding: 10px;
+    font-size: x-large;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    display: inline-block;
+    flex-direction: column;
+    margin: auto;
+}
+
+p {
+    margin: auto;
+    display: flex;
+    width: 20%
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+}
+
+.ladoDireito {
+    display: inline-flex;
+    float: right;
+    flex-direction: column;
+}
+
+.ladoDireito a:hover,
+.ladoEsquerdo a:hover {
+    color: rgb(95, 96, 160);
+    text-shadow: 1px 1px 3px;
+    text-decoration: none;
+}
+
+.ladoEsquerdo {
+    display: inline-flex;
+    flex-direction: column;
+    float: left;
+}
+
+.postagem {
+    background-color: whitesmoke;
+    width: 50%;
+    margin: auto;
+    box-shadow: 1px 1px 10px;
+    padding: 10px;
+    margin-top: 31px;
+    color: black;
+    border-radius: 20px;
+}
+
+@media (max-width:680px) {
+
+    .ladoDireito,
+    .ladoEsquerdo {
+        display: none;
+    }
+
+    p {
+        width: 80%;
+    }
+
+}

@@ -187,7 +187,7 @@ function alterarDados($mysqli, $usuarioAtual)
             echo "<td><input type='text' name='usuario' value='" . $linha["usuario"] . "' class='input-estilizado' minlength='6' maxlength='6'></td>";
             echo "<td><input type='text' name='nome' value='" . $linha["nome"] . "' class='input-estilizado' minlength='15' maxlength='80'></td>";
             echo "<td><input type='email' name='email' value='" . $linha["email"] . "' class='input-estilizado'></td>";
-            echo "<td><input type='text' name='nascimento' value='" . $linha["nascimento"] . "' class='input-estilizado'></td>";
+            echo "<td><input type='text' name='nascimento' value='" . $linha["nascimento"] . "' class='input-estilizado'  ></td> ";
             echo "<td><input type='password' name='senhaAtual' id='senhaAtual' minlength='8' maxlength='8' required placeholder='Insira sua senha atual' class='input100'></td>";
             echo "<td><button type='submit' class='btn btn-primary'>Salvar</button></td>";
             echo "</tr>";
