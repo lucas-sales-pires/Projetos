@@ -43,8 +43,8 @@ require "funcoes.php";
                         <li><a href="../sms_programavel/sms_programavel.html">Sms-Programável</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-          
-                        
+
+
                     </ul>
                 </div>
                 </ul>
