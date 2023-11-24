@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Página Inicial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Página Inicial</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#">
+                <img src="../imagens/logo-removebg-preview.png" width="250" height="120" class="d-inline-block align-top" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Saúde</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Educação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4">Value Ware</h1>
+                <p class="lead">Bem-vindo à Value Ware</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imagens/saude.jpg" class="card-img-top" alt="Imagem de Saúde">
+                        <div class="card-body">
+                            <h5 class="card-title">Saúde</h5>
+                            <p class="card-text">Informações sobre saúde e bem-estar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imagens/educacao.png" class="card-img-top" alt="Imagem de Educação">
+                        <div class="card-body">
+                            <h5 class="card-title">Educação</h5>
+                            <p class="card-text">Recursos educacionais e informações relevantes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imagens/Sobre nós.png" class="card-img-top" alt="Imagem de Sobre Nós">
+                        <div class="card-body">
+                            <h5 class="card-title">Sobre Nós</h5>
+                            <p class="card-text">Conheça mais sobre nossa equipe e missão.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="container mt-5" id="formularioContato">
+            <div class="row mt-4">
+                <div class="col-md-8 offset-md-2">
+                    <h2 class="text-center mb-4">Entre em Contato</h2>
+                    <form action="mailto:contato@valueware.com.br" method="post">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome *</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Empresa</label>
+                            <input type="text" class="form-control" id="empresa" name="empresa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cargo" class="form-label">Cargo</label>
+                            <input type="text" class="form-control" id="cargo" name="cargo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem </label>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <a href="https://www.facebook.com/TelecallBr" class="text-white me-3"
+                            style="font-size: 24px;"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br"
+                            class="text-white me-3" style="font-size: 24px;"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/telecallbr/" class="text-white me-3"
+                            style="font-size: 24px;"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-auto">
+                        <span>© 2023 Todos os direitos reservados.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,23 @@
+@media(min-width:500px) {
+    
+.navbar-nav{
+    margin-left: 25%;
+    font-size: x-large;
+    
+}
+.card{
+    height: 70%;
+}
+#formularioContato{
+    margin-bottom: 5%;
+}
+}
+#formularioContato{
+    background-color: #E8E6E6;
+}
+body > nav {
+    border-bottom: 1px solid green;
+    box-shadow: 1px 1px 1px 1px;    
+    background-color:#88f088;
+}
+
