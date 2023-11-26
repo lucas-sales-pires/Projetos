@@ -15,6 +15,7 @@
 body{
     margin: 0;
     padding: 0;
+    text-align: justify;
 }
 .jumbotron{
     line-height: 2rem;
@@ -27,6 +28,20 @@ body{
 body > nav {
     background-image: linear-gradient(to top,white,#00ff9069,#00800045)
 }
+.lead{
+    font-style: italic;
+}
+h1,h2,h3{
+    margin: auto;
+    text-align: center;
+}
 
 
-
+    .float-right {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+    }
+.fa-envelope{
+    font-size: 3.3rem
+}

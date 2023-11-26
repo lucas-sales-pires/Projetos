@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $transporter->setFrom('diegofrancosales@outlook.com', 'Telecall-Recuperação');
             $transporter->addAddress($destinatario);
-            $transporter->Subject = 'Recuperação de Senha';
+            $transporter->Subject = 'Recuperacao de Senha';
             $transporter->Body = 'Conteúdo do e-mail de recuperação de senha. ' . $seg;
 
             if ($transporter->send()) {
