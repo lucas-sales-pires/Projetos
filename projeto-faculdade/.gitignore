@@ -24,8 +24,9 @@ ext/mkinstalldirs
 ext/run-tests.php
 ext/.deps
 ext/libtool
-node_modules
 LICENSE
 projeto-faculdade5.0.rar
+.gitattributes
+
 
 

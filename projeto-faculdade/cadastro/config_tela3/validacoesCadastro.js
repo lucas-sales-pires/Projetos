@@ -1,5 +1,4 @@
 
-require =('../../geral/converterParaMaiusculo');
 
 
 function validarNome(){

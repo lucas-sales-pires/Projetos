@@ -12,12 +12,21 @@
     margin-bottom: 5%;
 }
 }
+body{
+    margin: 0;
+    padding: 0;
+}
+.jumbotron{
+    line-height: 2rem;
+    font-style: italic;
+    font-family: sans-serif;
+}
 #formularioContato{
     background-color: #E8E6E6;
 }
 body > nav {
-    border-bottom: 1px solid green;
-    box-shadow: 1px 1px 1px 1px;    
-    background-color:#88f088;
+    background-image: linear-gradient(to top,white,#00ff9069,#00800045)
 }
+
+
 

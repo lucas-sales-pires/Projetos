@@ -8,6 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+
     <link rel="stylesheet" href="../css/index.css">
 </head>
 
@@ -23,10 +24,10 @@
     </head>
 
     <body>
-
         <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="#">
-                <img src="../imagens/logo-removebg-preview.png" width="250" height="120" class="d-inline-block align-top" alt="Logo">
+                <img src="../imagens/logo-removebg-preview.png" width="250" height="120"
+                    class="d-inline-block align-top" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +39,7 @@
                         <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Saúde</a>
+                        <a class="nav-link" href="../saude/saude.html">Saúde</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Educação</a>
@@ -51,11 +52,47 @@
         </nav>
 
         <div class="container mt-5">
-            <div class="jumbotron">
-                <h1 class="display-4">Value Ware</h1>
-                <p class="lead">Bem-vindo à Value Ware</p>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../imagens/slides/nossosServiços.png" class="d-block w-100" alt="..."
+                            style="margin-bottom: 5%;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../imagens/slides/PRINCIPIOS E VALORES (1).png" class="d-block w-100" alt="..."
+                            style="margin-bottom: 5%;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../imagens/slides/retenção de alunos.png" class="d-block w-100" alt="..."
+                            style="margin-bottom: 5%;">
+                    </div>
+                </div>
             </div>
 
+            <div class="container">
+                <div class="jumbotron">
+                <p class="lead">
+                    <h1 class="display-4">Value Ware: Sua Parceira Estratégica nos Setores de Educação e Saúde</h1>
+                    Somos uma equipe de especialistas altamente qualificados e experientes, prontos para ajudar
+                    sua instituição a alcançar o sucesso desejado. Nossa abordagem baseia-se em compreender
+                    profundamente as necessidades específicas do seu negócio e desenvolver estratégias eficazes
+                    para superar desafios e impulsionar seu crescimento, com o desenvolvimento e melhoria de
+                    processos e produtos e a facilitação da transformação digital, com foco na geração de valor
+                    identificando oportunidades de otimização de processos, redução de desperdícios (Lean),
+                    expansão e novos mercados para entregas de valor
+                    No atual cenário altamente competitivo e em constante evolução, entendemos a importância
+                    de se destacar da concorrência. É por isso que oferecemos serviços personalizados de
+                    consultoria, projetados para atender às demandas exclusivas dos setores de educação e saúde.
+                    Nossos profissionais possuem um profundo conhecimento das melhores práticas e tendências
+                    emergentes nesses setores, permitindo que ofereçamos insights valiosos e soluções
+                    inovadoras.
+                    Com a Value Ware ao seu lado, você terá acesso a uma ampla gama de conhecimentos e
+                    expertise necessários para impulsionar o sucesso de seu negócio gerando valor para seus
+                    clientes, colaboradores e gestores.
+                </p>
+            </div>
+            </div>
+        
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
@@ -89,7 +126,6 @@
             </div>
 
         </div>
-        </div>
         <div class="container mt-5" id="formularioContato">
             <div class="row mt-4">
                 <div class="col-md-8 offset-md-2">
@@ -101,7 +137,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" >
+                            <input type="text" class="form-control" id="telefone" name="telefone">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail *</label>
@@ -117,7 +153,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="mensagem" class="form-label">Mensagem </label>
-                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" ></textarea>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                     </form>
@@ -148,6 +184,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="../javaScript/index.js"></script>
 
     </body>
 
