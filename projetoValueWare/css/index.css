@@ -1,4 +1,4 @@
-@media(min-width:500px) {
+@media(min-width:992px) {
 
     .navbar-nav {
         margin-left: 25%;
@@ -13,6 +13,8 @@
     #formularioContato {
         margin-bottom: 5%;
     }
+ 
+    
  
 }
 main{
@@ -62,5 +64,5 @@ h3 {
 }
 
 .fixed-top{
-    height: 13%;
+    height: auto;
 }
