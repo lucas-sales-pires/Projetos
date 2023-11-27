@@ -1,47 +1,66 @@
 @media(min-width:500px) {
-    
-.navbar-nav{
-    margin-left: 25%;
-    font-size: x-large;
-    
+
+    .navbar-nav {
+        margin-left: 25%;
+        font-size: x-large;
+
+    }
+
+    .card {
+        height: 70%;
+    }
+
+    #formularioContato {
+        margin-bottom: 5%;
+    }
+ 
 }
-.card{
-    height: 70%;
+main{
+    margin-top: 10rem;
 }
-#formularioContato{
-    margin-bottom: 5%;
-}
-}
-body{
+
+body {
     margin: 0;
     padding: 0;
     text-align: justify;
 }
-.jumbotron{
+
+.jumbotron {
     line-height: 2rem;
     font-style: italic;
     font-family: sans-serif;
 }
-#formularioContato{
+
+#formularioContato {
     background-color: #E8E6E6;
 }
-body > nav {
-    background-image: linear-gradient(to top,white,#00ff9069,#00800045)
+
+body>nav {
+    background-image: linear-gradient(to top, white, #00ff9069, #00800045);
 }
-.lead{
+
+.lead {
     font-style: italic;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     margin: auto;
     text-align: center;
 }
 
 
-    .float-right {
-      position: fixed;
-      right: 15px;
-      bottom: 15px;
-    }
-.fa-envelope{
-    font-size: 3.3rem
+.float-right {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+
+.fa-envelope {
+    font-size: 2.3rem
+}
+
+.fixed-top{
+    height: 13%;
 }

@@ -11,8 +11,7 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
         <a class="navbar-brand" href="../principal/index.html">
             <img src="../imagensGeral/logo-removebg-preview.png" width="250" height="120"
                 class="d-inline-block align-top" alt="Logo">
@@ -26,8 +25,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../principal/index.html">Home <span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Saúde</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Saúde
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#acreditação">Acreditação</a>
+                        <a class="dropdown-item" href="#VMO">VMO</a>
+                        <a class="dropdown-item" href="#treinamentos">Treinamentos InCompany</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../educacao/educacao.html">Educação</a>
@@ -38,30 +45,10 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container mt-5">
-        <h1 class="display-4">Preparação para Acreditação</h1>
-        <p class="lead">
-            É um processo a que um serviço de saúde se submete voluntariamente (ou seja, se nenhuma
-            obrigação legal), que mensura e atesta a qualidade de serviços prestados.
-            É também um importante instrumento de gestão e melhoria contínua de qualidade e
-            segurança.
-            Para ser acreditado, o serviço deve comprovadamente atender aos padrões e requisitos
-            definidos pela Organização Nacional de Acreditação – ONA, Qmentum International ou a Joint
-            Comission International – JCI.
-            A acreditação hospitalar funciona como uma certificação de qualidade, como a ISO, por
-            exemplo, mas nesse caso é exclusiva para instituições de saúde. A estratégia pode ser
-            comparada a um programa de educação continuada.
-            Isso porque também estimula o entendimento estratégico, a conformidade produtiva
-            multiprofissional, a racionalização de insumos e a otimização dos resultados nesses
-            ambientes.
-            A Value Ware presta consultoria na preparação e melhoria de processos administrativos e
-            assistenciais, auxiliando sua empresa a alcançar essa certificação e os benefícios que ela
-            acarreta para o seu negócio.
-        </p>
-        <div class="jumbotron mt-3">
-            <h3 class="display-6">O que é Acreditação?</h3>
-            <p>
+    <main >
+        <div class="container mt-5">
+            <h1 class="display-4">Preparação para Acreditação</h1>
+            <p class="lead">
                 É um processo a que um serviço de saúde se submete voluntariamente (ou seja, se nenhuma
                 obrigação legal), que mensura e atesta a qualidade de serviços prestados.
                 É também um importante instrumento de gestão e melhoria contínua de qualidade e
@@ -79,392 +66,447 @@
                 assistenciais, auxiliando sua empresa a alcançar essa certificação e os benefícios que ela
                 acarreta para o seu negócio.
             </p>
-        </div>
-    </div>
-    <div class="container mt-5">
-
-        <h1 class="display-4">Por que investir em Acreditação?</h1>
-        <p class="lead">
-            O processo de acreditação vai muito além da obtenção de uma certificação; é principalmente uma maneira
-            de melhorar a qualidade dos serviços prestados, conquistar a confiança dos pacientes e integrar
-            positivamente as equipes.
-        </p> <img src="./imagens/9MOTIVOS.png" alt="Motivos para investir em Acreditação" width="100%"
-            class="img-fluid">
-        <div class="container mt-5">
             <div class="jumbotron mt-3">
-                <h3 class="display-4">Principais benefícios da Acreditação:</h3>
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Melhoria contínua:</strong> Este é um processo que visa a
-                        melhoria constante da Segurança do paciente e dos resultados assistenciais.</li>
-                    <li class="list-group-item"><strong>Diminuição de retrabalho e redução de custos:</strong> Seguir
-                        corretamente a metodologia da ONA permite que a instituição diminua erros que aumentam gastos e
-                        retrabalho.</li>
-                    <li class="list-group-item"><strong>Integração entre os setores e processos:</strong> Toda
-                        instituição é um sistema formado por várias partes. A Acreditação faz com que todos os setores
-                        trabalhem em conjunto, tendo o mesmo objetivo.</li>
-                    <li class="list-group-item"><strong>Controle dos processos e compromisso com o resultado:</strong>
-                        Instala-se uma visão geral do processo, permitindo maior controle e organização dos resultados.
-                    </li>
-                    <li class="list-group-item"><strong>Visibilidade no mercado:</strong> A instituição passa a ser
-                        reconhecida pela sua excelência em qualidade.</li>
-                    <li class="list-group-item"><strong>Identificação de riscos e oportunidades:</strong> Permite
-                        corrigir os erros antes que eles aconteçam e aproveitar as oportunidades antes dos concorrentes.
-                    </li>
-                    <li class="list-group-item"><strong>Diferencial competitivo:</strong> Saia na frente da
-                        concorrência, provando sua qualidade em saúde.</li>
-                    <li class="list-group-item"><strong>Credibilidade:</strong> Você ganhará credibilidade de médicos,
-                        equipe multiprofissional e pacientes.</li>
-                    <li class="list-group-item"><strong>Oportunidade de reajuste de tabela:</strong> Reajuste de IPCA de
-                        100% a 105%, dependendo dos resultados do Fator de Qualidade (Lei nº 13.003/2014 e regulamentado
-                        pela Instrução Normativa nº 61/2015).</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="container mt-5">
-            <h2 class="display-4">Como funciona a Acreditação Hospitalar?</h2>
-            <p>
-                A acreditação hospitalar depende do cumprimento de certos pré-requisitos, que podem variar
-                de acordo com cada entidade acreditadora.
-                Em geral, essas exigências incluem a apresentação das licenças sanitárias, a constituição legal
-                há mais de um ano, alvará de funcionamento, entre outras questões técnicas semelhantes.
-            </p>
-
-            <p>
-                Com toda a documentação em dia, o início do processo ainda demanda algumas práticas, que
-                incluem:
-            </p>
-
-            <h3 class="display-4">Organização interna</h3>
-            <p>
-                A avaliação demanda o engajamento de todos os profissionais envolvidos na unidade de saúde,
-                e é preciso que os mesmos tenham domínio sobre os critérios de acreditação e os priorizem
-                em suas rotinas.
-                Além disso, a administração do hospital ou da clínica precisa lidar com as adequações exigidas,
-                direcionando verbas para reformas na infraestrutura, para a adequação de determinados
-                serviços, entre outros pontos previstos nas avaliações.
-            </p>
-
-            <div>
-                <h3 class="display-4">Coordenador Responsável</h3>
+                <h3 class="display-6" id="acreditação">O que é Acreditação?</h3>
                 <p>
-                    Embora a acreditação hospitalar exija esforços coletivos, é essencial designar um coordenador
-                    responsável por gerenciar todo o processo. Este profissional pode ser alguém da equipe interna,
-                    desde que capacitado para a função, ou um consultor externo contratado. Suas principais
-                    responsabilidades incluem:
-                </p>
-                <ul class="list-group">
-                    <li class="list-group-item">Monitorar todos os procedimentos;</li>
-                    <li class="list-group-item">Reconhecer as mudanças necessárias para a adaptação;</li>
-                    <li class="list-group-item">Garantir a transparência das adequações, mantendo contato constante
-                        com o time de direção hospitalar.</li>
-                </ul>
-                <p>
-                    Além disso, para dar apoio, agilidade e conformidade a essas tarefas, é fundamental criar um
-                    comitê de acreditação. Este comitê deve ser composto por profissionais multidisciplinares
-                    capazes de lidar com as diversas demandas da unidade para o cumprimento dos requisitos.
+                    É um processo a que um serviço de saúde se submete voluntariamente (ou seja, se nenhuma
+                    obrigação legal), que mensura e atesta a qualidade de serviços prestados.
+                    É também um importante instrumento de gestão e melhoria contínua de qualidade e
+                    segurança.
+                    Para ser acreditado, o serviço deve comprovadamente atender aos padrões e requisitos
+                    definidos pela Organização Nacional de Acreditação – ONA, Qmentum International ou a Joint
+                    Comission International – JCI.
+                    A acreditação hospitalar funciona como uma certificação de qualidade, como a ISO, por
+                    exemplo, mas nesse caso é exclusiva para instituições de saúde. A estratégia pode ser
+                    comparada a um programa de educação continuada.
+                    Isso porque também estimula o entendimento estratégico, a conformidade produtiva
+                    multiprofissional, a racionalização de insumos e a otimização dos resultados nesses
+                    ambientes.
+                    A Value Ware presta consultoria na preparação e melhoria de processos administrativos e
+                    assistenciais, auxiliando sua empresa a alcançar essa certificação e os benefícios que ela
+                    acarreta para o seu negócio.
                 </p>
             </div>
-
         </div>
         <div class="container mt-5">
-            <p>
-                Para oferecer apoio ágil e garantir conformidade a essas tarefas, é essencial estabelecer um comitê de
-                acreditação. Este comitê deve ser composto por profissionais multidisciplinares capazes de lidar com
-                diversas demandas, assegurando o cumprimento dos requisitos da unidade.
-            </p>
-            <div>
 
-
-                <h3 class="display-4">Capacitação Profissional</h3>
-                <p>
-                    A acreditação hospitalar requer que todos os serviços estejam alinhados aos requisitos e parâmetros
-                    de melhoria contínua estabelecidos pelos órgãos acreditadores. A capacitação completa da equipe é
-                    fundamental, não apenas para desempenhar as funções com excelência, mas também para lidar com
-                    liderança, procedimentos, gerenciamento de riscos, estratégias, e outros aspectos semelhantes.
-                </p>
-
-                <h3 class="display-4">Alinhamento de Terceiros</h3>
-                <p>
-                    Não apenas os profissionais internos, mas também fornecedores e parceiros, desempenham um papel
-                    crucial na qualidade das práticas de uma unidade de saúde. Para atender aos requisitos da
-                    acreditação, pode ser necessário adaptar, capacitar ou até mesmo trocar os fornecedores externos de
-                    insumos, equipamentos, materiais, e serviços como limpeza, lavanderia e alimentação.
-                </p>
-
-                <h3 class="display-4">Escolha do Órgão Acreditador</h3>
-                <p>
-                    Todas as práticas mencionadas até aqui devem seguir os requisitos específicos de uma entidade
-                    acreditadora. Essa entidade pode ser nacional ou internacional, e é possível obter credenciamento em
-                    mais de uma opção. Confira no próximo item algumas das certificações mais reconhecidas na área.
-                </p>
-            </div>
-        </div>
-
-        <div class="container mt-5">
-            <div class="jumbotron mt-3">
-                <div class="container">
-                    <h3 class="display-4">Atividades Elegíveis para Acreditação</h3>
-
-                    <ul class="list-group">
-                        <li class="list-group-item">Hospitais</li>
-                        <li class="list-group-item">Ambulatórios</li>
-                        <li class="list-group-item">Laboratórios de análises clínicas</li>
-                        <li class="list-group-item">Laboratórios de anatomia patológica</li>
-                        <li class="list-group-item">Serviços de pronto atendimento</li>
-                        <li class="list-group-item">Home care</li>
-                        <li class="list-group-item">Serviços Oncológicos</li>
-                        <li class="list-group-item">Serviços de Medicina Hiperbárica</li>
-                        <li class="list-group-item">Serviços de Hemoterapia</li>
-                        <li class="list-group-item">Serviços de Nefrologia e Terapia Renal Substitutiva</li>
-                        <li class="list-group-item">Serviços de Diagnóstico por Imagem</li>
-                        <li class="list-group-item">Serviços de Radioterapia</li>
-                        <li class="list-group-item">Serviços de Medicina Nuclear</li>
-                        <li class="list-group-item">Serviços Odontológicos</li>
-                        <li class="list-group-item">Serviços de Processamento de Roupas para a Saúde</li>
-                        <li class="list-group-item">Serviços de Dietoterapia</li>
-                        <li class="list-group-item">Serviços de Manipulação e Atenção Farmacêutica</li>
-                        <li class="list-group-item">Serviços de Esterilização e Reprocessamento de Materiais</li>
-                        <li class="list-group-item">Serviços de Oftalmologia</li>
-                        <li class="list-group-item">Serviços de Atenção Primária</li>
-                        <li class="list-group-item">Serviços de Transporte</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-
+            <h1 class="display-4">Por que investir em Acreditação?</h1>
             <p class="lead">
-            <h1 class="display-4">Management Officer (VMO)</h1>
-            <div class="container mt-4">
-                <h3>Implantação de Value Management Officer</h3>
-
-                <p>
-                    Você sabia que a implantação de um Value Management Officer (VMO) pode trazer grandes benefícios
-                    para as
-                    instituições de saúde? O VMO é a área da organização especializada em gestão de valor, que tem como
-                    objetivo gerar valor para clientes, colaboradores e acionistas, melhorando produtos e serviços com a
-                    maximização de resultados financeiros e operacionais das organizações.
-                </p>
-
-                <p>
-                    Com a crescente demanda por serviços de saúde, é essencial que as instituições encontrem maneiras de
-                    otimizar seus recursos e reduzir custos. O VMO desempenha um papel crucial nesse processo, atuando
-                    na
-                    identificação de oportunidades de melhoria, implementando estratégias eficientes e monitorando os
-                    resultados alcançados.
-                </p>
-                <div class="jumbotron">
-                    <h2 class="display-4">Principais benefícios da implantação de um VMO:</h2>
+                O processo de acreditação vai muito além da obtenção de uma certificação; é principalmente uma maneira
+                de melhorar a qualidade dos serviços prestados, conquistar a confiança dos pacientes e integrar
+                positivamente as equipes.
+            </p> <img src="./imagens/9MOTIVOS.png" alt="Motivos para investir em Acreditação" width="100%"
+                class="img-fluid">
+            <div class="container mt-5">
+                <div class="jumbotron mt-3">
+                    <h3 class="display-4">Principais benefícios da Acreditação:</h3>
                     <ul class="list-group">
-                        <li class="list-group-item">Maximização do retorno sobre o investimento (ROI)</li>
-                        <li class="list-group-item">Gestão de Projetos e Produtos</li>
-                        <li class="list-group-item">Implantação da cultura de melhoria contínua</li>
-                        <li class="list-group-item">Gestão da transformação digital</li>
-                        <li class="list-group-item">Identificando oportunidades de redução de custos e aumento da
-                            produtividade</li>
-                        <li class="list-group-item">Gestão de Riscos</li>
-                        <li class="list-group-item">Melhoria da qualidade dos serviços prestados</li>
-                        <li class="list-group-item">Padronização dos processos e a melhoria contínua da qualidade</li>
-                        <li class="list-group-item">Gestão com dados e indicadores administrativos e assistenciais</li>
-                        <li class="list-group-item">Aumento da segurança de colaboradores e pacientes</li>
+                        <li class="list-group-item"><strong>Melhoria contínua:</strong> Este é um processo que visa a
+                            melhoria constante da Segurança do paciente e dos resultados assistenciais.</li>
+                        <li class="list-group-item"><strong>Diminuição de retrabalho e redução de custos:</strong>
+                            Seguir
+                            corretamente a metodologia da ONA permite que a instituição diminua erros que aumentam
+                            gastos e
+                            retrabalho.</li>
+                        <li class="list-group-item"><strong>Integração entre os setores e processos:</strong> Toda
+                            instituição é um sistema formado por várias partes. A Acreditação faz com que todos os
+                            setores
+                            trabalhem em conjunto, tendo o mesmo objetivo.</li>
+                        <li class="list-group-item"><strong>Controle dos processos e compromisso com o
+                                resultado:</strong>
+                            Instala-se uma visão geral do processo, permitindo maior controle e organização dos
+                            resultados.
+                        </li>
+                        <li class="list-group-item"><strong>Visibilidade no mercado:</strong> A instituição passa a ser
+                            reconhecida pela sua excelência em qualidade.</li>
+                        <li class="list-group-item"><strong>Identificação de riscos e oportunidades:</strong> Permite
+                            corrigir os erros antes que eles aconteçam e aproveitar as oportunidades antes dos
+                            concorrentes.
+                        </li>
+                        <li class="list-group-item"><strong>Diferencial competitivo:</strong> Saia na frente da
+                            concorrência, provando sua qualidade em saúde.</li>
+                        <li class="list-group-item"><strong>Credibilidade:</strong> Você ganhará credibilidade de
+                            médicos,
+                            equipe multiprofissional e pacientes.</li>
+                        <li class="list-group-item"><strong>Oportunidade de reajuste de tabela:</strong> Reajuste de
+                            IPCA de
+                            100% a 105%, dependendo dos resultados do Fator de Qualidade (Lei nº 13.003/2014 e
+                            regulamentado
+                            pela Instrução Normativa nº 61/2015).</li>
                     </ul>
                 </div>
+            </div>
 
-
-                <h2 class="display-4">Como implantar um VMO?</h2>
+            <div class="container mt-5">
+                <h2 class="display-4">Como funciona a Acreditação Hospitalar?</h2>
                 <p>
-                    A implantação de um VMO pode ser dividida em algumas etapas. Em primeiro lugar, é necessário
-                    realizar um
-                    diagnóstico da instituição, identificando as principais necessidades e desafios enfrentados. Em
-                    seguida,
-                    é feito um planejamento estratégico, que define as metas e objetivos a serem alcançados. A partir
-                    disso,
-                    o VMO começa a implementar as estratégias definidas, acompanhando de perto os resultados e ajustando
-                    as
-                    ações, quando necessário.
-                </p>
-                <p>
-                    É importante ressaltar que a implantação de um VMO requer o apoio e envolvimento de toda a equipe da
-                    instituição. O profissional atua em parceria com os gestores e colaboradores, oferecendo
-                    treinamentos e
-                    capacitações, para garantir que todos compreendam a importância da gestão de valor e estejam
-                    alinhados
-                    com
-                    os objetivos da organização.
+                    A acreditação hospitalar depende do cumprimento de certos pré-requisitos, que podem variar
+                    de acordo com cada entidade acreditadora.
+                    Em geral, essas exigências incluem a apresentação das licenças sanitárias, a constituição legal
+                    há mais de um ano, alvará de funcionamento, entre outras questões técnicas semelhantes.
                 </p>
 
-                <h2 class="display-4">Treinamentos InCompany</h2>
-                <div class="jumbotron">
+                <p>
+                    Com toda a documentação em dia, o início do processo ainda demanda algumas práticas, que
+                    incluem:
+                </p>
+
+                <h3 class="display-4">Organização interna</h3>
+                <p>
+                    A avaliação demanda o engajamento de todos os profissionais envolvidos na unidade de saúde,
+                    e é preciso que os mesmos tenham domínio sobre os critérios de acreditação e os priorizem
+                    em suas rotinas.
+                    Além disso, a administração do hospital ou da clínica precisa lidar com as adequações exigidas,
+                    direcionando verbas para reformas na infraestrutura, para a adequação de determinados
+                    serviços, entre outros pontos previstos nas avaliações.
+                </p>
+
+                <div>
+                    <h3 class="display-4">Coordenador Responsável</h3>
                     <p>
-                        <strong>Gestão de Riscos:</strong> O curso de Gestão de Riscos na área de saúde ensina os
-                        profissionais a identificar,
-                        avaliar e gerenciar os riscos presentes nos processos de uma organização. Com foco na prevenção
+                        Embora a acreditação hospitalar exija esforços coletivos, é essencial designar um coordenador
+                        responsável por gerenciar todo o processo. Este profissional pode ser alguém da equipe interna,
+                        desde que capacitado para a função, ou um consultor externo contratado. Suas principais
+                        responsabilidades incluem:
+                    </p>
+                    <ul class="list-group">
+                        <li class="list-group-item">Monitorar todos os procedimentos;</li>
+                        <li class="list-group-item">Reconhecer as mudanças necessárias para a adaptação;</li>
+                        <li class="list-group-item">Garantir a transparência das adequações, mantendo contato constante
+                            com o time de direção hospitalar.</li>
+                    </ul>
+                    <p>
+                        Além disso, para dar apoio, agilidade e conformidade a essas tarefas, é fundamental criar um
+                        comitê de acreditação. Este comitê deve ser composto por profissionais multidisciplinares
+                        capazes de lidar com as diversas demandas da unidade para o cumprimento dos requisitos.
+                    </p>
+                </div>
+
+            </div>
+            <div class="container mt-5">
+                <p>
+                    Para oferecer apoio ágil e garantir conformidade a essas tarefas, é essencial estabelecer um comitê
+                    de
+                    acreditação. Este comitê deve ser composto por profissionais multidisciplinares capazes de lidar com
+                    diversas demandas, assegurando o cumprimento dos requisitos da unidade.
+                </p>
+                <div>
+
+
+                    <h3 class="display-4">Capacitação Profissional</h3>
+                    <p>
+                        A acreditação hospitalar requer que todos os serviços estejam alinhados aos requisitos e
+                        parâmetros
+                        de melhoria contínua estabelecidos pelos órgãos acreditadores. A capacitação completa da equipe
+                        é
+                        fundamental, não apenas para desempenhar as funções com excelência, mas também para lidar com
+                        liderança, procedimentos, gerenciamento de riscos, estratégias, e outros aspectos semelhantes.
+                    </p>
+
+                    <h3 class="display-4">Alinhamento de Terceiros</h3>
+                    <p>
+                        Não apenas os profissionais internos, mas também fornecedores e parceiros, desempenham um papel
+                        crucial na qualidade das práticas de uma unidade de saúde. Para atender aos requisitos da
+                        acreditação, pode ser necessário adaptar, capacitar ou até mesmo trocar os fornecedores externos
                         de
-                        eventos
-                        adversos e na melhoria da segurança do paciente, o curso capacita os participantes a estabelecer
-                        estratégias eficazes para o gerenciamento de riscos, minimizando possíveis impactos negativos na
-                        qualidade
-                        do atendimento.
+                        insumos, equipamentos, materiais, e serviços como limpeza, lavanderia e alimentação.
                     </p>
+
+                    <h3 class="display-4">Escolha do Órgão Acreditador</h3>
                     <p>
-                        <strong>Mapeamento de Processos:</strong> O curso de Mapeamento de Processos na área de saúde
-                        tem
-                        como objetivo auxiliar
+                        Todas as práticas mencionadas até aqui devem seguir os requisitos específicos de uma entidade
+                        acreditadora. Essa entidade pode ser nacional ou internacional, e é possível obter
+                        credenciamento em
+                        mais de uma opção. Confira no próximo item algumas das certificações mais reconhecidas na área.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="jumbotron mt-3">
+                    <div class="container">
+                        <h3 class="display-4">Atividades Elegíveis para Acreditação</h3>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">Hospitais</li>
+                            <li class="list-group-item">Ambulatórios</li>
+                            <li class="list-group-item">Laboratórios de análises clínicas</li>
+                            <li class="list-group-item">Laboratórios de anatomia patológica</li>
+                            <li class="list-group-item">Serviços de pronto atendimento</li>
+                            <li class="list-group-item">Home care</li>
+                            <li class="list-group-item">Serviços Oncológicos</li>
+                            <li class="list-group-item">Serviços de Medicina Hiperbárica</li>
+                            <li class="list-group-item">Serviços de Hemoterapia</li>
+                            <li class="list-group-item">Serviços de Nefrologia e Terapia Renal Substitutiva</li>
+                            <li class="list-group-item">Serviços de Diagnóstico por Imagem</li>
+                            <li class="list-group-item">Serviços de Radioterapia</li>
+                            <li class="list-group-item">Serviços de Medicina Nuclear</li>
+                            <li class="list-group-item">Serviços Odontológicos</li>
+                            <li class="list-group-item">Serviços de Processamento de Roupas para a Saúde</li>
+                            <li class="list-group-item">Serviços de Dietoterapia</li>
+                            <li class="list-group-item">Serviços de Manipulação e Atenção Farmacêutica</li>
+                            <li class="list-group-item">Serviços de Esterilização e Reprocessamento de Materiais</li>
+                            <li class="list-group-item">Serviços de Oftalmologia</li>
+                            <li class="list-group-item">Serviços de Atenção Primária</li>
+                            <li class="list-group-item">Serviços de Transporte</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <p class="lead">
+                <h1 class="display-4" id="VMO">Management Officer (VMO)</h1>
+                <div class="container mt-4">
+                    <h3>Implantação de Value Management Officer</h3>
+
+                    <p>
+                        Você sabia que a implantação de um Value Management Officer (VMO) pode trazer grandes benefícios
+                        para as
+                        instituições de saúde? O VMO é a área da organização especializada em gestão de valor, que tem
+                        como
+                        objetivo gerar valor para clientes, colaboradores e acionistas, melhorando produtos e serviços
+                        com a
+                        maximização de resultados financeiros e operacionais das organizações.
+                    </p>
+
+                    <p>
+                        Com a crescente demanda por serviços de saúde, é essencial que as instituições encontrem
+                        maneiras de
+                        otimizar seus recursos e reduzir custos. O VMO desempenha um papel crucial nesse processo,
+                        atuando
+                        na
+                        identificação de oportunidades de melhoria, implementando estratégias eficientes e monitorando
                         os
-                        profissionais a compreenderem e otimizarem os fluxos de trabalho dentro de uma organização.
-                        Através
-                        do
-                        mapeamento detalhado dos processos, é possível identificar possíveis gargalos, retrabalhos e
-                        falhas
-                        na
-                        execução das atividades, permitindo a implementação de melhorias e a obtenção de resultados mais
-                        eficientes e de qualidade na prestação de serviços de saúde.
+                        resultados alcançados.
+                    </p>
+                    <div class="jumbotron">
+                        <h2 class="display-4">Principais benefícios da implantação de um VMO:</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item">Maximização do retorno sobre o investimento (ROI)</li>
+                            <li class="list-group-item">Gestão de Projetos e Produtos</li>
+                            <li class="list-group-item">Implantação da cultura de melhoria contínua</li>
+                            <li class="list-group-item">Gestão da transformação digital</li>
+                            <li class="list-group-item">Identificando oportunidades de redução de custos e aumento da
+                                produtividade</li>
+                            <li class="list-group-item">Gestão de Riscos</li>
+                            <li class="list-group-item">Melhoria da qualidade dos serviços prestados</li>
+                            <li class="list-group-item">Padronização dos processos e a melhoria contínua da qualidade
+                            </li>
+                            <li class="list-group-item">Gestão com dados e indicadores administrativos e assistenciais
+                            </li>
+                            <li class="list-group-item">Aumento da segurança de colaboradores e pacientes</li>
+                        </ul>
+                    </div>
+
+
+                    <h2 class="display-4">Como implantar um VMO?</h2>
+                    <p>
+                        A implantação de um VMO pode ser dividida em algumas etapas. Em primeiro lugar, é necessário
+                        realizar um
+                        diagnóstico da instituição, identificando as principais necessidades e desafios enfrentados. Em
+                        seguida,
+                        é feito um planejamento estratégico, que define as metas e objetivos a serem alcançados. A
+                        partir
+                        disso,
+                        o VMO começa a implementar as estratégias definidas, acompanhando de perto os resultados e
+                        ajustando
+                        as
+                        ações, quando necessário.
                     </p>
                     <p>
-                        <strong>Gestão da Rotina com ferramentas de Qualidade:</strong> O curso de Gestão da Rotina com
-                        ferramentas de Qualidade
-                        na área de saúde proporciona aos profissionais o conhecimento e as habilidades necessárias para
-                        organizar,
-                        controlar e melhorar os processos diários de uma instituição de saúde. Utilizando ferramentas e
-                        técnicas
-                        de gestão da qualidade, os participantes aprendem a implementar medidas que visam a
-                        padronização, a
-                        redução de erros e falhas, a melhoria contínua e a excelência no atendimento ao paciente.
+                        É importante ressaltar que a implantação de um VMO requer o apoio e envolvimento de toda a
+                        equipe da
+                        instituição. O profissional atua em parceria com os gestores e colaboradores, oferecendo
+                        treinamentos e
+                        capacitações, para garantir que todos compreendam a importância da gestão de valor e estejam
+                        alinhados
+                        com
+                        os objetivos da organização.
                     </p>
-                    <p>
-                        <strong>Gerenciamento de Projetos:</strong> O curso de Gerenciamento de Projetos na área de
-                        saúde
-                        capacita os
-                        profissionais
-                        a planejar, executar, monitorar e controlar projetos de saúde de forma eficiente e eficaz. Com
-                        foco
-                        na
-                        entrega de resultados e na utilização de boas práticas de gestão, os participantes aprendem a
-                        liderar
-                        equipes, a estabelecer metas e prazos, a gerenciar recursos e a realizar o monitoramento
-                        constante
-                        das
-                        atividades, visando garantir o sucesso dos projetos na área da saúde.
+
+                    <h2 class="display-4" id="treinamentos">Treinamentos InCompany</h2>
+                    <div class="jumbotron">
+                        <p>
+                            <strong>Gestão de Riscos:</strong> O curso de Gestão de Riscos na área de saúde ensina os
+                            profissionais a identificar,
+                            avaliar e gerenciar os riscos presentes nos processos de uma organização. Com foco na
+                            prevenção
+                            de
+                            eventos
+                            adversos e na melhoria da segurança do paciente, o curso capacita os participantes a
+                            estabelecer
+                            estratégias eficazes para o gerenciamento de riscos, minimizando possíveis impactos
+                            negativos na
+                            qualidade
+                            do atendimento.
+                        </p>
+                        <p>
+                            <strong>Mapeamento de Processos:</strong> O curso de Mapeamento de Processos na área de
+                            saúde
+                            tem
+                            como objetivo auxiliar
+                            os
+                            profissionais a compreenderem e otimizarem os fluxos de trabalho dentro de uma organização.
+                            Através
+                            do
+                            mapeamento detalhado dos processos, é possível identificar possíveis gargalos, retrabalhos e
+                            falhas
+                            na
+                            execução das atividades, permitindo a implementação de melhorias e a obtenção de resultados
+                            mais
+                            eficientes e de qualidade na prestação de serviços de saúde.
+                        </p>
+                        <p>
+                            <strong>Gestão da Rotina com ferramentas de Qualidade:</strong> O curso de Gestão da Rotina
+                            com
+                            ferramentas de Qualidade
+                            na área de saúde proporciona aos profissionais o conhecimento e as habilidades necessárias
+                            para
+                            organizar,
+                            controlar e melhorar os processos diários de uma instituição de saúde. Utilizando
+                            ferramentas e
+                            técnicas
+                            de gestão da qualidade, os participantes aprendem a implementar medidas que visam a
+                            padronização, a
+                            redução de erros e falhas, a melhoria contínua e a excelência no atendimento ao paciente.
+                        </p>
+                        <p>
+                            <strong>Gerenciamento de Projetos:</strong> O curso de Gerenciamento de Projetos na área de
+                            saúde
+                            capacita os
+                            profissionais
+                            a planejar, executar, monitorar e controlar projetos de saúde de forma eficiente e eficaz.
+                            Com
+                            foco
+                            na
+                            entrega de resultados e na utilização de boas práticas de gestão, os participantes aprendem
+                            a
+                            liderar
+                            equipes, a estabelecer metas e prazos, a gerenciar recursos e a realizar o monitoramento
+                            constante
+                            das
+                            atividades, visando garantir o sucesso dos projetos na área da saúde.
+                        </p>
+                    </div>
+
                     </p>
                 </div>
-
-                </p>
             </div>
         </div>
-    </div>
-    <div class="float-right">
-        <div class="btn-group">
-            <button type="button" id="btn-contato" class="btn btn-success">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-            </button>
+        <div class="float-right">
+            <div class="btn-group">
+                <button type="button" id="btn-contato" class="btn btn-success">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Contato</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/enviar" method="post">
-                        <div class="form-group">
-                            <label for="nome">Nome*</label>
-                            <input type="text" class="form-control" id="nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail*</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" class="form-control" id="empresa" name="empresa">
-                        </div>
-                        <div class="form-group">
-                            <label for="cargo">Cargo</label>
-                            <input type="text" class="form-control" id="cargo" name="cargo">
-                        </div>
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Contato</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/enviar" method="post">
+                            <div class="form-group">
+                                <label for="nome">Nome*</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" class="form-control" id="telefone" name="telefone">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail*</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" class="form-control" id="empresa" name="empresa">
+                            </div>
+                            <div class="form-group">
+                                <label for="cargo">Cargo</label>
+                                <input type="text" class="form-control" id="cargo" name="cargo">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="bg-dark text-white py-4">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <a href="https://www.facebook.com/TelecallBr" class="text-white me-3" style="font-size: 24px;">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br" class="text-white me-3"
-                        style="font-size: 24px;">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/telecallbr/" class="text-white me-3" style="font-size: 24px;">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
+        <footer class="bg-dark text-white py-4">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <a href="https://www.facebook.com/TelecallBr" class="text-white me-3" style="font-size: 24px;">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br"
+                            class="text-white me-3" style="font-size: 24px;">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/telecallbr/" class="text-white me-3"
+                            style="font-size: 24px;">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-auto">
+                        <span>© 2023 Todos os direitos reservados.</span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6 offset-md-3">
+                        <h2 class="text-center mb-4">Entre em Contato</h2>
+                        <form action="mailto:contato@valueware.com.br" method="post">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome *</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="telefone" name="telefone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="empresa" class="form-label">Empresa</label>
+                                <input type="text" class="form-control" id="empresa" name="empresa" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cargo" class="form-label">Cargo</label>
+                                <input type="text" class="form-control" id="cargo" name="cargo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center mt-2">
-                <div class="col-auto">
-                    <span>© 2023 Todos os direitos reservados.</span>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center mb-4">Entre em Contato</h2>
-                    <form action="mailto:contato@valueware.com.br" method="post">
-                        <div class="mb-3">
-                            <label for="nome" class="form-label">Nome *</label>
-                            <input type="text" class="form-control" id="nome" name="nome" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-mail *</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="empresa" class="form-label">Empresa</label>
-                            <input type="text" class="form-control" id="empresa" name="empresa" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="cargo" class="form-label">Cargo</label>
-                            <input type="text" class="form-control" id="cargo" name="cargo" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensagem" class="form-label">Mensagem</label>
-                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="../javaScript/index.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="../javaScript/index.js"></script>
+    </main>
 </body>
 
 </html>
