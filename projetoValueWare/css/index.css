@@ -1,4 +1,4 @@
-@media(min-width:992px) {
+@media(max-width:992px) {
 
     .navbar-nav {
         margin-left: 25%;
@@ -6,16 +6,18 @@
 
     }
 
-    .card {
-        height: 70%;
-    }
+
 
     #formularioContato {
         margin-bottom: 5%;
     }
- 
+
+    
     
  
+}
+.card{
+    border: none;
 }
 main{
     margin-top: 10rem;
