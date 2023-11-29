@@ -11,10 +11,6 @@
     #formularioContato {
         margin-bottom: 5%;
     }
-
-    
-    
- 
 }
 .card{
     border: none;
@@ -26,13 +22,13 @@ main{
 body {
     margin: 0;
     padding: 0;
-    text-align: justify;
 }
 
 .jumbotron {
     line-height: 2rem;
     font-style: italic;
     font-family: sans-serif;
+    background-color:transparent;
 }
 
 #formularioContato {
@@ -67,4 +63,7 @@ h3 {
 
 .fixed-top{
     height: auto;
+}
+mark{
+    background-color: rgba(255, 255, 0, 0.608);
 }

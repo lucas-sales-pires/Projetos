@@ -28,9 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../saude/saude.html">Saúde</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active" >
                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Educação
+                        aria-haspopup="true" aria-expanded="false" >Educação
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#prosperção">Prospeção de polos parceiros</a>
@@ -54,12 +54,12 @@
 
             <p class="lead">O setor educacional está mais competitivo do que nunca. As instituições de ensino superior
                 estão constantemente buscando maneiras de se destacar e atrair alunos talentosos. É essencial
-                adotar uma abordagem estratégica para aumentar o valor e a eficiência de sua instituição. É aí
+                adotar uma abordagem estratégica para aumentar o valor e a eficiência de sua instituição.<mark> É aí
                 que entra a figura do Value Management Officer.
                 O Value Management Officer é uma área especializada em estratégias de gestão de valor. Ela é
                 responsável por identificar oportunidades de melhoria, otimizar processos, reduzir
                 desperdícios e melhorar a eficiência operacional em sua instituição de ensino superior
-                agregando e gerando valor para alunos, colaboradores e acionistas</p>
+                agregando e gerando valor para alunos, colaboradores e acionistas</mark></p>
 
             <div class="container mt-5">
                 <div class="jumbotron">
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lead jumbotron">
+                <div class="lead">
                     <h3 class="display-4" id="prospeção">Estratégias para Expansão de Polos Parceiros e Melhoria de
                         Resultados</h3>
                     <p>No desafiador cenário do mercado de parceiros de Instituições de Ensino Superior (IES) no Brasil,
@@ -300,10 +300,10 @@
                     garantindo que sua instituição se mantenha alinhada às exigências governamentais. Levamos
                     em conta aspectos como a titulação dos docentes, a carga horária parcial e integral, para
                     garantir que você esteja em conformidade com todas as normas estabelecidas.
-                    A Otimização Docente é essencial para garantir a excelência no ensino superior. Ao investir
+                    <mark> A Otimização Docente é essencial para garantir a excelência no ensino superior. Ao investir
                     nesta solução, você proporcionará aos seus alunos um ensino de qualidade, com docentes
                     capacitados e alinhados às expectativas do MEC. Além disso, você também aproveitará ao
-                    máximo os recursos disponíveis, otimizando custos e elevando a eficiência de sua instituição.
+                    máximo os recursos disponíveis, otimizando custos e elevando a eficiência de sua instituição.</mark>
                     Entre em contato conosco e descubra como a nossa solução de Otimização Docente pode
                     impulsionar o sucesso da sua instituição de ensino superior. Invista na excelência e alcance
                     resultados surpreendentes!
@@ -369,14 +369,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/enviar" method="post">
+                        <form action="/enviar" method="post" autocomplete="off">
                             <div class="form-group">
                                 <label for="nome">Nome*</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
                             </div>
                             <div class="form-group">
                                 <label for="telefone">Telefone</label>
-                                <input type="text" class="form-control" id="telefone" name="telefone">
+                                <input type="text" class="form-control" pattern="[0-9]{10}" id="telefone" name="telefone" pattern="[0-9]{10}">
                             </div>
                             <div class="form-group">
                                 <label for="email">E-mail*</label>
@@ -404,14 +404,14 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-auto">
-                        <a href="https://www.facebook.com/TelecallBr" class="text-white me-3" style="font-size: 24px;">
+                        <a href="https://www.facebook.com/TelecallBr" target="_blank"class="text-white me-3" style="font-size: 24px;">
                             <i class="fa-brands fa-facebook"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br"
+                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br" target="_blank"
                             class="text-white me-3" style="font-size: 24px;">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="https://www.instagram.com/telecallbr/" class="text-white me-3"
+                        <a href="https://www.instagram.com/telecallbr/" target="_blank"class="text-white me-3"
                             style="font-size: 24px;">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
@@ -432,7 +432,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="telefone" class="form-label">Telefone</label>
-                                <input type="text" class="form-control" id="telefone" name="telefone">
+                                <input type="text" class="form-control" pattern="[0-9]{10}" id="telefone" name="telefone">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-mail *</label>

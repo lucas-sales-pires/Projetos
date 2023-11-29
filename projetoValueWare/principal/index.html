@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    
 
 <head>
     <meta charset="UTF-8">
@@ -96,7 +97,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/enviar" method="post">
+                        <form action="/enviar" method="post" autocomplete="off">
                             <div class="form-group">
                                 <label for="nome">Nome*</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
@@ -132,14 +133,14 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-auto">
-                        <a href="https://www.facebook.com/TelecallBr" class="text-white me-3" style="font-size: 24px;">
+                        <a href="https://www.facebook.com/TelecallBr" target="_blank"class="text-white me-3" style="font-size: 24px;">
                             <i class="fa-brands fa-facebook"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br"
+                        <a href="https://www.linkedin.com/company/telecall/?originalSubdomain=br" target="_blank"
                             class="text-white me-3" style="font-size: 24px;">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="https://www.instagram.com/telecallbr/" class="text-white me-3"
+                        <a href="https://www.instagram.com/telecallbr/" target="_blank"class="text-white me-3"
                             style="font-size: 24px;">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
@@ -153,14 +154,14 @@
                 <div class="row mt-4">
                     <div class="col-md-6 offset-md-3">
                         <h2 class="text-center mb-4">Entre em Contato</h2>
-                        <form action="mailto:contato@valueware.com.br" method="post">
+                        <form action="mailto:contato@valueware.com.br" method="post" autocomplete="off">
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome *</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
                             </div>
                             <div class="mb-3">
                                 <label for="telefone" class="form-label">Telefone</label>
-                                <input type="text" class="form-control" id="telefone" name="telefone">
+                                <input type="text" class="form-control" id="telefone" name="telefone" pattern="[0-9]{9}">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-mail *</label>

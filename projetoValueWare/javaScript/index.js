@@ -9,7 +9,6 @@ $(document).ready(function() {
     });
   });
   $(document).ready(function () {
-    // Fecha outros dropdowns quando um é clicado
     $(".dropdown").on("show.bs.dropdown", function () {
         $(".dropdown.show").removeClass("show");
     });
