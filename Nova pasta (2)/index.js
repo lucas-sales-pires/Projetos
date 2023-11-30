@@ -7,7 +7,7 @@ divs.map((e)=>{
     e.innerHTML ="ola"
 })
 divs.every(e)
-*/
+
 
 let lista = [-3,12,20,30]
 
@@ -18,4 +18,16 @@ let maior = (n)=> n > 0
 console.log(lista.reduce(somar))
 console.log(lista.every(maior));
 console.log(lista.some(maior))
+
+
+function soma(...valores){
+    let res = 0
+    for(n of valores){
+        res += n
+    }
+    return res
+}
+console.log(soma(1,2,5,4))
+*/
+
 
