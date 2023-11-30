@@ -11,7 +11,7 @@ Este repositório contém alguns dos meus projetos pessoais, variando de jogos a
 - **projeto-faculdade5.0**: Este diretório inclui projetos acadêmicos e trabalhos relacionados à minha jornada acadêmica.
 
 - **quiz**: Um projeto de quiz que desenvolvi para testar meus conhecimentos em diferentes tópicos.
-- 
+  
 - **projetoValueWare**: Um projeto que estou desenvolvendo baseado no que aprendi sobre front-end como um trabalho extra curricular.
 
 
