@@ -133,7 +133,7 @@ async function carregarPokemon(){
     div.innerHTML += `<p>${meuPokemon.nome} <img src = "${meuPokemon.imagem}"></p>`
   
 }
-*/
+
 
 class Pokemon{
     constructor(nome){
@@ -182,3 +182,4 @@ class Pokemon{
 function carregarPokemon(){
     new Pokemon(document.getElementById("pokemon").value)
 }
+*/

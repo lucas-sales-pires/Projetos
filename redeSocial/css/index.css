@@ -39,16 +39,19 @@ body>div>header>nav {
     font-size: 10px;
     position: absolute;
 }
-#fotoPerfil{
+
+#fotoPerfil {
     max-width: 50px;
     max-height: 50px;
     border-radius: 50%;
 }
-.navbar-nav{
+
+.navbar-nav {
     gap: 10%;
     margin: auto;
     display: flex;
 }
+
 .navbar-nav li {
     font-size: x-large;
 }
@@ -64,11 +67,25 @@ body>div>header>nav {
     flex-direction: column;
     margin: auto;
 }
+.autor img{
+    width: 10%;
+    border-radius: 50%;
+    display: block;
+}
+
+#formularioPublicacao {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: auto;
+}
+
+input[type="file"] {
+    display: none;
+}
 
 p {
     margin: auto;
-    display: flex;
-    width: 20%
 }
 
 .container {
@@ -98,7 +115,6 @@ p {
 
 .postagem {
     background-color: whitesmoke;
-    width: 50%;
     margin: auto;
     box-shadow: 1px 1px 10px;
     padding: 10px;
@@ -106,7 +122,12 @@ p {
     color: black;
     border-radius: 20px;
 }
-
+.conteudo img{
+    width: 100%
+}
+.conteudo p{
+    display: block;
+}
 @media (max-width:680px) {
 
     .ladoDireito,

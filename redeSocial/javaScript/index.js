@@ -1,4 +1,4 @@
-function adicionarPublicacao(nomeAutor, conteudo) {
+function adicionarPublicacao(nomeAutor, conteudo,imagem ="") {
     let feed = document.getElementById('publicacoes');
 
     let postagem = document.createElement('div');
@@ -7,11 +7,15 @@ function adicionarPublicacao(nomeAutor, conteudo) {
     let autor = document.createElement('p');
     autor.className = 'autor';
     autor.innerText = nomeAutor;
+    autor.innerHTML += '<img src = "../fotoPerfil/fotoPerfil1.jpg">';
+
 
     let conteudoPostagem = document.createElement('p');
     conteudoPostagem.className = 'conteudo';
     conteudoPostagem.innerHTML = conteudo;
-
+    if(imagem){
+        conteudoPostagem.innerHTML += `<img src="${imagem}">`
+    }
     let botao = document.createElement("button");
     botao.className = "curtirBtn";
     botao.innerHTML = '<i class="fa-regular fa-thumbs-up"></i>';
@@ -40,7 +44,7 @@ function adicionarPublicacao(nomeAutor, conteudo) {
     postagem.appendChild(curtidas);
 
     feed.appendChild(postagem);
-   
+
     botao.addEventListener("click", () => {
         botao.classList.toggle("curtido");
         curtida = botao.classList.contains("curtido") ? curtida + 1 : curtida - 1;
@@ -55,12 +59,28 @@ function adicionarPublicacao(nomeAutor, conteudo) {
     })
 }
 
-let imagem = '<img src = "../imagens/redeSocial.jpeg" class="img-fluid"></img>';
-let imagem2 = '<img src = "../imagens/mrbean.jpg" class="img-fluid"></img>';
-let imagem3 = '<img src = "../imagens/bobEsponja.jpg" class="img-fluid"></img>';
 
-adicionarPublicacao('Lucas Postou:', imagem);
-adicionarPublicacao('Márcio Postou:', imagem2);
-adicionarPublicacao('José Postou:', imagem3);
+let formulario = document.getElementById("formularioPublicacao");
 
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
+    let formData = new FormData(formulario);
+
+    fetch("../php/tratarPublicacao.php", {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.caminhoImagem || data.caminhoPublicacao) {
+            adicionarPublicacao('Lucas Postou:',data.caminhoPublicacao,data.caminhoImagem);
+        }     
+      else if (data.erro) {
+            console.error("Erro durante o upload:", data.erro);
+        }
+    })
+    .catch(error => {
+        console.error("Erro na requisição:", error);
+    });
+});
