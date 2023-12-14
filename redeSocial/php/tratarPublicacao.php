@@ -1,15 +1,19 @@
 <?php
-require 'conexao.php';
+require "./conexao.php";
+require "./funcoes.php";
 
+$usuario = new Usuario($conexao, $_SESSION["emailUsuarioAtual"]);
+$login = $usuario->consultaUsuario()["login"];
 if (isset($_FILES["foto"])) {
     $foto = $_FILES["foto"];
     $publicacao = $_POST["escrita"];
     $diretorioDestino = "../imagens/";
-    $nomeArquivo = basename($foto["name"]);
-    $caminhoCompleto = $nomeArquivo.$diretorioDestino;
-    move_uploaded_file($foto["tmp_name"],$diretorioDestino);
-    $imagens = glob($diretorioDestino . '*.{png,jpeg,jpg,gif}',GLOB_BRACE);
-    
+    $nomeArquivo = $login . "_" . basename($foto["name"]);
+    $caminhoCompleto = $diretorioDestino . $nomeArquivo;
+    move_uploaded_file($foto["tmp_name"], $diretorioDestino . $nomeArquivo);
+    $imagens = glob($diretorioDestino . '*.{png,jpeg,jpg,gif}', GLOB_BRACE);
+
+
     if (!empty($imagens)) {
         usort($imagens, function ($a, $b) {
             return filemtime($b) - filemtime($a);

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas e Exemplos MySQL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Monaco, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Perguntas e Exemplos MySQL</h1>
+
+<ol>
+    <li>
+        <strong>Como criar um banco de dados no MySQL?</strong><br>
+        <code>CREATE DATABASE nome_do_banco;</code>
+    </li>
+
+    <li>
+        <strong>Qual comando é usado para selecionar um banco de dados específico?</strong><br>
+        <code>USE nome_do_banco;</code>
+    </li>
+
+    <li>
+        <strong>Como criar uma tabela no MySQL?</strong><br>
+        <code>
+            CREATE TABLE nome_da_tabela (
+                coluna1 tipo,
+                coluna2 tipo,
+                ...
+            );
+        </code>
+    </li>
+
+    <li>
+        <strong>Qual é o comando para inserir dados em uma tabela?</strong><br>
+        <code>INSERT INTO nome_da_tabela (coluna1, coluna2, ...) VALUES (valor1, valor2, ...);</code>
+    </li>
+
+    <li>
+        <strong>Como recuperar todos os registros de uma tabela?</strong><br>
+        <code>SELECT * FROM nome_da_tabela;</code>
+    </li>
+
+    <li>
+        <strong>Qual é o comando para filtrar dados em uma consulta?</strong><br>
+        <code>SELECT coluna1, coluna2 FROM nome_da_tabela WHERE condição;</code>
+    </li>
+
+    <li>
+        <strong>Como atualizar dados em uma tabela?</strong><br>
+        <code>UPDATE nome_da_tabela SET coluna1 = novo_valor WHERE condição;</code>
+    </li>
+
+    <li>
+        <strong>Como excluir registros de uma tabela?</strong><br>
+        <code>DELETE FROM nome_da_tabela WHERE condição;</code>
+    </li>
+
+    <li>
+        <strong>Como adicionar uma chave primária a uma tabela já existente?</strong><br>
+        <code>ALTER TABLE nome_da_tabela ADD PRIMARY KEY (coluna);</code>
+    </li>
+
+    <li>
+        <strong>Como realizar uma junção (JOIN) entre duas tabelas?</strong><br>
+        <code>SELECT * FROM tabela1 JOIN tabela2 ON tabela1.coluna = tabela2.coluna;</code>
+    </li>
+
+    <li>
+        <strong>Qual é a função do GROUP BY?</strong><br>
+        <code>SELECT coluna, COUNT(*) FROM nome_da_tabela GROUP BY coluna;</code>
+    </li>
+
+    <li>
+        <strong>Como ordenar os resultados de uma consulta?</strong><br>
+        <code>SELECT * FROM nome_da_tabela ORDER BY coluna DESC;</code>
+    </li>
+
+    <li>
+        <strong>Como calcular a média de uma coluna numérica?</strong><br>
+        <code>SELECT AVG(coluna_numerica) FROM nome_da_tabela;</code>
+    </li>
+
+    <li>
+        <strong>Como usar a cláusula LIMIT para paginar resultados?</strong><br>
+        <code>SELECT * FROM nome_da_tabela LIMIT 10 OFFSET 20;</code>
+    </li>
+
+    <li>
+        <strong>Como realizar uma subconsulta (subquery)?</strong><br>
+        <code>SELECT coluna FROM nome_da_tabela WHERE coluna IN (SELECT coluna FROM outra_tabela);</code>
+    </li>
+
+    <li>
+        <strong>Como fazer backup e restaurar um banco de dados?</strong><br>
+        - Backup:<br>
+        <code>mysqldump -u usuario -p nome_do_banco > backup.sql</code><br>
+        - Restaurar:<br>
+        <code>mysql -u usuario -p nome_do_banco < backup.sql</code>
+    </li>
+
+    <li>
+        <strong>Como criar um índice em uma coluna para melhorar o desempenho de consultas?</strong><br>
+        <code>CREATE INDEX index_nome ON nome_da_tabela (coluna);</code>
+    </li>
+
+    <li>
+        <strong>Como usar transações no MySQL?</strong><br>
+        <code>
+            START TRANSACTION;
+            -- Suas operações SQL aqui
+            COMMIT;
+        </code>
+    </li>
+
+    <li>
+        <strong>Como renomear uma tabela?</strong><br>
+        <code>RENAME TABLE nome_antigo TO nome_novo;</code>
+    </li>
+
+    <li>
+        <strong>Como contar o número de registros em uma tabela?</strong><br>
+        <code>SELECT COUNT(*) FROM nome_da_tabela;</code>
+    </li>
+</ol>
+
+</body>
+</html>

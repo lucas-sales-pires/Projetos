@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Cadastro</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 
@@ -17,15 +18,23 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center">Cadastre-se</h5>
-            <form method="post" action="../php/cadastrar.php" autocomplete="off">
+            <form method="post" action="./php/cadastro.php" autocomplete="off">
               <div class="form-group">
                 <label for="nome" class="form-label">Nome Completo:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Mínimo de 15 caracteres" maxlength="80" minlength="15" required>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Mínimo de 15 caracteres"
+                  maxlength="80" minlength="15" required>
+              </div>
+
+              <div class="form-group">
+                <label for="login" class="form-label">Login:</label>
+                <input type="text" class="form-control" id="login" name="login" placeholder="Mínimo de 10 caracteres"
+                  maxlength="10" minlength="6" required>
               </div>
 
               <div class="form-group">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="xxxxxxx@xxxx.xxx"minlength="10" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="xxxxxxx@xxxx.xxx"
+                  minlength="10" required>
               </div>
 
               <div class="form-group">
@@ -34,33 +43,42 @@
               </div>
 
               <div class="form-group">
+                <label for="endereco" class="form-label">Endereço :</label>
+                <input type="text" id="endereco" name="endereco" class="form-control" readonly>
+              </div>
+
+              <div class="form-group">
                 <label for="celular" class="form-label">Celular</label>
-                <input type="text" id="celular" name ="celular" class="form-control" onblur="ajustaCelular(this)" maxlength="12" minlength="12" placeholder="(xx) xxxxx-xxxx" required>
+                <input type="text" id="celular" name="celular" class="form-control" onblur="ajustaCelular(this)"
+                  maxlength="15" minlength="15" placeholder="(xx) xxxxx-xxxx" required>
               </div>
 
               <div class="form-group">
                 <label for="senha" class="form-label">Senha:</label>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha deve conter 10 caracteres" minlength="10" maxlength="10" required>
+                <input type="password" class="form-control" id="senha" name="senha"
+                  placeholder="Senha deve conter 10 caracteres" minlength="10" maxlength="10" required>
               </div>
 
               <div class="form-group">
                 <label for="nascimento">Nascimento</label>
-                <input type="date" id="nascimento" name="nascimento" class="form-control" onblur="validarIdade()" required>
+                <input type="date" id="nascimento" name="nascimento" class="form-control" onblur="validarIdade()"
+                  required>
                 <div id="toast"></div>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
-              <button type="submit" class="btn btn-secundary btn-block">já possui conta ? <a href="../login/login.html">Faça o login</a> </button>
+              <button type="submit" class="btn btn-secundary btn-block">já possui conta ? <a
+                  href="../login/login.html">Faça o login</a> </button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="./javaScript/cadastro.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="./javaScript/cadastro.js"></script>
 </body>
 
 </html>

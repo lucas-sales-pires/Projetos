@@ -1,11 +1,6 @@
-const {soma} = require('./calcula');
+const soma = require("./calcula.js")
 describe("funções matemáticas",()=>{
-
-    it('soma 2 números',()=>{
-    expect(soma(1,2)).toBe(3)
+    it("soma 2 números",()=>{
+        expect(soma(2,3)).toBe(5)
+    })
 })
-    it('soma 2 números',()=>{
-    expect(soma(1,2)).toBe(4)
-})
-})
-

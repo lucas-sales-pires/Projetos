@@ -10,4 +10,4 @@ function maiorProMenor($a,$b){
 }
 usort($lista,"maiorProMenor");
 print_r($lista);
-
+?>

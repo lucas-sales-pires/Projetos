@@ -56,6 +56,7 @@ body>div>header>nav {
     font-size: x-large;
 }
 
+
 /* Conteúdo */
 .publicacoes {
     align-items: center;
@@ -128,6 +129,18 @@ p {
 .conteudo p{
     display: block;
 }
+#fotos img{
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+}
+#album,#fotos,#botoes{
+    text-align: center;
+}
+#proximo,#anterior{
+    display: none;
+}
+
 @media (max-width:680px) {
 
     .ladoDireito,
@@ -137,6 +150,11 @@ p {
 
     p {
         width: 80%;
+    }
+    #fotos img{
+        width: 500px;
+        height: 500px;
+        padding: 10px;
     }
 
 }

@@ -182,4 +182,24 @@ class Pokemon{
 function carregarPokemon(){
     new Pokemon(document.getElementById("pokemon").value)
 }
+
+class Escola {
+    constructor(nome) {
+        this.nome = nome
+        console.log("ola " + this.nome)
+    }
+
+
+}
+
+const escola = new Escola("lucas")
+module.exports = escola;
 */
+function rand({min = 0,max = 1000}){
+    const random = Math.random() * (max - min) + min;
+    return Math.floor(random)
+}
+const obj  = {min:50,max:300}
+console.log(rand(obj))
+
+
