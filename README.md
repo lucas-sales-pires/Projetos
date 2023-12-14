@@ -14,7 +14,7 @@ Este repositório contém alguns dos meus projetos pessoais, variando de jogos a
   
 - **praticando**: É uma área que reservo para praticar o que estou aprendendo no momento.
   
-- - **projeto RedeSocial**: Projeto redeSocial será o meu projeto mais avançado, onde quero utilizar tudo que estou aprendendo.(em andamento...)
+-  **projeto RedeSocial**: Projeto redeSocial será o meu projeto mais avançado, onde quero utilizar tudo que estou aprendendo.(em andamento...)
 
 
 ## Contribuições
