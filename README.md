@@ -6,7 +6,6 @@ Este repositório contém alguns dos meus projetos pessoais, variando de jogos a
 
 - **joguinhos**: Neste diretório, você encontrará alguns jogos simples que desenvolvi para praticar minhas habilidades de programação.
 
-- **lojaSuplementos**: Aqui está um projeto relacionado a uma loja de suplementos que criei para aplicar conceitos de desenvolvimento web.
 
 - **projeto-faculdade5.0**: Este diretório inclui projetos acadêmicos e trabalhos relacionados à minha jornada acadêmica.
 
