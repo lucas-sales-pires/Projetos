@@ -12,7 +12,7 @@ class Usuario
 
     public function consultaUsuario()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
             $sql = "SELECT * FROM usuarios WHERE email = :email";
 
             $consulta = $this->conexao->prepare($sql);
@@ -27,6 +27,33 @@ class Usuario
             }
       
         } 
+        public function adicionarPublicacao($id, $publicacao, $imagens, $idUsuario)
+        {
+            try {
+                // Ajuste o nome da tabela e as colunas conforme a estrutura real do seu banco de dados
+                $sql = "INSERT INTO publicacoes (id, publicacao, imagem, id_usuario) VALUES (:id, :publicacao, :imagem, :id_usuario)";
+                
+                $consulta = $this->conexao->prepare($sql);
+                
+                $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+                $consulta->bindParam(":publicacao", $publicacao, PDO::PARAM_STR);
+                
+                // Transforma o array de imagens em uma string JSON
+                $imagensJson = json_encode($imagens);
+                $consulta->bindParam(":imagem", $imagensJson, PDO::PARAM_STR);
+                
+                $consulta->bindParam(":id_usuario", $idUsuario, PDO::PARAM_INT);
+                
+                $consulta->execute();
+                
+                return true;
+            } catch (PDOException $e) {
+                echo "Erro ao adicionar publicação: " . $e->getMessage();
+                
+                return false;
+            }
+        }
+        
     }
-}
+
 

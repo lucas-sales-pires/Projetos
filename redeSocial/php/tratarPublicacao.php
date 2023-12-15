@@ -7,11 +7,13 @@ $login = $usuario->consultaUsuario()["login"];
 if (isset($_FILES["foto"])) {
     $foto = $_FILES["foto"];
     $publicacao = $_POST["escrita"];
+    $_SESSION["escrita"] = $publicacao;
     $diretorioDestino = "../imagens/";
     $nomeArquivo = $login . "_" . basename($foto["name"]);
     $caminhoCompleto = $diretorioDestino . $nomeArquivo;
     move_uploaded_file($foto["tmp_name"], $diretorioDestino . $nomeArquivo);
     $imagens = glob($diretorioDestino . '*.{png,jpeg,jpg,gif}', GLOB_BRACE);
+    
 
 
     if (!empty($imagens)) {

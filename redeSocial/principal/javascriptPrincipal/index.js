@@ -81,6 +81,10 @@ formulario.addEventListener("submit", (e) => {
                 console.error("Erro durante o upload:", data.erro);
             }
         })
+        .catch(error =>{
+            console.error("Requisição não efetuada",error)
+        })
+        
 });
 
 
