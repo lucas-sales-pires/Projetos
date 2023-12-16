@@ -4,6 +4,10 @@ require "./funcoes.php";
 
 $usuario = new Usuario($conexao, $_SESSION["emailUsuarioAtual"]);
 $login = $usuario->consultaUsuario()["login"];
+$nome = $usuario->consultaUsuario()["nome"];
+$partesDoNome = explode(" ", $nome);
+$primeiroNome = $partesDoNome[0];
+
 if (isset($_FILES["foto"])) {
     $foto = $_FILES["foto"];
     $publicacao = $_POST["escrita"];
@@ -23,7 +27,7 @@ if (isset($_FILES["foto"])) {
 
         $ultimaImagem = $imagens[0];
 
-        echo json_encode(['caminhoImagem' => $ultimaImagem, 'caminhoPublicacao' => $publicacao]);
+        echo json_encode(['caminhoImagem' => $ultimaImagem, 'caminhoPublicacao' => $publicacao,'primeiroNome' => $primeiroNome ]);
     } else {
         echo json_encode(['erro' => 'Nenhuma imagem encontrada no diretório.']);
     }

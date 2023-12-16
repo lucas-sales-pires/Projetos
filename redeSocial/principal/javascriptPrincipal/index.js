@@ -75,7 +75,7 @@ formulario.addEventListener("submit", (e) => {
         .then(data => {
             console.log(data.loginUsuario)
             if (data.caminhoImagem || data.caminhoPublicacao) {
-                adicionarPublicacao('Lucas Postou:', data.caminhoPublicacao, data.caminhoImagem);
+                adicionarPublicacao(data.primeiroNome, data.caminhoPublicacao, data.caminhoImagem);
             }
             else if (data.erro) {
                 console.error("Erro durante o upload:", data.erro);

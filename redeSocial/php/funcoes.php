@@ -30,7 +30,6 @@ class Usuario
         public function adicionarPublicacao($id, $publicacao, $imagens, $idUsuario)
         {
             try {
-                // Ajuste o nome da tabela e as colunas conforme a estrutura real do seu banco de dados
                 $sql = "INSERT INTO publicacoes (id, publicacao, imagem, id_usuario) VALUES (:id, :publicacao, :imagem, :id_usuario)";
                 
                 $consulta = $this->conexao->prepare($sql);
@@ -38,7 +37,6 @@ class Usuario
                 $consulta->bindParam(":id", $id, PDO::PARAM_INT);
                 $consulta->bindParam(":publicacao", $publicacao, PDO::PARAM_STR);
                 
-                // Transforma o array de imagens em uma string JSON
                 $imagensJson = json_encode($imagens);
                 $consulta->bindParam(":imagem", $imagensJson, PDO::PARAM_STR);
                 
