@@ -13,6 +13,7 @@ function adicionarPublicacao(nomeAutor, conteudo, imagem = "") {
     let conteudoPostagem = document.createElement('p');
     conteudoPostagem.className = 'conteudo';
     conteudoPostagem.innerHTML = conteudo;
+
     if (imagem) {
         conteudoPostagem.innerHTML += `<img src="${imagem}">`
     }
@@ -73,19 +74,39 @@ formulario.addEventListener("submit", (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data.loginUsuario)
-            if (data.caminhoImagem || data.caminhoPublicacao) {
-                adicionarPublicacao(data.primeiroNome, data.caminhoPublicacao, data.caminhoImagem);
+            if (data.caminhoImagem || data.comentarios) {
+                adicionarPublicacao(data.primeiroNome, data.comentarios, data.ultimaImagem);
             }
             else if (data.erro) {
                 console.error("Erro durante o upload:", data.erro);
             }
         })
-        .catch(error =>{
-            console.error("Requisição não efetuada",error)
+        .catch(error => {
+            console.error("Requisição não efetuada", error)
         })
-        
+
 });
 
 
+let amigos = document.querySelector(".amigos");
 
+
+class amigosAdicionados {
+    constructor(nome, endereco) {
+        this.nome = nome;
+        this.endereco = endereco
+        this.carregarfoto();
+    }
+    carregarfoto() {
+        let nome = document.createElement("p")
+        nome.innerHTML = this.nome;
+        let img = document.createElement("img")
+        img.src = "../amigosFotos/" + this.endereco
+        amigos.appendChild(img)
+        amigos.appendChild(nome)
+    }
+
+}
+
+new amigosAdicionados("Geozanias", "geozanias.jpg")
+new amigosAdicionados("Fátima", "fatima.jpg")

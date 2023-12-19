@@ -1,8 +1,11 @@
 /* Estilos gerais */
-.body {
-    background-color: rgba(161, 202, 150, 0.371)
-}
 
+.body {
+    background-color: rgba(161, 202, 150, 0.371);
+}
+nav{
+    width: 100%;
+}
 body>div>header>nav {
     background-color: #242526;
 }
@@ -54,6 +57,14 @@ body>div>header>nav {
 
 .navbar-nav li {
     font-size: x-large;
+}
+.amigos{
+    display: block;
+}
+.amigos img{
+    width: 60px;
+    display: flex;
+
 }
 
 

@@ -1,6 +1,7 @@
 class Album {
     constructor() {
         this.imagens = []
+        this.publicacao = ""
         this.carregarImagens()
     }
     
@@ -9,6 +10,7 @@ class Album {
             .then(resposta => resposta.json())
             .then(data => {
                 this.imagens = data.imagensAlbum
+                this.publicacao = data.caminhoPublicacao
                 this.indiceAtual = parseInt(localStorage.getItem("indiceAtual")) || 0
                 this.exibirImagemAtual()
                 this.mostrarBotoes();
@@ -21,13 +23,18 @@ class Album {
         const imagemAtual = document.createElement("img")
         imagemAtual.classList.add("img-fluid")
         imagemAtual.src = this.imagens[this.indiceAtual]
+
+        const comentario = document.createElement("p")
+        comentario.innerHTML = this.publicacao;        
         
         album.appendChild(imagemAtual)
+        album.append(comentario)
 
 
         this.carregarBotoes()
         this.salvarLocalStorageNaSessao()
     }
+    
     mostrarBotoes() {
         const botaoAnterior = document.querySelector("#anterior");
         const botaoProximo = document.querySelector("#proximo");

@@ -38,7 +38,7 @@ class Usuario
                 $consulta->bindParam(":publicacao", $publicacao, PDO::PARAM_STR);
                 
                 $imagensJson = json_encode($imagens);
-                $consulta->bindParam(":imagem", $imagensJson, PDO::PARAM_STR);
+                $consulta->bindParam(":imagem", $imagens, PDO::PARAM_STR);
                 
                 $consulta->bindParam(":id_usuario", $idUsuario, PDO::PARAM_INT);
                 

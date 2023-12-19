@@ -10,6 +10,7 @@ $primeiroNome = $partesDoNome[0];
 
 if (isset($_FILES["foto"])) {
     $foto = $_FILES["foto"];
+    $comentarios = [];
     $publicacao = $_POST["escrita"];
     $_SESSION["escrita"] = $publicacao;
     $diretorioDestino = "../imagens/";
@@ -17,17 +18,14 @@ if (isset($_FILES["foto"])) {
     $caminhoCompleto = $diretorioDestino . $nomeArquivo;
     move_uploaded_file($foto["tmp_name"], $diretorioDestino . $nomeArquivo);
     $imagens = glob($diretorioDestino . '*.{png,jpeg,jpg,gif}', GLOB_BRACE);
-    
+    $ultima = end($imagens);
+    array_push($comentarios, $publicacao);
+
 
 
     if (!empty($imagens)) {
-        usort($imagens, function ($a, $b) {
-            return filemtime($b) - filemtime($a);
-        });
-
-        $ultimaImagem = $imagens[0];
-
-        echo json_encode(['caminhoImagem' => $ultimaImagem, 'caminhoPublicacao' => $publicacao,'primeiroNome' => $primeiroNome ]);
+        $dados= ['ultimaImagem' => $ultima,'caminhoImagem' => $imagens, 'comentarios' => $comentarios,'primeiroNome' => $primeiroNome ];
+        echo json_encode($dados);
     } else {
         echo json_encode(['erro' => 'Nenhuma imagem encontrada no diretório.']);
     }

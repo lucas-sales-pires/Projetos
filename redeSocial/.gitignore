@@ -2,3 +2,4 @@ imagens/*.jpg
 imagens/*.jpeg
 imagens/*.png
 imagens/*.gif
+node_modules
