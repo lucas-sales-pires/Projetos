@@ -565,4 +565,171 @@ console.log(jurosCompostos(2000,0.10,6))
 
 // semanaValida(hoje)
 
+// function frutas(nomeFruta) {
+//     switch (nomeFruta) {
+//         case "maça": {
+//             console.log("Não vendemos esta fruta aqui")
+//             break
+//         }
+//         case "kiwi": {
+//             console.log("Estamos com escassez de kiwis")
+//             break
+//         }
+//         case "melancia":{
+//             console.log("Aqui está, são 3 reais o quilo")
+//             break
+//         }
+//         default:{
+//             console.error("Fruta não encontrada");
+//         }
+//     }
+// }
 
+// frutas("melancia")
+
+
+// class Pessoa{
+//     constructor(nome,idade){
+//         this.nome = nome ; 
+//         this.idade = idade ;
+//     }
+//     falar(){
+//         console.log(`Eu me chamo, ${this.nome}`)
+//     }
+// }
+// class Funcionario extends Pessoa{
+//     constructor(profissao,posicao,nome,idade){
+//         super(nome,idade)
+//         this.nome = nome
+//         this.idade = idade
+//         this.profissao = profissao
+//         this.posicao = posicao
+
+//     }
+//     falarProfissao(){
+//         console.log(this.profissao)
+//     }
+// }
+
+
+
+// const pessoa1 = new Pessoa("Lucas",25)
+// const funcionario1 = new Funcionario("Promotor de Vendas","Operacional","Lucas",25)
+// funcionario1.falar()
+// funcionario1.falarProfissao()
+
+
+// const a = 1
+// const b = 2
+// const c = 3
+
+// const obj1 = {batata:a,cenoura:b,lentilha:c}
+// const obj2 = {a,b,c}
+// console.log(obj1)
+// console.log(obj2)
+
+// const getSet = {
+//     _valor: 1,
+//     get valor(){return this._valor},
+//     set valor(valor){this._valor = valor}
+// }
+// console.log(getSet.valor = 5)
+// console.log(getSet.valor  = 8)
+
+// const objeto = {
+//     nome:"lucas",
+//     idade: 25
+// }
+// console.log(Object.values(objeto))
+
+// const pessoa = {
+//     nome:"Lucas",
+//     idade:25
+// }
+// Object.defineProperty(pessoa,"sobrenome",{enumerable:true,value:"sales",writable:true})
+// console.log(pessoa)
+// pessoa.sobrenome = "pires"
+
+// delete pessoa.idade
+// console.log(pessoa)
+
+// const obj1 = {nome:"Lucas"}
+// const obj2 = {sobrenome:"Sales"}
+// const obj3 = Object.assign(obj1,obj2)
+// console.log(obj3)
+
+// const avo = {nomeAvo:"Francisco"}
+// const pai = {paiNome:"Eudes"}
+// const filho = {nomeFilho:"Lucas"}
+// Object.setPrototypeOf(pai,avo)
+// Object.setPrototypeOf(filho,pai)
+
+// const data = new Date()
+// const dataAtual = data.getFullYear()
+// const nascimento = 1998
+// const idade = dataAtual - nascimento
+// const pai = { nome: "José", idade: 50 }
+// const filho = Object.create(pai,
+//     {
+//         nome:
+//         {
+//             value: "Lucas",
+//             writable: false,
+//         },
+//         idade:{
+//             value:idade,
+//             writable:true
+//         }
+//     }
+        
+// )
+
+// console.log(filho.nome)
+// console.log(filho.idade)
+
+// function meuObjeto(){}
+
+// const obj1= new meuObjeto
+
+
+// meuObjeto.prototype.nome = "Lucas"
+
+// meuObjeto.prototype.falar = function(){
+//     console.log(`Olá meu nome é ${this.nome}`)
+// }
+
+
+// obj1.falar()
+// console.log(obj1.nome)
+// obj1.nome = "jose"
+// console.log(obj1.nome)
+
+
+// function
+// string 
+// object 
+//array
+// são function e tem prototype
+
+// let nome = "Lucas"
+
+// String.prototype.reverse = function(){
+//     return this.split("").reverse().join("")
+// }
+// console.log(nome.reverse())
+
+// function Aula(nome,videoID){
+//     this.nome = nome
+//     this.videoID = videoID
+// }
+// function novo(f,...params){
+//     const obj = {}
+//     f.apply(obj,params)
+//     return obj
+// }
+// const aula1 = novo(Aula,'Bem vindo',123)
+// console.log(aula1)
+
+const obj = {a:1,b:2,c:3,soma(){return this.a+this.b+this.c}}
+console.log(JSON.parse('{"a":1,"b":2,"c":3}'))
+console.log(JSON.stringify(obj))

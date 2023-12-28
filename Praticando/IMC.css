@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0
+}
+legend{
+    font-size: 40px;
+    font: bolder 2.5rem serif;
+    border-bottom: 4px solid black;    
+}
+#telapreta{
+    background: black;
+    color:  rgb(255,198,0);
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    margin: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 5%;
+    display: flex;
+}
+form{
+    padding-top: 5%;
+    text-align: center;
+    margin: auto;
+    background-color: rgb(255,198,0);
+    box-shadow: 0px 0px 10px black;
+    border-radius: 15px;
+
+}
+input{
+    padding: 3%;
+    margin: 5%;
+    border-radius: 5%;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+
+label{
+    font: bolder 1.5rem serif;
+}
+
+#botao{
+    border-radius: 5px;
+    outline: none;
+    margin: 30px;
+    width: 300px;
+    height: 50px;
+    background: black;
+    color: rgb(255,198,0);
+    box-shadow: 0px 0px 10px black;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif; 
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+}
+::-webkit-scrollbar{
+    color: green;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    margin: auto;
+}
+button:hover{
+    transform: scale(1.1);
+}
+input[type="text"]{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
