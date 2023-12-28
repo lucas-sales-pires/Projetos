@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <div class="ranking">
-    </div>
+
     <main>
         <div class="container">
             <form>
                 <table>
                     <caption><img src="trevo.jpg">Mega Da Virada</caption>
+                    
                         <tr>
                             <td>1</td>
                             <td>2</td>
@@ -94,9 +94,18 @@
                         <td>60</td>
                     </tr>
                 </table>
-                <button type="button" onclick="verificarAcertos()">Adicionar Jogo</button>
-                <div id="resposta"></div>
+                <button type="button" onclick="verificarAcertos()" class="botao">Adicionar Jogo</button>
             </form>
+            <table id="tabelaResultados">
+                <button type="button" id = "voltar" class="botao">Voltar</button>
+                <caption>Resultado</caption>
+                <tr>
+                    <th>Nome</th>
+                    <th>Acertos</th>
+                    <th>Bilhete</th>
+                    <th>Numeros do Bilhete</th>
+                </tr>
+            </table>
         </div>
 
     </main>

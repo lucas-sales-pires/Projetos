@@ -1,6 +1,4 @@
 const td = document.querySelectorAll("td");
-const resposta = document.querySelector("#resposta");
-const ranking = document.querySelector(".ranking")
 let numerosSorteados = [];
 
 td.forEach((numero) => {
@@ -31,7 +29,13 @@ const jogadores = [
             { numeros: [9, 11, 22, 24, 36, 45] },
             { numeros: [1, 7, 40, 56, 30, 18] },
             { numeros: [11, 23, 28, 36, 50, 51] },
-            { numeros: [13, 14, 21, 33, 55, 60] }
+            { numeros: [13, 14, 21, 33, 55, 60] },
+            { numeros: [1, 9, 10, 13, 28, 56] },
+            { numeros: [8, 10, 13, 20, 52, 59] },
+            { numeros: [4, 29, 30, 37, 55, 59] },
+            { numeros: [4, 14, 21, 38, 40, 44] },
+            { numeros: [3, 11, 15, 19, 22, 40] },
+            { numeros: [4, 5, 17, 22, 43, 59] }
         ]
     },
     {
@@ -64,36 +68,66 @@ const jogadores = [
             { numeros: [39, 43, 6, 24, 30, 24] }
         ]
     }];
-
     function verificarAcertos() {
-        resposta.innerHTML = "";
+        lista = [];
     
         if (numerosSorteados.length === 6) {
             for (const jogador of jogadores) {
                 const nome = jogador.nome;
-                
+    
                 const bilhetesOrdenados = jogador.bilhetes.slice();
     
-                bilhetesOrdenados.sort((a, b) => {
-                    const acertosA = contarAcertos(numerosSorteados, a.numeros);
-                    const acertosB = contarAcertos(numerosSorteados, b.numeros);
+                bilhetesOrdenados.sort((a, b) => contarAcertos(b.numeros) - contarAcertos(a.numeros));
     
-                    return acertosB - acertosA;
+                bilhetesOrdenados.forEach((bilhete, i) => {
+                    const numAcertos = contarAcertos(bilhete.numeros);
+    
+                    lista.push({
+                        nome: nome,
+                        numeroBilhete: i + 1,
+                        numeroAcertos: numAcertos,
+                        numeroSorteado: bilhete.numeros
+
+                    });
                 });
-    
-                for (let i = 0; i < bilhetesOrdenados.length; i++) {
-                    const numerosEscolhidos = bilhetesOrdenados[i].numeros;
-                    const numAcertos = contarAcertos(numerosSorteados, numerosEscolhidos);
-    
-                    resposta.innerHTML += `${nome} Bilhete ${i + 1} acertou <p style="color: red; font-weight: bold;">${numAcertos} números</p>.<br>`;
-                }
             }
+    
+            lista.sort((a, b) => b.numeroAcertos - a.numeroAcertos);
+    
+            lista.forEach(item => {
+                let tabela = document.getElementById("tabelaResultados");
+                tabela.style.display = "block";
+                let voltar = document.querySelector("#voltar")
+                voltar.style.display = "block"
+                voltar.addEventListener("click",()=>{
+                    location.reload()
+                })
+                document.querySelector("form").style.display = "none"
+
+                
+                let novaLinha = tabela.insertRow();
+                
+                let celulaNome = novaLinha.insertCell(0);
+                celulaNome.innerHTML = item.nome;
+                
+                let celulaAcertos = novaLinha.insertCell(1);
+                celulaAcertos.classList.add("highlight")
+                celulaAcertos.innerHTML = item.numeroAcertos;
+
+                
+                let celulaBilhete = novaLinha.insertCell(2);
+                celulaBilhete.innerHTML = item.numeroBilhete;
+
+                let celulaBilheteCompleto = novaLinha.insertCell(3);
+                celulaBilheteCompleto.innerHTML = item.numeroSorteado;
+                
+            });
         } else {
             alert("Escolha ao menos 6 números");
         }
     }
     
-
-function contarAcertos(numerosSorteados, numerosEscolhidos) {
-    return numerosEscolhidos.filter(numero => numerosSorteados.includes(String(numero))).length;
-}
+    function contarAcertos(numerosEscolhidos) {
+        return numerosEscolhidos.filter(numero => numerosSorteados.includes(String(numero))).length;
+    }
+    
