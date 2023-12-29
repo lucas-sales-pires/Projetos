@@ -4,6 +4,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #4CAF50; 
+
 
 
 }
@@ -37,6 +39,10 @@ td {
 }
 
 th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
 

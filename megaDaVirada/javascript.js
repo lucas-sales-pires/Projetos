@@ -2,19 +2,19 @@ const td = document.querySelectorAll("td");
 let numerosSorteados = [];
 
 td.forEach((numero) => {
-    numero.addEventListener("click", () => {       
-         if (numerosSorteados.length <  6) {
+    numero.addEventListener("click", () => {
+        if (numerosSorteados.length < 6) {
 
-        if (numero.classList) numero.classList.toggle("toggle");
+            if (numero.classList) numero.classList.toggle("toggle");
 
-        if (numero.classList.contains("toggle") && numerosSorteados.length < 6) {
-            numerosSorteados.push(numero.textContent);
-        } else {
-            numerosSorteados = numerosSorteados.filter((num) => num !== numero.textContent);
+            if (numero.classList.contains("toggle") && numerosSorteados.length < 6) {
+                numerosSorteados.push(numero.textContent);
+            } else {
+                numerosSorteados = numerosSorteados.filter((num) => num !== numero.textContent);
+            }
+
         }
-
-        }
-        else{
+        else {
             alert("Escolha no máximo 6 números")
 
         }
@@ -49,12 +49,12 @@ const jogadores = [
     },
     {
         nome: "Henrique", bilhetes: [
-            { numeros: [6,16,41,7,13,30] },
-            { numeros: [9,22,42,8,57,25] },
-            { numeros: [29,4,12,10,30,6] },
-            { numeros: [21,43,51,33,12,41] },
-            { numeros: [35,44,29,55,28,47] },
-            { numeros: [56,11,25,36,51,30] }
+            { numeros: [6, 16, 41, 7, 13, 30] },
+            { numeros: [9, 22, 42, 8, 57, 25] },
+            { numeros: [29, 4, 12, 10, 30, 6] },
+            { numeros: [21, 43, 51, 33, 12, 41] },
+            { numeros: [35, 44, 29, 55, 28, 47] },
+            { numeros: [56, 11, 25, 36, 51, 30] }
         ]
     },
 
@@ -68,66 +68,65 @@ const jogadores = [
             { numeros: [39, 43, 6, 24, 30, 24] }
         ]
     }];
-    function verificarAcertos() {
-        lista = [];
-    
-        if (numerosSorteados.length === 6) {
-            for (const jogador of jogadores) {
-                const nome = jogador.nome;
-    
-                const bilhetesOrdenados = jogador.bilhetes.slice();
-    
-                bilhetesOrdenados.sort((a, b) => contarAcertos(b.numeros) - contarAcertos(a.numeros));
-    
-                bilhetesOrdenados.forEach((bilhete, i) => {
-                    const numAcertos = contarAcertos(bilhete.numeros);
-    
-                    lista.push({
-                        nome: nome,
-                        numeroBilhete: i + 1,
-                        numeroAcertos: numAcertos,
-                        numeroSorteado: bilhete.numeros
+function verificarAcertos() {
+    lista = [];
 
-                    });
+    if (numerosSorteados.length === 6) {
+        for (const jogador of jogadores) {
+            const nome = jogador.nome;
+
+            const bilhetesOrdenados = jogador.bilhetes.slice();
+
+            bilhetesOrdenados.sort((a, b) => contarAcertos(b.numeros) - contarAcertos(a.numeros));
+            let resultadoElement = document.getElementById("resultado");
+            resultadoElement.innerText = `Número Sorteado: ${numerosSorteados}`;
+            bilhetesOrdenados.forEach((bilhete) => {
+                const numAcertos = contarAcertos(bilhete.numeros);
+
+                lista.push({
+                    nome: nome,
+                    numeroAcertos: numAcertos,
+                    numeroSorteado: bilhete.numeros,
+
                 });
-            }
-    
-            lista.sort((a, b) => b.numeroAcertos - a.numeroAcertos);
-    
-            lista.forEach(item => {
-                let tabela = document.getElementById("tabelaResultados");
-                tabela.style.display = "block";
-                let voltar = document.querySelector("#voltar")
-                voltar.style.display = "block"
-                voltar.addEventListener("click",()=>{
-                    location.reload()
-                })
-                document.querySelector("form").style.display = "none"
-
-                
-                let novaLinha = tabela.insertRow();
-                
-                let celulaNome = novaLinha.insertCell(0);
-                celulaNome.innerHTML = item.nome;
-                
-                let celulaAcertos = novaLinha.insertCell(1);
-                celulaAcertos.classList.add("highlight")
-                celulaAcertos.innerHTML = item.numeroAcertos;
-
-                
-                let celulaBilhete = novaLinha.insertCell(2);
-                celulaBilhete.innerHTML = item.numeroBilhete;
-
-                let celulaBilheteCompleto = novaLinha.insertCell(3);
-                celulaBilheteCompleto.innerHTML = item.numeroSorteado;
-                
             });
-        } else {
-            alert("Escolha ao menos 6 números");
         }
+
+        lista.sort((a, b) => b.numeroAcertos - a.numeroAcertos);
+
+        lista.forEach(item => {
+            let tabela = document.getElementById("tabelaResultados");
+            tabela.style.display = "block";
+            let voltar = document.querySelector("#voltar")
+            voltar.style.display = "block";
+            voltar.addEventListener("click", () => {
+                location.reload()
+            })
+            document.querySelector("form").style.display = "none"
+
+
+            let novaLinha = tabela.insertRow();
+
+            let celulaNome = novaLinha.insertCell(0);
+            celulaNome.innerHTML = item.nome;
+
+            let celulaAcertos = novaLinha.insertCell(1);
+            celulaAcertos.classList.add("highlight")
+            celulaAcertos.innerHTML = item.numeroAcertos;
+
+
+            let celulaBilheteCompleto = novaLinha.insertCell(2);
+            celulaBilheteCompleto.innerHTML = item.numeroSorteado;
+
+
+
+        });
+    } else {
+        alert("Escolha ao menos 6 números");
     }
-    
-    function contarAcertos(numerosEscolhidos) {
-        return numerosEscolhidos.filter(numero => numerosSorteados.includes(String(numero))).length;
-    }
-    
+}
+
+function contarAcertos(numerosEscolhidos) {
+    return numerosEscolhidos.filter(numero => numerosSorteados.includes(String(numero))).length;
+}
+
