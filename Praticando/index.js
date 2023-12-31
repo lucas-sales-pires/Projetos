@@ -681,7 +681,7 @@ console.log(jurosCompostos(2000,0.10,6))
 //             writable:true
 //         }
 //     }
-        
+
 // )
 
 // console.log(filho.nome)
@@ -730,6 +730,168 @@ console.log(jurosCompostos(2000,0.10,6))
 // const aula1 = novo(Aula,'Bem vindo',123)
 // console.log(aula1)
 
-const obj = {a:1,b:2,c:3,soma(){return this.a+this.b+this.c}}
-console.log(JSON.parse('{"a":1,"b":2,"c":3}'))
-console.log(JSON.stringify(obj))
+// const obj = {a:1,b:2,c:3,soma(){return this.a+this.b+this.c}}
+// console.log(JSON.stringify(obj))
+// const obj2 = '{"a":1,"b":2,"c":3,"d":4}'
+// console.log(JSON.parse(obj2))
+
+// class Lancamento{
+//     constructor(nome = "Genérico",valor = 0){
+//         this.nome = nome;
+//         this.valor = valor;
+//     }
+// }
+// class CicloFinanceiro{
+//     constructor(mes,ano){
+//         this.mes = mes;
+//         this.ano = ano;
+//         this.lancamentos = []
+//     }
+//     addLancamentos(...lancamentos){
+//         lancamentos.forEach(l=>{
+//             this.lancamentos.push(l)
+//         })
+//     }
+//     sumario(){
+//         let valorConsolidado = 0
+//         this.lancamentos.forEach(l => {
+//             valorConsolidado += l.valor
+//         })
+//         return valorConsolidado
+//     }
+// }
+
+// const luz = new Lancamento("Luz",300);
+// const aluguel = new Lancamento("aluguel",600);
+
+// const resultado = new CicloFinanceiro(5,2023);
+// resultado.addLancamentos(luz,aluguel);
+
+// console.log(resultado.sumario())
+
+// class Avo{
+//     constructor(sobrenome){
+//         this.sobrenome = sobrenome;
+//     }
+// }
+// class Pai extends Avo{
+//     constructor(sobrenome,profissao ="Professor"){
+//         super(sobrenome)        
+//         this.profissao = profissao
+
+//     }
+// }
+// class Filho extends Pai{
+//     constructor(){
+//         super("Pires")
+//     }
+// }
+// const filho = new Filho()
+// console.log(filho)
+// const quaseArray = {0:'lucas',1:'jaquelino'}
+// Object.defineProperty(quaseArray,"toString",{
+//     value:function(){
+//         return Object.values(this)
+//     },enumerable:false
+// })
+// console.log(quaseArray[1])
+
+// const alunos = ["carlos","jose","rogerio"]
+// const vazio = ["lucas","diego"]
+
+// Array.prototype.forEach2 = function (valor){
+//     for(let i = 0 ; i< this.length; i++){
+//         console.log(this[i],i,this)
+//     }
+// }
+// alunos.forEach2(function(nome,indice){
+//     console.log(indice+1,nome)
+// })
+
+// alunos.forEach((n,i,a)=>{
+//     console.log(i,n,a)
+// })
+
+// Array.prototype.map2 = function (callback){
+//     const array = []
+//     for(let i = 0; i< this.length ; i++){
+//         array.push(callback(this[i],i,this))
+//     }
+//     return array
+// }
+
+// const carrinho = [
+//     '{"nome": "Borracha", "preco": 3.45}',
+//     '{"nome": "Caderno", "preco": 13.90}',
+//     '{"nome": "Kit de Lapis", "preco": 41.22}',
+//     '{"nome": "Caneta", "preco": 7.50}'
+// ]
+
+
+// const paraObjeto = json => JSON.parse(json)
+// const porPreco = produto => produto.preco
+// const resultado = carrinho.map2(paraObjeto).map2(porPreco)
+// console.log(resultado)
+
+// const produtos = [
+//     { nome: "notebook", preco: 2500, fragil: true },
+//     { nome: "televisao", preco: 5500 ,fragil:true},
+//     { nome: "copo de plastico",preco:10, fragil:true},
+//     { nome: "microondas", preco : 500, fragil: false},
+// ]
+// console.log(produtos.filter(n => n.preco > 2000 && n.fragil == true))
+
+// Array.prototype.filter2 = function(callback){
+//     let lista = []
+//     for(let i = 0; i< this.length; i++){
+//         if(callback(this[i],i,this)){
+//             lista.push(this[i])
+//         }
+//     }
+//     return lista
+// }
+
+// const produtos = [
+//     { nome: "notebook", preco: 2500, fragil: true },
+//     { nome: "televisao", preco: 5500 ,fragil:true},
+//     { nome: "copo de plastico",preco:10, fragil:true},
+//     { nome: "microondas", preco : 500, fragil: false},
+// ]
+// console.log(produtos.filter2((n,i) => n.preco > 2400))
+
+// const lista = [1,2,3,4,5,60]
+// console.log(lista.reduce((n,j)=>n+j/lista.length).toFixed(0))
+
+// const alunos = [
+//     {nome: "João", nota: 7.3, bolsista: false},
+//     {nome: "Maria", nota: 9.2, bolsista: true},
+//     {nome: "Pedro", nota: 9.8, bolsista: false},
+//     {nome: "Ana", nota: 8.7, bolsista: true}
+// ]
+
+// const todosBolsistas = (resultado,bolsista)=>resultado && bolsista
+// console.log(alunos.map(a => a.bolsista).reduce(todosBolsistas))
+
+// const algumBolsista = (resulta,bolsista)=> resulta == bolsista
+// console.log(alunos.map(a => a.bolsista).reduce(algumBolsista))
+
+// const turmas = [
+//     {
+//         alunos: [
+//             { nome: "Deiverson",nota:8.0 },
+//             { nome: "Jose",nota:9.0 },
+//             { nome: "Carlos",nota: 10.0 }
+//         ]
+//     },
+//     {
+//         alunos: [
+//             { nome: "Frederico",nota:5.0 },
+//             { nome: "Joseilton",nota:4.0 },
+//             { nome: "Josefino",nota: 7.5 }
+//         ]
+//     }
+// ]
+
+// console.log(turmas.map(n => n.alunos).flatMap(n => n).map(n=> n.nota))
+
+
