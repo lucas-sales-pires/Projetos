@@ -2,7 +2,7 @@
 <h1>Quiz de Programação </h1>
 
 <img src="./Captura de tela 2024-01-19 194633.png">
-<p>Bem-vindo ao Quiz de Programação! Este projeto tem como objetivo desafiar seus conhecimentos em diversas linguagens etemas da área, incluindo JavaScript, Python, PHP, DER, MER e SQL.</p>
+<p>Bem-vindo ao Quiz de Programação! Este projeto tem como objetivo desafiar seus conhecimentos em diversas linguagens e temas da área, incluindo JavaScript, Python, PHP, DER, MER e SQL.</p>
 
 
 Escolha a Categoria:
