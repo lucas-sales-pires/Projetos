@@ -1,0 +1,71 @@
+@charset "utf-8";
+:root{
+	--cor-tela-fundo:#1B1F27;
+	--cor-div-login:#181920;
+	--cor-input-form:#252A34;
+	--cor-placeholder:#CBD0F7;
+	--cor-botao-submit:#5568fe;
+}
+
+body{
+	background-color: var(--cor-tela-fundo);
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+.area-login{
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+.login{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--cor-div-login);
+	width: 355px;
+	height: 320px;
+	padding: 35px;
+	border-radius: 10px;
+}
+.login form{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.login input{
+	margin-top: 10px;
+	background-color: var(--cor-input-form) ;
+	border: none;
+	height: 45px;
+	outline: none;
+	border-radius: 8px;
+	color: var(--cor-placeholder);
+	padding-left: 10px;
+}
+.login img{
+	width: 65px;
+	height: auto;
+}
+
+input::placeholder{
+	color: var(--cor-placeholder);
+	font-size: 14px;
+}
+
+form [type="submit"]{
+	display: block;
+	background-color: var(--cor-botao-submit);
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+}
+p{
+	color: var(--cor-placeholder);
+}
+a{
+	color: var(--cor-botao-submit);
+	text-decoration: none;
+	margin-left: 10px;
+}
