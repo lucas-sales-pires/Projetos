@@ -1,0 +1,51 @@
+@media(max-width:338px) {
+
+    body,
+    html {
+        overflow: scroll;
+        display: inline;
+        position: absolute;
+    }
+
+
+}
+
+body {
+    display: grid;
+    grid-template: 10vh 80vh 10vh / 50vw 50vw;
+    grid-template-areas:
+        "header nav "
+        "conteudo direito "
+        "rodape rodape ";
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+    background-color: rgba(15, 20, 15, 0.687)
+}
+
+
+main {
+    grid-area: conteudo;
+    background-color: whitesmoke;
+    max-height: 100vh;
+    text-align: center;
+
+}
+
+
+
+#direito {
+    grid-area: direito;
+    background-color: violet;
+}
+
+footer {
+    grid-area: rodape;
+    background-color: rgb(29, 28, 28);
+    color: white;
+}
