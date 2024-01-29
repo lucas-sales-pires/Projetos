@@ -6,6 +6,7 @@ const concat = require("gulp-concat")
 
 function minificarCSS() {
     return gulp.src("src/**/*.css")
+    .pipe(concat("style.min.css"))
     .pipe(cssnano())
     .pipe(gulp.dest("build/assets/css"))
 }
