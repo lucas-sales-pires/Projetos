@@ -1,7 +1,8 @@
-const gulp = require("gulp")
-const cssnano = require("gulp-cssnano")
-const htmlmin = require("gulp-htmlmin")
-const concat = require("gulp-concat")
+import gulp from "gulp";
+import cssnano from "gulp-cssnano";
+import htmlmin from "gulp-htmlmin";
+import concat from "gulp-concat" ;
+import imagemin from "gulp-imagemin";
 
 
 function minificarCSS() {
@@ -19,10 +20,15 @@ function minificarHTML() {
     }))
     .pipe(gulp.dest("build"))
 }
+function minificarIMG() {
+    return gulp.src("src/assets/img/*.*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("build/img"))
+}
 
 function watch(){
     gulp.watch("src/**/*.css",gulp.series(minificarCSS))
     gulp.watch("src/**/*.html",gulp.series(minificarHTML))
 }
 
-gulp.task("default",gulp.series(minificarHTML,minificarCSS,watch))
+gulp.task("default",gulp.series(minificarHTML,minificarCSS,minificarIMG,watch))

@@ -3,12 +3,13 @@
     src: url("../fonts/NetflixSans-Regular.otf");
     font-family: "fonte-netflix-bold";
     src: url("../fonts/NetflixSans-Bold.otf")
- }
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "fonte-netflix-regular",Helvetica,Segoe UI,Roboto,Ubuntu,sans-serif;
+    font-family: "fonte-netflix-regular", Helvetica, Segoe UI, Roboto, Ubuntu, sans-serif;
 }
 
 html {
@@ -18,15 +19,18 @@ html {
     overflow-x: hidden;
 
 }
-.logo{
+
+.logo {
     max-width: 200px;
     width: 100%;
 }
-h1{
+
+h1 {
     font-size: 3rem;
     font-weight: 900;
     font-family: "fonte-netflix-bold";
 }
+
 .cabecalho {
     display: flex;
     align-items: center;
@@ -37,10 +41,12 @@ h1{
     width: 100%;
     z-index: 1;
 }
+
 .cabecalho_menu {
     display: flex;
 
 }
+
 li {
     list-style: none;
 }
@@ -48,16 +54,14 @@ li {
 .imagem_principal {
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/backgroundGrande.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../build/img/backgroundGrande.jpg");
     background-position: center;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
-}
 
+}
 
 .conteudo {
     z-index: 1;
@@ -74,15 +78,17 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    
+
+
 }
-.conteudo_principal_paragrafo{
+
+.conteudo_principal_paragrafo {
     font-size: 1.5rem;
     font-weight: 400;
     margin: 2rem 0 0;
 
 }
+
 select {
     background-color: transparent;
     color: white;
@@ -91,12 +97,14 @@ select {
     min-height: 2rem;
     border-radius: 8px;
 }
+
 option {
     color: black;
 }
+
 .botao_entrar {
-    
-    color:white;
+
+    color: white;
     padding: 4px 16px;
     padding: 0.25rem 1rem;
     min-height: 2rem;
@@ -110,20 +118,24 @@ option {
     background: rgb(229, 9, 20);
     margin-left: 20px;
 }
-.botao_entrar:hover{
-    background-color: rgb(193,17,25);
+
+.botao_entrar:hover {
+    background-color: rgb(193, 17, 25);
 }
+
 a:hover {
     outline: 0;
 }
+
 form {
     display: flex;
     align-items: center;
     gap: 10px;
     max-width: 36.625rem;
     width: 100%;
-    
+
 }
+
 .conteudo_principal_escrito_input {
     padding: 1.5rem 1rem 0.5rem;
     padding: 16px;
@@ -133,14 +145,16 @@ form {
     border: none;
     outline: 1px solid #ffffff;
     color: white;
-    
-    
+
+
 }
-.conteudo_principal_escrito_input::placeholder{
+
+.conteudo_principal_escrito_input::placeholder {
     color: white;
     padding: 10px;
 }
-.conteudo_principal_escrito_input:focus::placeholder{
+
+.conteudo_principal_escrito_input:focus::placeholder {
     display: flex;
     position: absolute;
     top: 0;
@@ -163,9 +177,11 @@ form {
     color: rgb(255, 255, 255);
     text-wrap: nowrap;
 }
+
 .conteudo_principal_escrito_botao:hover {
-    background-color: rgb(193,17,25);
+    background-color: rgb(193, 17, 25);
 }
+
 .promocao {
     display: flex;
     justify-content: center;
@@ -182,24 +198,59 @@ form {
     width: 90%;
 
 }
-.conteudo_secundario {
+
+.conteudo_secundario,
+.conteudo_quaternario {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "texto tv"; 
+    grid-template-areas: "texto tv";
     align-items: center;
     min-height: auto;
-    padding: 4.5rem ;
-    
-    
+    padding: 4.5rem;
+
 }
 
-.conteudo_secundario_escrito {
+.conteudo_terciario,
+.conteudo_quinario {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "tv texto";
+    align-items: center;
+    min-height: auto;
+    padding: 4.5rem;
+}
+
+.conteudo_secundario_escrito,
+.conteudo_terciario_escrito,
+.conteudo_quaternario_escrito,
+.conteudo_quinario_escrito {
     grid-area: texto;
     font-size: 1.5rem;
 }
 
-
-.conteudo_secundario_imagem {
+.conteudo_secundario_imagem,
+.conteudo_terciario_imagem,
+.conteudo_quaternario_imagem,
+.conteudo_quinario_imagem {
     grid-area: tv;
+    display: flex;
+    width: 100%;
 }
 
+.perguntas_frequentes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2d2d2d;
+    max-width: 80vw;
+    margin: auto;
+}
+.perguntas_frequentes:hover {
+    background-color: #414141;
+}
+.perguntas_frequentes_escrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding: 0 20%;
+}
