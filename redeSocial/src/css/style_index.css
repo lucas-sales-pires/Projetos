@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html,
+body {
+  overflow: hidden;
+  max-height: 100vh;
+  max-width: 100vw;
+
+}
+li {
+  list-style: none;
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 15vh 65vh 20vh;
+  grid-template-areas:
+    "cabecalho"
+    "conteudo"
+    "rodape";
+
+
+}
+
+.cabecalho {
+  background-color: aquamarine;
+  grid-area: cabecalho;
+  display: grid;
+  align-items: center;
+  padding: 0px 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+
+
+main {
+  background-color: #e4e4ea;
+  grid-area: conteudo;
+  padding: 1rem 1rem;
+  text-align: center;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.374);
+  grid-area: rodape;
+
+}
