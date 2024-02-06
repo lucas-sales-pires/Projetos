@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+}
+.logo {
+    max-width: 150px;
+    min-width: 80px;
+}
+
+
+#login {
+    grid-area: login;
+    width: 400px;
+}
+
+#cadastro {
+    border-radius: 8px;
+    grid-area: cadastro;
+    width: 400px;
+    padding-left: 10px;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media(max-width:763px) {
+    body {
+        overflow: auto;
+    }
+    form {
+        width: 100%;
+    
+    }
+    #login,#cadastro
+     {
+        width: 90%;
+    }
+    .conteudo {
+        flex-wrap: wrap;
+    }
+ 
+
+}

@@ -1,13 +1,16 @@
 import cssnano from 'gulp-cssnano';
 import pkg from 'gulp';
-const { src, dest, task, watch } = pkg;
+const { src, dest, task, watch, series } = pkg;
 import htmlmin from 'gulp-htmlmin';
 import babel from 'gulp-babel';
 import imgmin from 'gulp-imagemin';
 import concat from "gulp-concat";
+import ts from 'gulp-typescript';
+
+const tsProject = ts.createProject('tsconfig.json');
 
 function minificarHTML() {
-  watch('./src/**/*.html',() => {
+  watch('./src/**/*.html', () => {
     src('src/**/*.html')
       .pipe(htmlmin({
         collapseWhitespace: true,
@@ -19,7 +22,7 @@ function minificarHTML() {
 }
 
 function minificarCSS() {
-  watch('src/**/*.css',() => {
+  watch('./src/**/*.css', () => {
     src('src/**/*.css')
       .pipe(cssnano())
       .pipe(dest('build/assets/css'));
@@ -27,7 +30,7 @@ function minificarCSS() {
 }
 
 function minificarJS() {
-  watch('src/**/*.js',() => {
+  watch('./src/**/*.js', () => {
     src('src/**/*.js')
       .pipe(babel({
         presets: ['env'],
@@ -38,7 +41,7 @@ function minificarJS() {
 }
 
 function minificarIMG() {
-  watch('src/img/*.*',() => {
+  watch('./src/img/*.*', () => {
     src('src/img/*.*')
       .pipe(imgmin())
       .pipe(dest('build/assets/img'));
@@ -46,7 +49,7 @@ function minificarIMG() {
 }
 
 function minificarTS() {
-  watch('src/typescript/*.ts',() => {
+  watch('./src/typescript/*.ts', () => {
     src('src/typescript/*.ts')
       .pipe(tsProject())
       .pipe(babel({
@@ -62,6 +65,8 @@ task('minificarCSS', minificarCSS);
 task('minificarJS', minificarJS);
 task('minificarIMG', minificarIMG);
 task('minificarTS', minificarTS);
+
+task('default', series(minificarHTML, minificarCSS, minificarJS, minificarIMG, minificarTS));
 
 export {
   minificarHTML,

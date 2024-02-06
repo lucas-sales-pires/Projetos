@@ -11,17 +11,31 @@
 <body>
   <header class="cabecalho ">
     <nav class="navbar">
-      <div class="logo navbar" >
-        <li>LOGO</li>
-      </div>
-      <div class="opcoes navbar">
-        <li><a href="#">Meu Perfil</a></li>
-        <li><a href="#">Loja</a></li>
-        <li><a href="#">Messenger</a></li>
+      <ul class="logo navbar" >
+        <li class="nav-item"><img src="./img/logo.png" class="logo"></li>
+        <li class="nav-item"> <input type="text" name="pesquisa" class="pesquisa-input" placeholder="pesquisa"></li>
+      </ul>
+
+    </ul>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#" class="nav-link">Meu Perfil</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Loja</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Messenger</a></li>
+      </ul>
+      <div class="hamburguer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
     </nav>
+
   </header>
   <main class="conteudo">
+    <div class="stories">
+      <div class="fotos">
+
+      </div>
+    </div>
     <div class="publicacao">
       <label for="">Publicacao<input type="text"></label>
     </div>
@@ -32,6 +46,7 @@
   <footer class="rodape">
 
   </footer>
+  <script src="./javascript/index.js"></script>
 </body>
 
 </html>
