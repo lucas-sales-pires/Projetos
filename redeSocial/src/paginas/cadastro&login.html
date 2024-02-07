@@ -21,16 +21,16 @@
         </nav>
     </header>
     <main class="conteudo d-flex justify-content-around ">
-        <form id="login" class="mr-5" action="../paginas/conectado.html" method="post">
+        <form id="login" class="mr-5" action="../php/login.php" method="post">
             <legend>Login</legend>
                 <div class="form-group">
                     <label class="form-label" for="emailLogin">Email</label>
-                    <input type="email" id="emailLogin" class="form-control" name="emailLogin" />
+                    <input type="email" id="emailLogin" class="form-control" name="emailLogin"  required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="senhaLogin">Senha</label>
-                    <input type="password" id="senhaLogin" class="form-control" name="senhaLogin" />
+                    <input type="password" id="senhaLogin" class="form-control" name="senhaLogin" maxlength="14" required >
                 </div>
 
                 <div class="row mb-4">
@@ -79,12 +79,12 @@
                 </div>
             <div class="form-group ">
                 <label for="senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                <input type="password" class="form-control" id="senha" name="senha" maxlength="14" placeholder="Senha" required>
             </div>
             
             <div class="form-group ">
                 <label for="confirmar" class="form-label">Confirmar Senha</label>
-                <input type="password" class="form-control" id="confirmarSenha" name="confirmar"
+                <input type="password" class="form-control" id="confirmarSenha" name="confirmar" maxlength="14"
                     placeholder="Senha" required>
             </div>
                 <div class="form-group py-2">

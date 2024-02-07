@@ -1,70 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LucasBook</title>
-    <link rel="stylesheet" href="../assets/css/style_conectado.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../assets/css/style_cadastro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <header >
-        <div class="logo">
-            <img src="../login/Captura de tela 2024-01-12 200034.png" alt="logo">
-        </div>
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Notícias</a>
-            <a href="#">Amigos</a>
-            <a href="#">Grupos</a>
-            <a href="#">Páginas</a>
-            <a href="#">Marketplace</a>
-            <ul id="menu">
-                <li>
-                    <a href="#">Configurações</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Atualizar Dados</a></li>
-                        <li><a href="#">Excluir Dados</a></li>
-                        <li><a href="../conexao/sair.php">Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <header class="pb-2">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../img/logo.png" alt="logo" class="logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">Início</a></li>
 
+                        <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
+
+                        <li class="nav-item"><a href="#" class="nav-link">Amigos</a></li>
+
+
+                        <li class="nav-item"><a href="#" class="nav-link">Marketplace</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Configurações
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="#" class="dropdown-item">Atualizar Dados</a></li>
+
+                                <li><a href="#" class="dropdown-item">Excluir Dados</a></li>
+
+                                <li><a href="../php/sair.php" class="dropdown-item">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <main >
-        <aside>
-            Amigos
-        </aside>
-        <section class="conteudo">
-            <section class="publicar">
-                <h3>Oque gostaria de compartilhar ?</h3>
-                <div> <input type="text" placeholder="Clique aqui para escrever">
-                </div>
-                <hr>
-                <div></i>
-                    <label for="foto"><i class="fas fa-images"></i>Foto/video</label>
-                    <input type="file" id="foto">
-                </div>
-            </section>
-            <section class="publicacao">
-                <img src="#">
-                <p>Postou:</p>
-                <p>TEXTO</p>
-            </section>
-        </section>
-        <aside>
-            <img src="../anuncio.jpg" alt="anuncio">
-            <legend>Patrocinado</legend>
-        </aside>
+    <main class="conteudo d-flex justify-content-around ">
+
     </main>
-    <footer >
-        <p>LucasBook © 2024</p>
+    <footer class="fixed-bottom">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Copyright:
+            <a class="text-body" href="https://mdbootstrap.com/">LucasBook.com</a>
+        </div>
     </footer>
-    <script src="../assets/javascript/script_conectado.js"></script>
+    <script src="../assets/javascript/script_cadastro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

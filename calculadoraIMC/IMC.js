@@ -33,7 +33,7 @@ document.querySelector("#botao").addEventListener("submit", () => {
     }else if (imc <= 39.9){
         resposta.innerHTML = `${nome}, Obesidade grau II, sua saúde está crítica!${imc.toFixed(2)}`
     }else{
-        resposta.innerHTML = `${nome}, Obesidade grau III, se você engordar mais, você morre!${imc.toFixed(2)}`
+        resposta.innerHTML = `${nome}, Obesidade grau III, se você engordar mais, você corre muito risco!${imc.toFixed(2)}`
     }
 
 })
