@@ -12,7 +12,7 @@ IMC = peso / (altura x altura).
 */
 
 const resposta = document.querySelector("#telapreta p")
-document.querySelector("#botao").addEventListener("submit", () => {
+document.querySelector("#botao").addEventListener("click", () => {
     const nome = document.querySelector("#nome").value
     const peso = document.querySelector("#peso").value
     const altura = document.querySelector("#altura").value
@@ -23,17 +23,17 @@ document.querySelector("#botao").addEventListener("submit", () => {
         resposta.innerHTML = `${nome}, Seu IMC é baixo, você está magro!${imc.toFixed(2)}`
     }
     else if(imc <=24.9){
-        resposta.innerHTML = `${nome}, Seu IMC é normal!${imc.toFixed(2)}`
+        resposta.innerHTML = `${nome}, Seu IMC é normal!,. seu IMC é de${imc.toFixed(2)}`
     }
     else if(imc <=29.9){
-        resposta.innerHTML = `${nome}, Você está com sobrepeso, cuidado!${imc.toFixed(2)}`        
+        resposta.innerHTML = `${nome}, Você está com sobrepeso, cuidado!. seu IMC é de ${imc.toFixed(2)}`        
     }
     else if (imc <=34.9){
-        resposta.innerHTML = `${nome}, Obesidade grau I, procure um medíco!${imc.toFixed(2)}`
+        resposta.innerHTML = `${nome}, Obesidade grau I, procure um medíco!,  seu IMC é de ${imc.toFixed(2)}`
     }else if (imc <= 39.9){
-        resposta.innerHTML = `${nome}, Obesidade grau II, sua saúde está crítica!${imc.toFixed(2)}`
+        resposta.innerHTML = `${nome}, Obesidade grau II, sua saúde está crítica!. seu IMC é de${imc.toFixed(2)}`
     }else{
-        resposta.innerHTML = `${nome}, Obesidade grau III, se você engordar mais, você corre muito risco!${imc.toFixed(2)}`
+        resposta.innerHTML = `${nome}, Obesidade grau III, se você engordar mais, você corre muito risco!.  seu IMC é de${imc.toFixed(2)}`
     }
 
 })
