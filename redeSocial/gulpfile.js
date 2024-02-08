@@ -8,4 +8,4 @@ import {
   minificarTS,
 } from './src/gulpfile.js';
 
-task('default', series(minificarHTML, minificarCSS, minificarIMG, minificarJS,minificarTS));
+task('default', series( minificarCSS,minificarHTML, minificarIMG, minificarJS,minificarTS));

@@ -10,19 +10,20 @@ import ts from 'gulp-typescript';
 const tsProject = ts.createProject('tsconfig.json');
 
 function minificarHTML() {
-  watch('./src/**/*.html', () => {
+  watch('/src/**/*.html', () => {
     src('src/**/*.html')
+    .pipe(concat("min.html"))
       .pipe(htmlmin({
         collapseWhitespace: true,
         removeComments: true,
       }))
-      .pipe(concat("min.html"))
+      
       .pipe(dest('build'));
   });
 }
 
 function minificarCSS() {
-  watch('./src/**/*.css', () => {
+  watch('/src/**/*.css', () => {
     src('src/**/*.css')
       .pipe(cssnano())
       .pipe(dest('build/assets/css'));
@@ -30,7 +31,7 @@ function minificarCSS() {
 }
 
 function minificarJS() {
-  watch('./src/**/*.js', () => {
+  watch('/src/**/*.js', () => {
     src('src/**/*.js')
       .pipe(babel({
         presets: ['env'],
@@ -41,7 +42,7 @@ function minificarJS() {
 }
 
 function minificarIMG() {
-  watch('./src/img/*.*', () => {
+  watch('/src/img/*.*', () => {
     src('src/img/*.*')
       .pipe(imgmin())
       .pipe(dest('build/assets/img'));
@@ -49,7 +50,7 @@ function minificarIMG() {
 }
 
 function minificarTS() {
-  watch('./src/typescript/*.ts', () => {
+  watch('/src/typescript/*.ts', () => {
     src('src/typescript/*.ts')
       .pipe(tsProject())
       .pipe(babel({
