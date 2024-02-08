@@ -1,3 +1,15 @@
+@media(max-width:768px){
+    .container {
+        display: block;
+    }
+    form {
+        margin: none;
+    }
+    #telapreta {
+        width: auto;
+    }
+}
+
 *{
     margin: 0;
     padding: 0
