@@ -13,7 +13,6 @@ try {
     $linha = $sql->fetch(PDO::FETCH_ASSOC);
 
     if ($linha && password_verify($senhaLogin, $linha["senha"])) {
-        echo "Logado";
         $_SESSION["email"] = $emailLogin;
         header("location: ../paginas/conectado.html");
     } else {
