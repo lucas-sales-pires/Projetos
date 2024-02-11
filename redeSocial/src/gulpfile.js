@@ -9,57 +9,56 @@ import ts from 'gulp-typescript';
 
 const tsProject = ts.createProject('tsconfig.json');
 
-function minificarHTML() {
-  watch('/src/**/*.html', () => {
-    src('src/**/*.html')
+export const minificarHTML = () => {
+
+
+  return src('./src/**/*.html')
     .pipe(concat("min.html"))
-      .pipe(htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-      }))
-      
-      .pipe(dest('build'));
-  });
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+    }))
+
+    .pipe(dest('build'));
+};
+
+
+export const minificarCSS = () => {
+  return src('./src/**/*.css')
+    .pipe(concat("min.css"))
+    .pipe(cssnano())
+    .pipe(dest('build/assets/css'));
+};
+
+
+export const minificarJS = () => {
+  return src('./src/assets/javascript/*.js')
+    .pipe(babel({
+      presets: ['@babel/env'],
+      comments: false,
+    }))
+    .pipe(dest('build/assets/javascript'));
+};
+
+
+export const minificarIMG = () => {
+  return src('./src/img/*.*')
+    .pipe(imgmin())
+    .pipe(dest('build/assets/img'));
+};
+
+
+export const minificarTS = () => {
+
+  return src('./src/typescript/*.ts')
+    .pipe(tsProject())
+    .pipe(babel({
+      presets: ['env'],
+      comments: false,
+    }))
+    .pipe(dest('build/assets/typescript'));
 }
 
-function minificarCSS() {
-  watch('/src/**/*.css', () => {
-    src('src/**/*.css')
-      .pipe(cssnano())
-      .pipe(dest('build/assets/css'));
-  });
-}
-
-function minificarJS() {
-  watch('/src/**/*.js', () => {
-    src('src/**/*.js')
-      .pipe(babel({
-        presets: ['env'],
-        comments: false,
-      }))
-      .pipe(dest('build/assets/javascript/'));
-  });
-}
-
-function minificarIMG() {
-  watch('/src/img/*.*', () => {
-    src('src/img/*.*')
-      .pipe(imgmin())
-      .pipe(dest('build/assets/img'));
-  });
-}
-
-function minificarTS() {
-  watch('/src/typescript/*.ts', () => {
-    src('src/typescript/*.ts')
-      .pipe(tsProject())
-      .pipe(babel({
-        presets: ['env'],
-        comments: false,
-      }))
-      .pipe(dest('build/assets/typescript/'));
-  });
-}
 
 task('minificarHTML', minificarHTML);
 task('minificarCSS', minificarCSS);
@@ -69,10 +68,9 @@ task('minificarTS', minificarTS);
 
 task('default', series(minificarHTML, minificarCSS, minificarJS, minificarIMG, minificarTS));
 
-export {
-  minificarHTML,
-  minificarCSS,
-  minificarJS,
-  minificarIMG,
-  minificarTS,
-};
+watch('./src/**/*.html', minificarHTML);
+watch('./src/**/*.css', minificarCSS);
+watch('./src/**/*.js', minificarJS);
+watch('./src/img/*.*', minificarIMG);
+watch('./src/typescript/*.ts', minificarTS);
+

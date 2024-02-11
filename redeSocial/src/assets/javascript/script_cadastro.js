@@ -9,6 +9,6 @@ formularioCadastro.addEventListener("submit", (e) => {
         alert("Senhas não coincidem!");
     } else {
     
-        window.location.href = "../../php/cadastro.php";
+        window.location.href = "../../php/cadastro.php";pdaf
     }
 });
