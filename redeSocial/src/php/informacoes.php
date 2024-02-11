@@ -3,15 +3,16 @@ require "conexao.php";
 
 
 if (isset($_SESSION["email"])) {
+    
     $email = $_SESSION["email"];
 
     try {
-        $stmt = $conexao->prepare("SELECT email FROM usuarios WHERE email = :email");
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+        $sql = $conexao->prepare("SELECT email FROM usuarios WHERE email = :email");
+        $sql->bindParam(':email', $email);
+        $sql->execute();
 
-        if ($stmt->rowCount() > 0) {
-            $valor = $stmt->fetch();
+        if ($sql->rowCount() > 0) {
+            $valor = $sql->fetch();
             echo $valor["email"];
         } else {
             echo "E-mail não encontrado na base de dados.";
