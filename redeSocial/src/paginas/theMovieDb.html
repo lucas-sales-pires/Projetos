@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-    <link rel="stylesheet" href="../assets/css/style_cadastro.css">
+    <title>The Movie DB</title>
+    <link rel="stylesheet" href="../assets/css/style_theMovieDb.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 
@@ -22,28 +22,23 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="#" class="nav-link">Início</a></li>
 
-                        <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" onclick="melhor()">Filmes Melhor Avaliados</a>
+                        </li>
 
-                        <li class="nav-item"><a href="#" class="nav-link">Amigos</a></li>
-
-
-                        <li class="nav-item"><a href="#" class="nav-link">Marketplace</a></li>
-                 
-
-                        <li class="nav-item"><a href="#" class="nav-link usuario">Usuário</a></li>      
+                        <li class="nav-item"><a href="#" class="nav-link usuario">Usuário</a></li>
 
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Apis
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a href="./theMovieDb.html" class="dropdown-item">TheMovieDb</a></li>
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Apis
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="./theMovieDb.html" class="dropdown-item">TheMovieDb</a></li>
 
-                            <li><a href="#" class="dropdown-item">Pokemon</a></li>
+                                <li><a href="#" class="dropdown-item">Pokemon</a></li>
 
-                            <li><a href="#" class="dropdown-item">Outra</a></li>
-                        </ul>
+                                <li><a href="#" class="dropdown-item">Outra</a></li>
+                            </ul>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -64,8 +59,38 @@
             </div>
         </nav>
     </header>
-    <main class="conteudo d-flex justify-content-around ">
-
+    <main class="conteudo">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Filmes</th>
+                    <th>Pontuações</th>
+                    <th>Lançamento</th>
+                    <th>Votos</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
     </main>
     <footer class="fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">

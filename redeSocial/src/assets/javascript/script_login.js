@@ -1,4 +1,0 @@
-function balofrai(){
-    return "ola"
-}
-

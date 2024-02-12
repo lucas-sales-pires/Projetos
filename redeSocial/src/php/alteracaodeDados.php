@@ -19,11 +19,12 @@
             $sql->bindParam(":emailBanco", $emailBanco);
             $sql->execute();
             echo "Atualização realizada com sucesso!";
+            $_SESSION["email"] = $email;
+            var_dump($_SESSION);
         } catch(PDOException $e) {
             echo "Ocorreu um erro: " . $e->getMessage();
         }
     } else {
         echo "Senha incorreta";
-        var_dump($senha);
     }
 ?>
