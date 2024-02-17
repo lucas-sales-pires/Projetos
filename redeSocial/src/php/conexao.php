@@ -9,5 +9,5 @@ try {
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     session_start();
 } catch (PDOException $e) {
-    echo "Erro na conexão: " . $e->getMessage();
+    echo "Usuário não conectado";
 }

@@ -3,6 +3,7 @@
 var conteudo = document.querySelector(".conteudo");
 var tbody = document.querySelector("tbody");
 var qnt = 0;
+var pagina = 1;
 function melhor() {
   var options = {
     method: 'GET',
@@ -11,7 +12,7 @@ function melhor() {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzkyOWU2NzhmNzA1MWI4YzlkYTk4ZWEwYWZhZjRkYyIsInN1YiI6IjY1YzkyOGI1Y2U2YzRjMDE0OWI5NjY3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TiCKuI_0yEbhUsXtCK7e51O0Jno4GKA4WHB2XnwDsjo'
     }
   };
-  fetch('https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=1', options).then(function (resposta) {
+  fetch("https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=".concat(pagina), options).then(function (resposta) {
     return resposta.json();
   }).then(function (data) {
     data.results.forEach(function (item) {
@@ -41,4 +42,9 @@ function melhor() {
   })["catch"](function (err) {
     return console.error(err);
   });
+}
+function proximaPagina(e) {
+  pagina += 1;
+  tbody.innerHTML = "";
+  melhor();
 }

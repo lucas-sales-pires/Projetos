@@ -1,8 +1,12 @@
 const conteudo = document.querySelector(".conteudo");
-const tbody = document.querySelector("tbody");
+const tabela = document.querySelector("table");
+const tbody = tabela.querySelector("tbody");
 let qnt = 0;
+let pagina = 1;
+const proximo = document.querySelector(".proximo");
+const anterior = document.querySelector(".anterior");
 
-function melhor() {
+function fetchMovies() {
     const options = {
         method: 'GET',
         headers: {
@@ -11,14 +15,17 @@ function melhor() {
         }
     };
 
-    fetch('https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=1', options)
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=${pagina}`, options)
         .then(resposta => resposta.json())
         .then(data => {
-            data.results.forEach(item => {
-                qnt += 1;
-                const lugar = document.createElement("td")
-                lugar.innerText = qnt + "º";
+            const filmesOrdenados = data.results.sort((a, b) => b.vote_average - a.vote_average);
+
+            tbody.innerHTML = '';
+
+            filmesOrdenados.forEach((item, index) => {
                 const filme = document.createElement("tr");
+                const lugar = document.createElement("td")
+                lugar.innerText = (index + 1 + (pagina - 1) * 20) + "º"; 
                 const titulo = document.createElement("td");
                 titulo.classList = "titulo";
                 const lancamento = document.createElement("td");
@@ -41,7 +48,20 @@ function melhor() {
 
                 tbody.appendChild(filme);
             });
-
         })
         .catch(err => console.error(err));
 }
+
+
+proximo.addEventListener("click", function () {
+    pagina += 1;
+    fetchMovies();
+});
+
+anterior.addEventListener("click", function () {
+    if (pagina > 1) {
+        pagina -= 1;
+        qnt = 0; 
+        fetchMovies();
+    }
+});

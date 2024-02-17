@@ -20,6 +20,4 @@ if (isset($_SESSION["email"])) {
     } catch (PDOException $e) {
         echo "Erro na consulta: " . $e->getMessage();
     }
-} else {
-    echo "Usuário não conectado";
-}
+} 
