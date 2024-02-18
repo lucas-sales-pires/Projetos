@@ -10,11 +10,6 @@
 }
 
 
-#login {
-    grid-area: login;
-    width: 400px;
-}
-
 
 footer {
     grid-area: footer;

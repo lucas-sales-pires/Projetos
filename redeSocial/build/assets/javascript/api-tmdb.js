@@ -1,10 +1,12 @@
 "use strict";
 
 var conteudo = document.querySelector(".conteudo");
-var tbody = document.querySelector("tbody");
-var qnt = 0;
+var tabela = document.querySelector("table");
+var tbody = tabela.querySelector("tbody");
 var pagina = 1;
-function melhor() {
+var proximo = document.querySelector(".proximo");
+var anterior = document.querySelector(".anterior");
+function melhoresFilmes() {
   var options = {
     method: 'GET',
     headers: {
@@ -15,11 +17,12 @@ function melhor() {
   fetch("https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=".concat(pagina), options).then(function (resposta) {
     return resposta.json();
   }).then(function (data) {
-    data.results.forEach(function (item) {
-      qnt += 1;
-      var lugar = document.createElement("td");
-      lugar.innerText = qnt + "º";
+    var filmes = data.results;
+    tbody.innerHTML = '';
+    filmes.forEach(function (item, index) {
       var filme = document.createElement("tr");
+      var lugar = document.createElement("td");
+      lugar.innerText = index + 1 + (pagina - 1) * 20 + "º";
       var titulo = document.createElement("td");
       titulo.classList = "titulo";
       var lancamento = document.createElement("td");
@@ -43,8 +46,14 @@ function melhor() {
     return console.error(err);
   });
 }
-function proximaPagina(e) {
+window.onload = melhoresFilmes();
+proximo.addEventListener("click", function () {
   pagina += 1;
-  tbody.innerHTML = "";
-  melhor();
-}
+  melhoresFilmes();
+});
+anterior.addEventListener("click", function () {
+  if (pagina > 1) {
+    pagina -= 1;
+    melhoresFilmes();
+  }
+});

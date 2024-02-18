@@ -18,30 +18,19 @@ function buscarFilme(query) {
             data.results.forEach((item) => {
                 const filme = document.createElement("div");
                 filme.classList = "filme";
+
                 const imagem = document.createElement("img");
                 imagem.src = `https://image.tmdb.org/t/p/w200/${item.poster_path}`;
+
                 const titulo = document.createElement("h3");
                 titulo.textContent = item.title;
-                titulo.classList = "titulo";
+
                 const descricao = document.createElement("p");
-                descricao.classList = "descricao";
-                descricao.innerHTML = item.overview ;
-                const linha = document.createElement("hr");
-                const tituloPontuacao = document.createElement("h4");
-                tituloPontuacao.classList = "tituloPontuacao";
-                tituloPontuacao.textContent = "Pontuação:";
-                const pontuacao = document.createElement("p");
-                pontuacao.classList = "pontuacao";
-                pontuacao.textContent = item.vote_average;
-               
-                
+                descricao.textContent = item.overview;
                 
                 filme.appendChild(imagem);
                 filme.appendChild(titulo);
                 filme.appendChild(descricao);
-                filme.appendChild(linha);
-                filme.appendChild(tituloPontuacao);
-                filme.appendChild(pontuacao);
                 document.querySelector(".filmes").appendChild(filme);
             });
        
