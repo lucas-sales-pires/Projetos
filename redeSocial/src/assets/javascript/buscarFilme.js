@@ -1,3 +1,7 @@
+const filme = document.querySelector(".filmeEscolhido")
+const buscar = document.querySelector(".buscarFilme");
+const formulario = document.querySelector(".formulario");
+
 function buscarFilme(query) {
     const options = {
         method: 'GET',
@@ -18,11 +22,26 @@ function buscarFilme(query) {
                 imagem.src = `https://image.tmdb.org/t/p/w200/${item.poster_path}`;
                 const titulo = document.createElement("h3");
                 titulo.textContent = item.title;
+                titulo.classList = "titulo";
                 const descricao = document.createElement("p");
-                descricao.textContent = item.overview;
+                descricao.classList = "descricao";
+                descricao.innerHTML = item.overview ;
+                const linha = document.createElement("hr");
+                const tituloPontuacao = document.createElement("h4");
+                tituloPontuacao.classList = "tituloPontuacao";
+                tituloPontuacao.textContent = "Pontuação:";
+                const pontuacao = document.createElement("p");
+                pontuacao.classList = "pontuacao";
+                pontuacao.textContent = item.vote_average;
+               
+                
+                
                 filme.appendChild(imagem);
                 filme.appendChild(titulo);
                 filme.appendChild(descricao);
+                filme.appendChild(linha);
+                filme.appendChild(tituloPontuacao);
+                filme.appendChild(pontuacao);
                 document.querySelector(".filmes").appendChild(filme);
             });
        
@@ -31,10 +50,10 @@ function buscarFilme(query) {
         .catch(err => console.error(err));
    
 }
-const filme = document.querySelector(".filmeEscolhido")
 
-const buscar = document.querySelector(".buscarFilme");
-buscar.addEventListener("click", function () {
+
+formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
     document.querySelector(".filmes").innerHTML = "";
     buscarFilme(filme.value);
 });

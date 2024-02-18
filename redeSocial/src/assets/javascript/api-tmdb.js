@@ -1,7 +1,6 @@
 const conteudo = document.querySelector(".conteudo");
 const tabela = document.querySelector("table");
 const tbody = tabela.querySelector("tbody");
-let qnt = 0;
 let pagina = 1;
 const proximo = document.querySelector(".proximo");
 const anterior = document.querySelector(".anterior");
@@ -18,11 +17,11 @@ function melhoresFilmes() {
     fetch(`https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=${pagina}`, options)
         .then(resposta => resposta.json())
         .then(data => {
-            const filmesOrdenados = data.results.sort((a, b) => b.vote_average - a.vote_average);
+            const filmes = data.results
 
             tbody.innerHTML = '';
 
-            filmesOrdenados.forEach((item, index) => {
+            filmes.forEach((item, index) => {
                 const filme = document.createElement("tr");
                 const lugar = document.createElement("td")
                 lugar.innerText = (index + 1 + (pagina - 1) * 20) + "º"; 
@@ -62,7 +61,6 @@ proximo.addEventListener("click", function () {
 anterior.addEventListener("click", function () {
     if (pagina > 1) {
         pagina -= 1;
-        qnt = 0; 
         melhoresFilmes();
     }
 });

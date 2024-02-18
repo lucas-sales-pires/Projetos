@@ -36,12 +36,11 @@
 .filme p {
     color: #666;
 }
-
-
-footer {
-    grid-area: footer;
+.pontuacao {
+    color: #f00;
+    font-weight: bold;
+    
 }
-
 @media(max-width:763px) {
     .filmes {
         display: flex;
