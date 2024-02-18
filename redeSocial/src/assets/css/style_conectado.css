@@ -25,11 +25,6 @@ footer {
 
     }
 
-    #login,
-    #cadastro {
-        width: 90%;
-    }
-
     .conteudo {
         flex-wrap: wrap;
     }

@@ -6,7 +6,7 @@ let pagina = 1;
 const proximo = document.querySelector(".proximo");
 const anterior = document.querySelector(".anterior");
 
-function buscarFilmes() {
+function melhoresFilmes() {
     const options = {
         method: 'GET',
         headers: {
@@ -52,17 +52,17 @@ function buscarFilmes() {
         .catch(err => console.error(err));
 }
 
-window.onload = buscarFilmes();
+window.onload = melhoresFilmes();
 
 proximo.addEventListener("click", function () {
     pagina += 1;
-    buscarFilmes();
+    melhoresFilmes();
 });
 
 anterior.addEventListener("click", function () {
     if (pagina > 1) {
         pagina -= 1;
         qnt = 0; 
-        buscarFilmes();
+        melhoresFilmes();
     }
 });

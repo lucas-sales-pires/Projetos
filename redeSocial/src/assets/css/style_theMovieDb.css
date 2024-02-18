@@ -20,6 +20,7 @@ footer {
     grid-area: footer;
 }
 
+
 @media(max-width:763px) {
     body {
         overflow: auto;
