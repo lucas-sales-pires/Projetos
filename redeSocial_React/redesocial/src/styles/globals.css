@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-cabecalho: #24C6DC
+}
+
+@media (max-width: 768px) {
+  .aside-esquerdo {
+    display: none;
+  }
+
+  .aside-direito {
+    display: none;
+  }
+
+  .central {
+    width: 100vw;
+  }
+
+  .itens-centrais {
+    display: none;
+  }
+
+
+}
+
+.cabecalho {
+  background-color: var(--background-cabecalho);
+}
+
