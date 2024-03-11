@@ -6,7 +6,7 @@ import publicacao from "../../publicacoes/publicacao1.jpg";
 export default function Main() {
   return (
     
-    <div className="central flex flex-col" style={{ overflowY: 'scroll',paddingTop:'12px'}}>
+    <div className="central flex flex-col" style={{ overflowY: 'scroll'}}>
         <div>
             <Publicar></Publicar>
         </div>

@@ -10,7 +10,6 @@ export default function Asides() {
         <aside
           className="aside-esquerdo flex float-left p-2  w-full border-b-8"
           
-
         >
         <Image className='foto' src={perfil} alt="Cinque Terre" width={600} height={100} />
 
@@ -29,9 +28,7 @@ export default function Asides() {
 
       <div className="aside-direito w-4/12" style={{ display: 'flex', flexDirection: 'column' }}>
         <aside
-          className="aside-direito flex float-right p-2  w-full border-b-8 "
-          
-        >
+          className="aside-direito flex float-right p-2  w-full border-b-8 ">
           <Amigos></Amigos>
           
         </aside>

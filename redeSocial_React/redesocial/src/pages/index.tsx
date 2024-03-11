@@ -1,19 +1,19 @@
-import Asides from "@/components/Asides";
-import Topo from "../components/Header";
-import Footer from "@/components/Footer";
-export default function Home() {
+import React from "react";
+import PaginaDeslogado from "./paginaDeslogado/PaginaDeslogado";
+import Home from "../components/Home";
+
+export default function Principal() {
+  const Logado = typeof window !== "undefined" && !!localStorage.getItem("token");
 
   return (
     <main>
-      <div>
-        <Topo></Topo>
-      </div>
-      <div>
-      <Asides>
-      </Asides>
-      </div>
-    <Footer/>
+      {Logado ? (
+        <div>
+          <Home />
+        </div>
+      ) : (
+        <PaginaDeslogado />
+      )}
     </main>
   );
 }
-
