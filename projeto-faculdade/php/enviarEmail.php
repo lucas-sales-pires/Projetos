@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $transporter->Host = 'smtp.office365.com';
             $transporter->SMTPAuth = true;
             $transporter->Username = 'diegofrancosales@outlook.com';
-            $transporter->Password = 'Diego2017';
+            $transporter->Password = '';
             $transporter->SMTPSecure = 'tls';
             $transporter->Port = 587;
 
