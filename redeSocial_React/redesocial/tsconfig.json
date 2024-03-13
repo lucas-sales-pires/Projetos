@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "servidor/servidor.js", "src/pages/cadastro/cadastro.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "servidor/servidor.js", "src/pages/cadastro/cadastro.js", "src/components/meuPerfil.tsx", "servidor/cadastroBack/test_consulta.test.js"],
   "exclude": ["node_modules"]
 }

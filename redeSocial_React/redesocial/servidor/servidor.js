@@ -15,6 +15,8 @@ const banco = mysql.createConnection({
 app.use(cors());
 app.use(express.json());
 
+//Cadastro de usuário
+
 app.post('/cadastro', (req, res) => {
     const { nome, email, cep, cidade, endereco, telefone, senha } = req.body;
     const consulta = 'SELECT * FROM usuarios WHERE email = ?';
@@ -40,18 +42,24 @@ app.post('/cadastro', (req, res) => {
         }
     });
 });
+
+//Login de usuário
+
 app.post('/login', (req, res) => {
     const { email, senha } = req.body;
     const consulta = 'SELECT * FROM usuarios WHERE email = ? AND senha = ?';
+
 
     banco.query(consulta, [email, senha], (erro, resultado) => {
         if (erro) {
             res.status(500).send('Erro ao realizar login');
             return;
         }
-
         if (resultado.length > 0) {
             res.status(200).send('Login realizado com sucesso');
+        }
+        if (resultado.length === 0) {
+            res.status(404).send('Usuário não encontrado');
         }
     });
 });
@@ -60,3 +68,4 @@ app.post('/login', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
+
