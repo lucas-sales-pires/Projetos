@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { useRouter } from "next/router";
 import CadastroPopup from "@/components/PopUpCadastro";
 import Notificacao from "@/components/NotificacaoSucesso";
 import NotificacaoErro from "@/components/NotificacaoErro";
+import { useRouter } from "next/router";
+import Link from 'next/link';
+
 
 export default function Login() {
   const [loginErro, setLoginErro] = useState(false);
@@ -153,6 +155,10 @@ export default function Login() {
           >
             Login
           </button>
+          <Link href={"../../recuperarConta/recuperar"} className="block text-center mt-4 text-blue-500">
+          Esqueci minha senha
+</Link>
+      
         </form>
       </div>
       <button
@@ -167,7 +173,7 @@ export default function Login() {
         <Notificacao aberto mensagem="Login realizado com sucesso!" />
       )}
 
-      {popupVisivel && <CadastroPopup fechado={fecharPopup} />}
+      {popupVisivel && <CadastroPopup fechado={fecharPopup}  />}
     </div>
   );
 }

@@ -17,6 +17,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
   const [abertoErro, setAbertoErro] = useState(false);
   const [valores, setValores] = useState<any>({});
   const [cep, setCep] = useState<any>({});
+  const [pagina, setPagina] = useState("");
 
   const mudancaValores = (valor: ChangeEvent<HTMLInputElement>) => {
     setValores((valorAnterior: any) => ({
@@ -59,7 +60,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
       if (resposta.status === 201) {
         setAberto(true);
         setMensagem("Cadastro feito com sucesso!");
-        setTimeout(() => { setAberto(false); window.location.reload(); }, 1500);
+        setTimeout(() => { setAberto(false); fechado(); }, 1500);
       }
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
@@ -83,11 +84,12 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
     }
   };
 
+
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-8 rounded-md">
+    <div className= "fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 ">
+      <div className="bg-white p-8 rounded-md ">
         <span
-          className="text-2xl font-bold cursor-pointer flex float-right text-red-700"
+          className="text-2xl font-bold cursor-pointer flex float-right text-red-700 transition-transform transform hover:scale-110"
           onClick={fechado}
         >
           &times;
@@ -181,9 +183,6 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
           value={valores.telefone ||  ""}
           
         />
-
-        
-
         <label className="block mb-2" htmlFor="senha">
           Senha:
         </label>
