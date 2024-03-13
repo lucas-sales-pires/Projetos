@@ -31,7 +31,7 @@ const Notificacao: React.FC<NotificacaoProps> = ({ mensagem, aberto }) => {
 
       <main
         x-data="app"
-        className="min-w-screen grid min-h-screen place-items-center"
+        className="min-w-screen grid place-items-center"
       >
         <button
           type="button"

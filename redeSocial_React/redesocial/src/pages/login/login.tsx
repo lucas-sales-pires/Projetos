@@ -36,7 +36,7 @@ export default function Login() {
       if (!valores.email || !valores.senha || !valores.confirmar) {
         setTimeout(() => {
           setLoginErro(false);
-        }, 3000);
+        }, 1500);
         setMsg("Preencha todos os campos");
         setLoginErro(true);
         return;
@@ -45,7 +45,7 @@ export default function Login() {
       if (senha !== confirmar) {
         setTimeout(() => {
           setLoginErro(false);
-        }, 3000);
+        }, 1500);
         setMsg("Senhas não conferem");
         setLoginErro(true);
 
@@ -63,32 +63,31 @@ export default function Login() {
         setLoginSucesso(true);
         setTimeout(() => {
           router.push("/");
-        }, 3000);
+        }, 1500);
       }
     } catch (error: any) {
       console.error("Erro ao fazer login:", error);
 
       if (error.response) {
         const { status } = error.response;
-        if (status === 404) {
-          setTimeout(() => {
-            setLoginErro(false);
-          }, 3000);
-          setMsg("Email não cadastrado, faça seu cadastro");
-          setLoginErro(true);
-        } else if (status === 500) {
-          setTimeout(() => {
-            setLoginErro(false);
-          }, 3000);
-          setMsg("Erro interno, tente novamente mais tarde");
-          setLoginErro(true);
-        } else {
-          setTimeout(() => {
-            setLoginErro(false);
-          }, 3000);
-          setMsg("Erro ao fazer login, tente novamente");
-          setLoginErro(true);
+        switch (status) {
+          case 404:
+            setMsg("Email não cadastrado, faça seu cadastro");
+            break;
+          case 401:
+            setMsg("Senha incorreta, tente novamente");
+            break;
+          case 500:
+            setMsg("Erro interno, tente novamente mais tarde");
+            break;
+          default:
+            setMsg("Erro ao fazer login, tente novamente");
+            break;
         }
+        setTimeout(() => {
+          setLoginErro(false);
+        }, 1500);
+        setLoginErro(true);
       }
     }
   };

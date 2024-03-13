@@ -26,6 +26,30 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
   };
 
   const pegarEnvio = async () => {
+
+    if (
+      !valores.nome ||
+      !valores.email ||
+      !valores.cep ||
+      !cep.cidade ||
+      !cep.endereco ||
+      !valores.telefone ||
+      !valores.senha ||
+      !valores.confirmarSenha
+    ) {
+      setMensagemErro("Por favor, preencha todos os campos.");
+      setAbertoErro(true);
+      setTimeout(() => setAbertoErro(false), 1500);
+      return; 
+    }
+    if(valores.senha !== valores.confirmarSenha){
+      setMensagemErro("Senhas não conferem.");
+      setAbertoErro(true);
+      setTimeout(() => setAbertoErro(false), 1500);
+      return;
+    }
+    
+
     try {
       const resposta = await Axios.post(
         "http://localhost:3001/cadastro",
@@ -35,7 +59,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
       if (resposta.status === 201) {
         setAberto(true);
         setMensagem("Cadastro feito com sucesso!");
-        setTimeout(() => { setAberto(false); window.location.reload(); }, 3000);
+        setTimeout(() => { setAberto(false); window.location.reload(); }, 1500);
       }
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
@@ -47,7 +71,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
           case 409: {
             setMensagemErro("E-mail já cadastrado.");
             setAbertoErro(true);
-            setTimeout(() => setAbertoErro(false), 3000);
+            setTimeout(() => setAbertoErro(false), 1500);
             break;
           }
           default:
@@ -55,7 +79,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
         }
       }
       setAberto(true);
-      setTimeout(() => setAbertoErro(false), 3000);
+      setTimeout(() => setAbertoErro(false), 1500);
     }
   };
 
@@ -63,7 +87,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-8 rounded-md">
         <span
-          className="text-2xl font-bold cursor-pointer absolute top-2 right-4"
+          className="text-2xl font-bold cursor-pointer flex float-right text-red-700"
           onClick={fechado}
         >
           &times;
@@ -120,8 +144,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
           id="cidade"
           name="cidade"
           placeholder="Cidade"
-          readOnly
-          value={cep.cidade || "Cidade não encontrada"}
+          value={cep.cidade || ""}
           onChange={mudancaValores}
         />
         <label className="block mb-2" htmlFor="endereco">
@@ -133,8 +156,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
           id="endereco"
           name="endereco"
           placeholder="Endereço"
-          readOnly
-          value={cep.endereco || "Endereço não encontrado"}
+          value={cep.endereco || ""}
           onChange={mudancaValores}
         />
         <label className="block mb-2" htmlFor="telefone">
