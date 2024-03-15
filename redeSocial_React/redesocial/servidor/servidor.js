@@ -113,7 +113,12 @@ const enviarEmail = (para, assunto, mensagem) => {
 };
 
 app.post('/enviar-email', (req, res) => {
-    const { email, assunto, mensagem } = req.body;
+    const codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString();
+    const mensagem = `Seu código de recuperação é: ${codigoRecuperacao}`;
+    const assunto = "Recuperação de senha";
+
+
+    const { email } = req.body;
     const consulta = 'SELECT * FROM usuarios WHERE email = ?';
 
     banco.query(consulta, [email], (erro, resultado) => {
@@ -126,9 +131,9 @@ app.post('/enviar-email', (req, res) => {
             return;
         }
 
-        enviarEmail(email, assunto, mensagem);
+        enviarEmail(email, assunto, mensagem, codigoRecuperacao);
 
-        res.status(200).send('E-mail enviado com sucesso');
+        res.status(200).json({ message: 'E-mail enviado com sucesso', numeroAleatorio: codigoRecuperacao });
     });
 });
 
