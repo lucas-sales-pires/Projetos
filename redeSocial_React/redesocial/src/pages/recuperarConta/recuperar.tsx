@@ -1,15 +1,56 @@
+import Axios from 'axios';
 import React, { useState } from 'react';
 
 export default function RecuperarSenha() {
-    const [mostrarCodigo, setMostrarCodigo] = useState(false);
     const [codigoEnviado, setCodigoEnviado] = useState(false);
-    
-    const enviarCodigo = () => {
-        alert('Código enviado para o email');
-        setMostrarCodigo(true); 
-        setCodigoEnviado(true);
+    const [valores, setValores] = useState<any>({});
+
+    const mudancaValores = (valor: React.ChangeEvent<HTMLInputElement>) => {
+        setValores((valorAnterior: any) => ({
+          ...valorAnterior,
+          [valor.target.name]: valor.target.value,
+        }));
     };
-    
+
+    const enviarCodigo = async () => {
+        console.log(valores)
+        try {
+            if (!valores.email) {
+                alert('Preencha o email');
+                return;
+            }
+
+            const assunto = "Recuperação de senha";
+            const codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString(); 
+            const mensagem = `Seu código de recuperação é: ${codigoRecuperacao}`;
+            valores.assunto = assunto;
+            valores.mensagem = mensagem;
+
+            alert('Código enviado para o email');
+            setCodigoEnviado(true);
+
+            const resposta = await Axios.post("http://localhost:3001/enviar-email", valores);
+
+            if (resposta.status === 201) {
+                alert('Código enviado para o email');
+                setCodigoEnviado(true);
+            }
+
+            if(resposta.status === 400) {
+                alert('Erro ao enviar código de recuperação');
+            }
+
+            if(resposta.status === 500) {
+                alert('Erro ao enviar código de recuperação');
+                console.log(resposta)
+            }
+
+        } catch (error) {
+            console.log(error);
+            alert('Erro ao enviar código de recuperação');
+        }
+    };
+
     return (
         <div>
             <div className="flex justify-center items-center h-screen ">
@@ -29,6 +70,7 @@ export default function RecuperarSenha() {
                                 name="email"
                                 className="w-full border border-gray-300 p-2 rounded"
                                 placeholder="Seu email"
+                                onChange={mudancaValores}
                             />
                         </div>
                         {codigoEnviado && ( 

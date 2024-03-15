@@ -2,6 +2,11 @@ import cors from 'cors';
 import express from 'express';
 import mysql from 'mysql';
 import bcrypt from 'bcrypt';
+import nodemailer from "nodemailer";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const app = express();
 const port = 3001;
@@ -15,6 +20,7 @@ const banco = mysql.createConnection({
 
 app.use(cors());
 app.use(express.json());
+
 
 // Cadastro de usuário
 
@@ -77,6 +83,59 @@ app.post('/login', (req, res) => {
     });
 });
 
+
+// Recuperação de senha 
+
+const enviarEmail = (para, assunto, mensagem) => {
+    const transporter = nodemailer.createTransport({
+        service: process.env.EMAIL_SERVICE,
+        auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
+        },
+        tls: { rejectUnauthorized: false }
+    });
+
+    const opcoes = {
+        from: process.env.EMAIL_FROM,
+        to: para,
+        subject: assunto,
+        text: mensagem,
+    };
+
+    transporter.sendMail(opcoes, (erro, info) => {
+        if (erro) {
+            console.log('Erro ao enviar e-mail:', erro);
+        } else {
+            console.log('E-mail enviado com sucesso:', info.response);
+        }
+    });
+};
+
+app.post('/enviar-email', (req, res) => {
+    const { email, assunto, mensagem } = req.body;
+    const consulta = 'SELECT * FROM usuarios WHERE email = ?';
+
+    banco.query(consulta, [email], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('Erro ao enviar e-mail');
+            return;
+        }
+        if (resultado.length === 0) {
+            res.status(404).send('E-mail não cadastrado');
+            return;
+        }
+
+        enviarEmail(email, assunto, mensagem);
+
+        res.status(200).send('E-mail enviado com sucesso');
+    });
+});
+
+
+
+
 app.listen(port, () => {
+
     console.log(`Server is running at http://localhost:${port}`);
 });
