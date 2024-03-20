@@ -1,8 +1,7 @@
-import { useState } from "react";
-import Footer from "../../components/Footer";
+import { useState, useEffect } from "react";
 import Axios from "axios";
-import Notificacao from "@/components/NotificacaoSucesso";
-import NotificacaoErro from "@/components/NotificacaoErro";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   buscarCep,
@@ -10,13 +9,18 @@ import {
 } from "../../../servidor/cadastroBack/cadastroBack";
 
 export default function Cadastro() {
-  const [msg, setMensagem] = useState<string>("");
-  const [msgerro, setMensagemErro] = useState<string>("");
-  const [aberto, setAberto] = useState(false);
-  const [abertoErro, setAbertoErro] = useState(false);
-  const [valores, setValores] = useState<any>({});
-  const [cep, setCep] = useState<any>({});
-  
+  const [valores, setValores] = useState<any>({ cidade: '', endereco: '' });
+  const [cep, setCep] = useState<any>({ cidade: '', endereco: '' });
+
+  useEffect(() => {
+    if (Object.keys(cep).length !== 0) { // se o cep não estiver vazio que no caso é a chave chamada cep que contem os valores de cidade e endereco
+      setValores((valorAnterior: any) => ({
+        ...valorAnterior,
+        cidade: cep.cidade,  // cidade e endereco são preenchidos automaticamente por isso não precisam ser preenchidos pelo usuário
+        endereco: cep.endereco,
+      }));
+    }
+  }, [cep]);  // este efeito será sempre executado quando o cep for alterado
 
   const mudancaValores = (valor: React.ChangeEvent<HTMLInputElement>) => {
     setValores((valorAnterior: any) => ({
@@ -24,8 +28,11 @@ export default function Cadastro() {
       [valor.target.name]: valor.target.value,
     }));
   };
+  
 
   const pegarEnvio = async () => {
+    try {
+
     if (
       !valores.nome ||
       !valores.email ||
@@ -36,52 +43,35 @@ export default function Cadastro() {
       !valores.senha ||
       !valores.confirmarSenha
     ) {
-      setMensagemErro("Por favor, preencha todos os campos.");
-      setAbertoErro(true);
-      setTimeout(() => setAbertoErro(false), 1500);
+      toast.error("Por favor, preencha todos os campos.");
       return; 
     }
     if(valores.senha !== valores.confirmarSenha){
-      setMensagemErro("Senhas não conferem.");
-      setAbertoErro(true);
-      setTimeout(() => setAbertoErro(false), 1500);
+      toast.error("Senhas não conferem.");
       return;
     }
 
-
-    try {
-      
       const resposta = await Axios.post(
         "http://localhost:3001/cadastro",
         valores
       );
 
       if (resposta.status === 201) {
-        setAberto(true);
-        setMensagem("Cadastro feito com sucesso!");
-        setTimeout(() => { setAberto(false); window.location.reload(); }, 1500);
+        toast.success("Cadastro feito com sucesso!");
       }
     } catch (error: any) {
       console.error("Erro ao fazer cadastro:", error);
-      
-
-      setMensagemErro("Erro ao fazer cadastro. Por favor, tente novamente.");
 
       if (error.response) {
         const status = error.response.status;
         if (status === 409) {
-          setMensagemErro("E-mail já cadastrado.");
-          setAbertoErro(true);
-          setTimeout(() => setAbertoErro(false), 1500);
-
-
+          toast.error("Usuário já cadastrado.");
         }
-      }
-
-      setAbertoErro(true);
-      setTimeout(() => setAbertoErro(false), 1500);
-
+        if(status === 500 || status === 400 || status === 404){
+          toast.error("Erro no servidor. Por favor, tente novamente.");
+        }
     }
+  }
   };
 
   return (
@@ -136,6 +126,7 @@ export default function Cadastro() {
                   setCep(resposta);
                 }
               }}
+              required
             />
           </div>
           <div className="w-full md:w-1/2 px-2">
@@ -148,9 +139,9 @@ export default function Cadastro() {
               id="cidade"
               name="cidade"
               placeholder="Cidade"
-              readOnly
               value={cep.cidade}
               onChange={mudancaValores}
+              required
             />
           </div>
         </div>
@@ -163,9 +154,9 @@ export default function Cadastro() {
             id="endereco"
             name="endereco"
             placeholder="Endereço"
-            readOnly
             value={cep.endereco}
             onChange={mudancaValores}
+            required
           />
           <label className="block mb-2" htmlFor="telefone">
             Telefone(celular):
@@ -187,6 +178,7 @@ export default function Cadastro() {
               }));
             }}
             value={valores.telefone || ""}
+            required
           />
 
           <label className="block mb-2" htmlFor="senha">
@@ -199,6 +191,7 @@ export default function Cadastro() {
             name="senha"
             placeholder="Senha"
             onChange={mudancaValores}
+            required
           />
           <label className="block mb-2" htmlFor="confirmarSenha">
             Confirmar Senha:
@@ -210,6 +203,7 @@ export default function Cadastro() {
             name="confirmarSenha"
             placeholder="Confirmar senha"
             onChange={mudancaValores}
+            required
           />
 
           <button
@@ -220,11 +214,9 @@ export default function Cadastro() {
             Cadastrar
           </button>
         </form>
+        <ToastContainer />
       </div>
-        <Notificacao mensagem={msg} aberto={aberto}></Notificacao>
-        <NotificacaoErro mensagem={msgerro} aberto={abertoErro}></NotificacaoErro>
-
-      <Footer />
     </div>
   );
 }
+

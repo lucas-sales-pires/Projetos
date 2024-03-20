@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import CadastroPopup from "@/components/PopUpCadastro";
-import Notificacao from "@/components/NotificacaoSucesso";
-import NotificacaoErro from "@/components/NotificacaoErro";
 import { useRouter } from "next/router";
 import Link from 'next/link';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
-  const [loginErro, setLoginErro] = useState(false);
-  const [loginSucesso, setLoginSucesso] = useState(false);
   const [popupVisivel, setpopupVisivel] = useState<boolean>(false);
-  const [msg, setMsg] = useState<string>("");
 
   const abrirPopup = () => {
     setpopupVisivel(true);
@@ -31,26 +27,18 @@ export default function Login() {
     }));
   };
 
+
   const pegarEnvio = async () => {
     try {
       const { email, senha, confirmar } = valores;
 
-      if (!valores.email || !valores.senha || !valores.confirmar) {
-        setTimeout(() => {
-          setLoginErro(false);
-        }, 1500);
-        setMsg("Preencha todos os campos");
-        setLoginErro(true);
+      if (!email || !senha || !confirmar) {
+        toast.error("Preencha todos os campos");
         return;
       }
 
       if (senha !== confirmar) {
-        setTimeout(() => {
-          setLoginErro(false);
-        }, 1500);
-        setMsg("Senhas não conferem");
-        setLoginErro(true);
-
+        toast.error("Senhas não conferem");
         return;
       }
 
@@ -62,7 +50,7 @@ export default function Login() {
 
       if (resposta.status === 200) {
         localStorage.setItem("token", resposta.data.token);
-        setLoginSucesso(true);
+        toast.success("Login realizado com sucesso!");
         setTimeout(() => {
           router.push("/");
         }, 1500);
@@ -74,22 +62,18 @@ export default function Login() {
         const { status } = error.response;
         switch (status) {
           case 404:
-            setMsg("Email não cadastrado, faça seu cadastro");
+            toast.error("Email não cadastrado, faça seu cadastro");
             break;
           case 401:
-            setMsg("Senha incorreta, tente novamente");
+            toast.error("Senha incorreta, tente novamente");
             break;
           case 500:
-            setMsg("Erro interno, tente novamente mais tarde");
+            toast.error("Erro interno, tente novamente mais tarde");
             break;
           default:
-            setMsg("Erro ao fazer login, tente novamente");
+            toast.error("Erro ao fazer login, tente novamente");
             break;
         }
-        setTimeout(() => {
-          setLoginErro(false);
-        }, 1500);
-        setLoginErro(true);
       }
     }
   };
@@ -156,9 +140,8 @@ export default function Login() {
             Login
           </button>
           <Link href={"../../recuperarConta/recuperar"} className="block text-center mt-4 text-blue-500">
-          Esqueci minha senha
-</Link>
-      
+            Esqueci minha senha
+          </Link>
         </form>
       </div>
       <button
@@ -168,12 +151,10 @@ export default function Login() {
       >
         Cadastre-se
       </button>
-      {loginErro && <NotificacaoErro aberto mensagem={msg} />}
-      {loginSucesso && (
-        <Notificacao aberto mensagem="Login realizado com sucesso!" />
-      )}
 
-      {popupVisivel && <CadastroPopup fechado={fecharPopup}  />}
+      {popupVisivel && <CadastroPopup fechado={fecharPopup} />}
+      
+      <ToastContainer />
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import Axios from "axios";
 import { buscarCep, regexCelular } from "../../servidor/cadastroBack/cadastroBack";
-import Notificacao from "./NotificacaoSucesso";
-import NotificacaoErro from "./NotificacaoErro";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -11,13 +11,18 @@ interface CadastroPopupProps {
 }
 
 const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
-  const [msg, setMensagem] = useState<string>("");
-  const [msgerro, setMensagemErro] = useState<string>("");
-  const [aberto, setAberto] = useState(false);
-  const [abertoErro, setAbertoErro] = useState(false);
   const [valores, setValores] = useState<any>({});
   const [cep, setCep] = useState<any>({});
-  const [pagina, setPagina] = useState("");
+
+  useEffect(() => {
+    if (Object.keys(cep).length !== 0) { // se o cep não estiver vazio que no caso é a chave chamada cep que contem os valores de cidade e endereco
+      setValores((valorAnterior: any) => ({
+        ...valorAnterior,
+        cidade: cep.cidade,  // cidade e endereco são preenchidos automaticamente por isso não precisam ser preenchidos pelo usuário
+        endereco: cep.endereco,
+      }));
+    }
+  }, [cep]);  // este efeito será sempre executado quando o cep for alterado
 
   const mudancaValores = (valor: ChangeEvent<HTMLInputElement>) => {
     setValores((valorAnterior: any) => ({
@@ -38,15 +43,11 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
       !valores.senha ||
       !valores.confirmarSenha
     ) {
-      setMensagemErro("Por favor, preencha todos os campos.");
-      setAbertoErro(true);
-      setTimeout(() => setAbertoErro(false), 1500);
+      toast.error("Por favor, preencha todos os campos.");
       return; 
     }
     if(valores.senha !== valores.confirmarSenha){
-      setMensagemErro("Senhas não conferem.");
-      setAbertoErro(true);
-      setTimeout(() => setAbertoErro(false), 1500);
+      toast.error("Senhas não conferem.");
       return;
     }
     
@@ -58,29 +59,25 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
       );
 
       if (resposta.status === 201) {
-        setAberto(true);
-        setMensagem("Cadastro feito com sucesso!");
-        setTimeout(() => { setAberto(false); fechado(); }, 1500);
+        toast.success("Cadastro feito com sucesso!");
       }
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
 
-      setMensagemErro("Erro ao fazer cadastro. Por favor, tente novamente.");
+      toast.error("Erro ao fazer cadastro. Por favor, tente novamente.");
 
       if ((error as any).response) {
         switch ((error as any).response.status) {
           case 409: {
-            setMensagemErro("E-mail já cadastrado.");
-            setAbertoErro(true);
-            setTimeout(() => setAbertoErro(false), 1500);
+            toast.error("E-mail já cadastrado.");
+
             break;
           }
           default:
             break;
         }
       }
-      setAberto(true);
-      setTimeout(() => setAbertoErro(false), 1500);
+      toast.error("Erro ao fazer cadastro. Por favor, tente novamente.");
     }
   };
 
@@ -214,9 +211,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
         </button>
         
       </div>
-        <Notificacao mensagem={msg} aberto={aberto}></Notificacao>
-        
-        <NotificacaoErro mensagem={msgerro} aberto={abertoErro}></NotificacaoErro>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

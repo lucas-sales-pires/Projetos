@@ -33,7 +33,7 @@ app.post('/cadastro', (req, res) => {
         res.status(400).send('Senhas não conferem');
         return;
     } else {
-        const consulta = 'SELECT * FROM usuarios WHERE email = ?';
+        const consulta = 'SELECT email FROM usuarios WHERE email = ?';
 
         banco.query(consulta, [email], (erro, resultado) => {
             if (erro) {
@@ -73,7 +73,8 @@ app.post('/login', (req, res) => {
             res.status(404).send('Usuário não encontrado');
             return;
         }
-        const senhaCorreta = bcrypt.compareSync(senha, resultado.senha);
+        const usuario = resultado[0];
+        const senhaCorreta = bcrypt.compareSync(senha, usuario.senha);
 
         if (senhaCorreta) {
             res.status(200).send('Login realizado com sucesso');
@@ -111,6 +112,22 @@ const enviarEmail = (para, assunto, mensagem) => {
         }
     });
 };
+
+app.put('/atualizar-senha', (req, res) => {
+    const { email, novaSenha } = req.body;
+
+    const senhaCriptografada = bcrypt.hashSync(novaSenha, 10);
+    const sql = 'UPDATE usuarios SET senha = ? WHERE email = ?';
+
+    banco.query(sql, [senhaCriptografada, email], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('Erro ao recuperar senha');
+            return;
+        }
+        res.status(200).send('Senha atualizada com sucesso');
+    });
+});
+
 
 app.post('/enviar-email', (req, res) => {
     const codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString();
