@@ -13,14 +13,14 @@ export default function Cadastro() {
   const [cep, setCep] = useState<any>({ cidade: '', endereco: '' });
 
   useEffect(() => {
-    if (Object.keys(cep).length !== 0) { // se o cep não estiver vazio que no caso é a chave chamada cep que contem os valores de cidade e endereco
+    if (Object.keys(cep).length !== 0) { 
       setValores((valorAnterior: any) => ({
         ...valorAnterior,
-        cidade: cep.cidade,  // cidade e endereco são preenchidos automaticamente por isso não precisam ser preenchidos pelo usuário
+        cidade: cep.cidade, 
         endereco: cep.endereco,
       }));
     }
-  }, [cep]);  // este efeito será sempre executado quando o cep for alterado
+  }, [cep]);  
 
   const mudancaValores = (valor: React.ChangeEvent<HTMLInputElement>) => {
     setValores((valorAnterior: any) => ({

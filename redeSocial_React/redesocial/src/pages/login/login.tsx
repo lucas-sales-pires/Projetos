@@ -56,7 +56,6 @@ export default function Login() {
         }, 1500);
       }
     } catch (error: any) {
-      console.error("Erro ao fazer login:", error);
 
       if (error.response) {
         const { status } = error.response;
