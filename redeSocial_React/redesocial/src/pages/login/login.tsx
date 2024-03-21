@@ -42,7 +42,7 @@ export default function Login() {
         return;
       }
 
-      const resposta = await Axios.post("http://localhost:3001/login", {
+      const resposta = await Axios.post("http://localhost:3001/autenticacao/login", {
         email,
         senha,
         confirmar,

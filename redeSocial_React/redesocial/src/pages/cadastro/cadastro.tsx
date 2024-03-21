@@ -52,7 +52,7 @@ export default function Cadastro() {
     }
 
       const resposta = await Axios.post(
-        "http://localhost:3001/cadastro",
+        "http://localhost:3001/autenticacao/cadastro",
         valores
       );
 

@@ -54,7 +54,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
 
     try {
       const resposta = await Axios.post(
-        "http://localhost:3001/cadastro",
+        "http://localhost:3001/autenticacao/cadastro",
         valores
       );
 
