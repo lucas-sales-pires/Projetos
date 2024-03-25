@@ -86,7 +86,7 @@ const CadastroPopup: React.FC<CadastroPopupProps> = ({ fechado }) => {
     <div className= "fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 ">
       <div className="bg-white p-8 rounded-md ">
         <span
-          className="text-2xl font-bold cursor-pointer flex float-right text-red-700 transition-transform transform hover:scale-110"
+          className="text-2xl font-bold cursor-pointer flex float-right text-red-700 "
           onClick={fechado}
         >
           &times;

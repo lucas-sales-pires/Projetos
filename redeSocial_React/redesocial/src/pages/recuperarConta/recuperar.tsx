@@ -19,7 +19,6 @@ export default function RecuperarSenha() {
   const alterarSenha = async () => {
     if (valores.novaSenha !== "") {
       try {
-          console.log(valores.novaSenha)
           const update = await Axios.put("http://localhost:3001/recuperar-senha/recuperar-senha", {
               email: valores.email,
               novaSenha: valores.novaSenha
